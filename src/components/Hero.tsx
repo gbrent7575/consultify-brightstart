@@ -28,6 +28,9 @@ const Hero = () => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight">
             Digital Safety Compliance Made Simple
           </h1>
+          <p className="text-2xl md:text-3xl text-accent font-semibold mb-6">
+            We Handle Compliance, You Handle the Work
+          </p>
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
             Complete management of ISNetworld®, Avetta®, Veriforce®, and compliance portals. We handle account setup, safety programs, certifications, and audits so you stay approved.
           </p>
