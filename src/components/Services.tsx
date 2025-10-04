@@ -69,8 +69,8 @@ const Services = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader>
-                <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-4">
-                  <service.icon className="h-7 w-7 text-primary-foreground" />
+                <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4 shadow-md">
+                  <service.icon className="h-7 w-7 text-accent-foreground" />
                 </div>
                 <CardTitle className="text-2xl font-serif text-primary">{service.title}</CardTitle>
               </CardHeader>

@@ -30,7 +30,7 @@ const About = () => {
           </div>
 
           <div className="relative animate-fade-in">
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary to-accent p-1">
+            <div className="aspect-square rounded-2xl bg-accent p-1 shadow-lg">
               <div className="w-full h-full bg-card rounded-xl p-8 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-6xl font-bold text-primary mb-4">1000+</div>

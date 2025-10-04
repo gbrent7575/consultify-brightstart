@@ -1,13 +1,16 @@
+import logo from "@/assets/cornerstone-logo.jpg";
+
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-accent to-accent/70 rounded-lg" />
-              <span className="text-xl font-serif font-bold">Cornerstone Risk Management</span>
-            </div>
+            <img 
+              src={logo} 
+              alt="Cornerstone Risk Management" 
+              className="h-10 w-auto mb-4"
+            />
             <p className="text-primary-foreground/80 text-sm">
               Expert digital safety compliance services for ISNetworld®, Avetta®, Veriforce® and more.
             </p>

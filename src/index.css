@@ -26,8 +26,8 @@ All colors MUST be HSL.
     --muted: 220 15% 96%;
     --muted-foreground: 220 25% 45%;
 
-    --accent: 45 100% 51%;
-    --accent-foreground: 220 70% 15%;
+    --accent: 320 45% 25%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -39,7 +39,7 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --gradient-hero: linear-gradient(135deg, hsl(220 70% 15%), hsl(220 70% 25%));
-    --gradient-accent: linear-gradient(135deg, hsl(45 100% 51%), hsl(35 100% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(320 45% 25%), hsl(320 45% 35%));
     --shadow-elegant: 0 10px 40px -10px hsl(220 70% 15% / 0.3);
     --shadow-subtle: 0 2px 8px hsl(220 25% 45% / 0.08);
 
@@ -72,8 +72,8 @@ All colors MUST be HSL.
     --muted: 220 50% 20%;
     --muted-foreground: 220 15% 70%;
 
-    --accent: 45 100% 51%;
-    --accent-foreground: 220 70% 15%;
+    --accent: 320 50% 40%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -83,7 +83,7 @@ All colors MUST be HSL.
     --ring: 0 0% 98%;
     
     --gradient-hero: linear-gradient(135deg, hsl(220 70% 8%), hsl(220 70% 18%));
-    --gradient-accent: linear-gradient(135deg, hsl(45 100% 51%), hsl(35 100% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(320 50% 40%), hsl(320 50% 50%));
     --shadow-elegant: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
     
     --sidebar-background: 240 5.9% 10%;
