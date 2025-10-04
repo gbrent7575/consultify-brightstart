@@ -139,7 +139,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-sm text-muted-foreground">info@cornerstonerisk.com</p>
+                    <p className="text-sm text-muted-foreground">garland@csrm.us</p>
                   </div>
                 </div>
               </CardContent>
@@ -153,7 +153,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-sm text-muted-foreground">601-627-1201</p>
                   </div>
                 </div>
               </CardContent>
@@ -167,7 +167,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Office</h3>
-                    <p className="text-sm text-muted-foreground">Professional Business Center<br />United States</p>
+                    <p className="text-sm text-muted-foreground">PO Box 271<br />Crystal Springs, MS 39059</p>
                   </div>
                 </div>
               </CardContent>

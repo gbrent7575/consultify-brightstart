@@ -49,9 +49,9 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li>+1 (555) 123-4567</li>
-              <li>info@cornerstonerisk.com</li>
-              <li>United States</li>
+              <li>601-627-1201</li>
+              <li>garland@csrm.us</li>
+              <li>PO Box 271, Crystal Springs, MS 39059</li>
             </ul>
           </div>
         </div>
