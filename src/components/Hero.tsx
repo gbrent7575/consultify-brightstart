@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-consulting.jpg";
+import heroImage from "@/assets/hero-safety-compliance.jpg";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="Professional consulting services" 
+          alt="Digital safety compliance solutions" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/70" />
@@ -26,10 +26,10 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-32 relative z-10">
         <div className="max-w-3xl animate-fade-in">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight">
-            Transform Your Business with Strategic Insight
+            Digital Safety Compliance Made Simple
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
-            We deliver data-driven solutions and expert guidance to help your organization achieve sustainable growth and operational excellence.
+            Complete management of ISNetworld®, Avetta®, Veriforce®, and compliance portals. We handle account setup, safety programs, certifications, and audits so you stay approved.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 

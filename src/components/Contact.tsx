@@ -51,10 +51,10 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
-            Let's Start a Conversation
+            Get Started with Compliance Support
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your business? Get in touch with our team today.
+            Let us handle your compliance needs. Contact our team for a consultation.
           </p>
         </div>
 
@@ -106,17 +106,17 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Message *
-                    </label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your project..."
-                      rows={5}
-                      required
-                    />
+                      <label htmlFor="message" className="block text-sm font-medium mb-2">
+                        Message *
+                      </label>
+                      <Textarea
+                        id="message"
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        placeholder="Tell us about your compliance needs..."
+                        rows={5}
+                        required
+                      />
                   </div>
                   <Button 
                     type="submit" 
@@ -139,7 +139,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-sm text-muted-foreground">contact@premierconsulting.com</p>
+                    <p className="text-sm text-muted-foreground">info@cornerstonerisk.com</p>
                   </div>
                 </div>
               </CardContent>
@@ -167,7 +167,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Office</h3>
-                    <p className="text-sm text-muted-foreground">123 Business Plaza<br />New York, NY 10001</p>
+                    <p className="text-sm text-muted-foreground">Professional Business Center<br />United States</p>
                   </div>
                 </div>
               </CardContent>

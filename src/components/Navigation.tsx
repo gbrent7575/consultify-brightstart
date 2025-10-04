@@ -19,7 +19,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg" />
-            <span className="text-xl font-serif font-bold text-primary">Premier Consulting</span>
+            <span className="text-xl font-serif font-bold text-primary">Cornerstone Risk Management</span>
           </div>
 
           {/* Desktop Navigation */}

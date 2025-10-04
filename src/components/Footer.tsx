@@ -6,10 +6,10 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-accent to-accent/70 rounded-lg" />
-              <span className="text-xl font-serif font-bold">Premier Consulting</span>
+              <span className="text-xl font-serif font-bold">Cornerstone Risk Management</span>
             </div>
             <p className="text-primary-foreground/80 text-sm">
-              Transforming businesses through strategic insight and operational excellence.
+              Expert digital safety compliance services for ISNetworld®, Avetta®, Veriforce® and more.
             </p>
           </div>
 
@@ -47,14 +47,14 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               <li>+1 (555) 123-4567</li>
-              <li>contact@premierconsulting.com</li>
-              <li>123 Business Plaza, New York, NY 10001</li>
+              <li>info@cornerstonerisk.com</li>
+              <li>United States</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/80">
-          <p>&copy; {new Date().getFullYear()} Premier Consulting. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Cornerstone Risk Management. All rights reserved.</p>
         </div>
       </div>
     </footer>
