@@ -6,6 +6,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, { message: "Name is required" }).max(100),
@@ -16,6 +17,7 @@ const contactSchema = z.object({
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,11 +25,21 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
       contactSchema.parse(formData);
+      
+      setIsSubmitting(true);
+      
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+      
+      if (error) {
+        throw error;
+      }
       
       toast({
         title: "Message sent successfully!",
@@ -42,7 +54,16 @@ const Contact = () => {
           description: error.errors[0].message,
           variant: "destructive",
         });
+      } else {
+        console.error('Error sending email:', error);
+        toast({
+          title: "Error sending message",
+          description: "Please try again or contact us directly at garland@csrm.us",
+          variant: "destructive",
+        });
       }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -121,9 +142,10 @@ const Contact = () => {
                   <Button 
                     type="submit" 
                     size="lg"
+                    disabled={isSubmitting}
                     className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
