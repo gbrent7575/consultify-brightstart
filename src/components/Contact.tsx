@@ -58,7 +58,7 @@ const Contact = () => {
         console.error('Error sending email:', error);
         toast({
           title: "Error sending message",
-          description: "Please try again or contact us directly at garland@csrm.us",
+          description: "Please try again or contact us directly at garland@cornerstoneriskmgt.com",
           variant: "destructive",
         });
       }
@@ -161,7 +161,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-sm text-muted-foreground">garland@csrm.us</p>
+                    <p className="text-sm text-muted-foreground">garland@cornerstoneriskmgt.com</p>
                   </div>
                 </div>
               </CardContent>

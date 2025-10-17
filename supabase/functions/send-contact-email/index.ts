@@ -35,7 +35,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
       body: JSON.stringify({
         from: "Cornerstone Risk Management <onboarding@resend.dev>",
-        to: ["garland@csrm.us"],
+        to: ["garland@cornerstoneriskmgt.com"],
         reply_to: email,
         subject: `New Contact Form Submission from ${name}`,
         html: `
