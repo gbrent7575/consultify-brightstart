@@ -26,10 +26,10 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-32 relative z-10">
         <div className="max-w-3xl animate-fade-in">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight">
-            We Handle Compliance, You Handle the Work
+            Stay Compliant. Stay Approved. Stay Working.
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Complete management of ISNetworld®, Avetta®, Veriforce®, and compliance portals. We handle account setup, safety programs, certifications, and audits so you stay approved.
+            Comprehensive safety and risk management for industrial contractors. We handle ISNetworld®, Veriforce®, Avetta®, and MSHA compliance so you can focus on operations—not paperwork.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
