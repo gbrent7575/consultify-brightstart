@@ -1,25 +1,50 @@
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/cornerstone-logo.jpg";
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    setMobileMenuOpen(false);
   };
+
+  const services = [
+    { name: "Safety Program Development", path: "/services/safety-program-development" },
+    { name: "Regulatory Compliance Support", path: "/services/regulatory-compliance" },
+    { name: "Onsite Audits & Training", path: "/services/onsite-audits-training" },
+    { name: "Risk Consulting", path: "/services/risk-consulting" },
+    { name: "ISNetworld® / Veriforce® / Avetta®", path: "/services/compliance-platforms" },
+    { name: "Safety Management System (SMS)", path: "/services/safety-management-system" },
+    { name: "Monthly Training Packages", path: "/services/monthly-training" }
+  ];
 
   return (
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          <Link 
+            to="/"
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
             <img 
@@ -27,16 +52,35 @@ const Navigation = () => {
               alt="Cornerstone Risk Management" 
               className="h-12 w-auto"
             />
-          </button>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-primary transition-colors font-medium"
+            <div 
+              className="relative"
+              onMouseEnter={() => setServicesDropdownOpen(true)}
+              onMouseLeave={() => setServicesDropdownOpen(false)}
             >
-              Services
-            </button>
+              <button 
+                className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-1"
+              >
+                Services
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              {servicesDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 bg-background border border-border rounded-lg shadow-lg py-2 min-w-[280px] z-50">
+                  {services.map((service) => (
+                    <Link
+                      key={service.path}
+                      to={service.path}
+                      className="block px-4 py-2 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <button 
               onClick={() => scrollToSection('about')}
               className="text-foreground hover:text-primary transition-colors font-medium"
@@ -69,12 +113,29 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-3 animate-slide-up">
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors font-medium"
-            >
-              Services
-            </button>
+            <div>
+              <button 
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className="flex items-center justify-between w-full py-2 text-foreground hover:text-primary transition-colors font-medium"
+              >
+                Services
+                <ChevronDown className={`h-4 w-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileServicesOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  {services.map((service) => (
+                    <Link
+                      key={service.path}
+                      to={service.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block py-2 text-sm text-foreground hover:text-primary transition-colors"
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <button 
               onClick={() => scrollToSection('about')}
               className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors font-medium"
