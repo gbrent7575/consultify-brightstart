@@ -49,10 +49,10 @@ const Footer = () => {
           <div itemScope itemType="https://schema.org/ContactPoint">
             <h3 className="font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li itemProp="telephone">706-840-0090</li>
+              <li itemProp="telephone">601-627-1201</li>
               <li itemProp="email">garland@cornerstoneriskmgt.com</li>
               <li itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                <span itemProp="streetAddress">108 Creekwood Dr</span>, <span itemProp="addressLocality">Ringgold</span>, <span itemProp="addressRegion">GA</span> <span itemProp="postalCode">30736</span>
+                <span itemProp="streetAddress">PO Box 271</span>, <span itemProp="addressLocality">Crystal Springs</span>, <span itemProp="addressRegion">MS</span> <span itemProp="postalCode">39059</span>
               </li>
             </ul>
           </div>
