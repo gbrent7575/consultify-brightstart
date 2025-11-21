@@ -45,13 +45,15 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <Link 
             to="/"
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            className="group flex items-center space-x-3"
           >
-            <img 
-              src={logo} 
-              alt="Cornerstone Risk Management" 
-              className="h-12 w-auto"
-            />
+            <div className="relative p-2 bg-accent/10 rounded-lg border border-accent/20 transition-all duration-300 group-hover:bg-accent/20 group-hover:shadow-md group-hover:scale-105">
+              <img 
+                src={logo} 
+                alt="Cornerstone Risk Management" 
+                className="h-10 w-auto transition-transform duration-300"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
