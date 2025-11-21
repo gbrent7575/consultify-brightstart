@@ -7,68 +7,73 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
-
 const contactSchema = z.object({
-  name: z.string().trim().min(1, { message: "Name is required" }).max(100),
-  email: z.string().trim().email({ message: "Invalid email address" }).max(255),
+  name: z.string().trim().min(1, {
+    message: "Name is required"
+  }).max(100),
+  email: z.string().trim().email({
+    message: "Invalid email address"
+  }).max(255),
   company: z.string().trim().max(100),
-  message: z.string().trim().min(1, { message: "Message is required" }).max(1000),
+  message: z.string().trim().min(1, {
+    message: "Message is required"
+  }).max(1000)
 });
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
-    message: "",
+    message: ""
   });
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     try {
       contactSchema.parse(formData);
-      
       setIsSubmitting(true);
-      
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+      const {
+        data,
+        error
+      } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
-      
       if (error) {
         throw error;
       }
-      
       toast({
         title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours.",
+        description: "We'll get back to you within 24 hours."
       });
-      
-      setFormData({ name: "", email: "", company: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        message: ""
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast({
           title: "Validation Error",
           description: error.errors[0].message,
-          variant: "destructive",
+          variant: "destructive"
         });
       } else {
         console.error('Error sending email:', error);
         toast({
           title: "Error sending message",
           description: "Please try again or contact us directly at garland@cornerstoneriskmgt.com",
-          variant: "destructive",
+          variant: "destructive"
         });
       }
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  return (
-    <section id="contact" className="py-24 bg-secondary/30">
+  return <section id="contact" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
@@ -93,58 +98,40 @@ const Contact = () => {
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
                         Name *
                       </label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="John Doe"
-                        required
-                      />
+                      <Input id="name" value={formData.name} onChange={e => setFormData({
+                      ...formData,
+                      name: e.target.value
+                    })} placeholder="John Doe" required />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium mb-2">
                         Email *
                       </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="john@company.com"
-                        required
-                      />
+                      <Input id="email" type="email" value={formData.email} onChange={e => setFormData({
+                      ...formData,
+                      email: e.target.value
+                    })} placeholder="john@company.com" required />
                     </div>
                   </div>
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium mb-2">
                       Company
                     </label>
-                    <Input
-                      id="company"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="Company Name"
-                    />
+                    <Input id="company" value={formData.company} onChange={e => setFormData({
+                    ...formData,
+                    company: e.target.value
+                  })} placeholder="Company Name" />
                   </div>
                   <div>
                       <label htmlFor="message" className="block text-sm font-medium mb-2">
                         Message *
                       </label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tell us about your compliance needs..."
-                        rows={5}
-                        required
-                      />
+                      <Textarea id="message" value={formData.message} onChange={e => setFormData({
+                    ...formData,
+                    message: e.target.value
+                  })} placeholder="Tell us about your compliance needs..." rows={5} required />
                   </div>
-                  <Button 
-                    type="submit" 
-                    size="lg"
-                    disabled={isSubmitting}
-                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-                  >
+                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
@@ -152,7 +139,9 @@ const Contact = () => {
             </Card>
           </div>
 
-          <div className="space-y-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <div className="space-y-6 animate-slide-up" style={{
+          animationDelay: '0.2s'
+        }}>
             <Card className="border-border">
               <CardContent className="pt-6">
                 <div className="flex items-start space-x-4">
@@ -175,7 +164,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <p className="text-sm text-muted-foreground">601-627-1201</p>
+                    <p className="text-sm text-muted-foreground">601-647-1201</p>
                   </div>
                 </div>
               </CardContent>
@@ -197,8 +186,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
