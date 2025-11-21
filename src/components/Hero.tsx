@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-option-1-oilfield.jpg";
+import heroImage from "@/assets/hero-option-2-pipeline.jpg";
 
 const Hero = () => {
   const scrollToContact = () => {
