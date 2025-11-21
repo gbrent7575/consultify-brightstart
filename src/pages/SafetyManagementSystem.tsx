@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, FileText, Users, TrendingUp, ClipboardCheck, Shield, AlertCircle } from "lucide-react";
+import heroImage from "@/assets/hero-safety-management-system.jpg";
 
 const SafetyManagementSystem = () => {
   return (
@@ -23,17 +24,30 @@ const SafetyManagementSystem = () => {
         
         <main className="flex-grow">
           {/* Hero Section */}
-          <section className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground py-20">
-            <div className="container mx-auto px-4">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Safety Management System (SMS) Development & Implementation
-              </h1>
-              <p className="text-xl max-w-3xl mb-8 text-primary-foreground/90">
-                A strong Safety Management System gives your company structure, consistency, and long-term improvement. We build scalable SMS frameworks that work in the real world — not just on paper.
-              </p>
-              <Button size="lg" variant="secondary" asChild>
-                <a href="#contact">Start Building Your Safety Management System</a>
-              </Button>
+          <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0">
+              <img 
+                src={heroImage} 
+                alt="Safety management system development and implementation" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/70" />
+            </div>
+
+            {/* Content */}
+            <div className="container mx-auto px-4 py-20 relative z-10">
+              <div className="max-w-3xl animate-fade-in">
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
+                  Safety Management System (SMS) Development & Implementation
+                </h1>
+                <p className="text-xl mb-8 text-primary-foreground/90">
+                  A strong Safety Management System gives your company structure, consistency, and long-term improvement. We build scalable SMS frameworks that work in the real world — not just on paper.
+                </p>
+                <Button size="lg" variant="secondary" asChild>
+                  <a href="#contact">Start Building Your Safety Management System</a>
+                </Button>
+              </div>
             </div>
           </section>
 
