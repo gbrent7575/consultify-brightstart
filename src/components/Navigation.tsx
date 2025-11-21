@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "@/assets/cornerstone-logo.jpg";
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -45,15 +44,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <Link 
             to="/"
-            className="group flex items-center space-x-3"
+            className="text-2xl font-serif font-bold text-primary hover:text-primary/80 transition-colors"
           >
-            <div className="relative p-2 bg-accent/10 rounded-lg border border-accent/20 transition-all duration-300 group-hover:bg-accent/20 group-hover:shadow-md group-hover:scale-105">
-              <img 
-                src={logo} 
-                alt="Cornerstone Risk Management" 
-                className="h-10 w-auto transition-transform duration-300"
-              />
-            </div>
+            Cornerstone Risk Management
           </Link>
 
           {/* Desktop Navigation */}
