@@ -68,7 +68,8 @@ const Navigation = () => {
                 <ChevronDown className="h-4 w-4" />
               </button>
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 bg-background border border-border rounded-lg shadow-lg py-2 min-w-[280px] z-50">
+                <div className="absolute top-full left-0 pt-2 z-50">
+                  <div className="bg-background border border-border rounded-lg shadow-lg py-2 min-w-[280px]">
                   {services.map((service) => (
                     <Link
                       key={service.path}
@@ -78,6 +79,7 @@ const Navigation = () => {
                       {service.name}
                     </Link>
                   ))}
+                  </div>
                 </div>
               )}
             </div>
