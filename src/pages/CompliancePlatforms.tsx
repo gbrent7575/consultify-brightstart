@@ -158,7 +158,7 @@ const CompliancePlatforms = () => {
                 <Button size="lg" variant="secondary" asChild>
                   <a href="tel:601-627-1201">Call 601-627-1201</a>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="secondary" asChild>
                   <a href="mailto:garland@cornerstoneriskmgt.com">Email Us</a>
                 </Button>
               </div>
