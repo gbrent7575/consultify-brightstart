@@ -30,11 +30,11 @@ const Navigation = () => {
   };
 
   const services = [
+    { name: "ISNetworld® / Veriforce® / Avetta® Management", path: "/services/compliance-platforms" },
     { name: "Safety Program Development", path: "/services/safety-program-development" },
     { name: "Regulatory Compliance Support", path: "/services/regulatory-compliance" },
     { name: "Onsite Audits & Training", path: "/services/onsite-audits-training" },
     { name: "Risk Consulting", path: "/services/risk-consulting" },
-    { name: "ISNetworld® / Veriforce® / Avetta®", path: "/services/compliance-platforms" },
     { name: "Safety Management System (SMS)", path: "/services/safety-management-system" },
     { name: "Monthly Training Packages", path: "/services/monthly-training" }
   ];
