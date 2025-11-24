@@ -57,9 +57,9 @@ const SafetyProgramDevelopment = () => {
               <h2 className="text-3xl font-bold mb-12 text-center">Our Approach to Safety Program Development</h2>
               <div className="grid md:grid-cols-5 gap-6">
                 {[
-                  "We analyse your current program",
+                  "We analyze your current program",
                   "We identify gaps based on OSHA, IOGP, and client requirements",
-                  "We design your customised safety roadmap",
+                  "We design your customized safety roadmap",
                   "We implement documentation, procedures, and training",
                   "We monitor and adjust as your business grows"
                 ].map((step, index) => (
