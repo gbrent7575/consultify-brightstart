@@ -59,7 +59,7 @@ const RegulatoryCompliance = () => {
                 {[
                   { icon: FileCheck, title: "Review", desc: "We review your current documentation and operations" },
                   { icon: AlertCircle, title: "Identify", desc: "We identify compliance gaps" },
-                  { icon: Shield, title: "Prioritise", desc: "We prioritise immediate risks" },
+                  { icon: Shield, title: "Prioritize", desc: "We prioritize immediate risks" },
                   { icon: CheckCircle2, title: "Develop", desc: "We develop corrective actions and required documentation" },
                   { icon: CheckCircle2, title: "Monitor", desc: "We provide ongoing monitoring and updates" }
                 ].map((step, index) => (
