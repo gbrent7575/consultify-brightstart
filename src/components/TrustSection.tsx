@@ -48,7 +48,7 @@ const testimonials = [
 
 const TrustSection = () => {
   return (
-    <section id="trust" className="py-20 md:py-24 bg-secondary/30">
+    <section id="trust" className="py-20 md:py-24 bg-secondary/30" aria-labelledby="trust-heading">
       <div className="container mx-auto px-4">
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
@@ -72,7 +72,7 @@ const TrustSection = () => {
 
         {/* Testimonials */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+          <h2 id="trust-heading" className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
             What Our Clients Say
           </h2>
           <p className="text-lg text-muted-foreground">
