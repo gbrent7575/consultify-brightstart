@@ -35,10 +35,10 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section id="benefits" className="py-20 md:py-24 bg-background">
+    <section id="benefits" className="py-20 md:py-24 bg-background" aria-labelledby="benefits-heading">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+          <h2 id="benefits-heading" className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
             Why Contractors Choose Us
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -57,7 +57,7 @@ const BenefitsSection = () => {
                 <benefit.icon className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <h3 className="font-semibold text-primary mb-2">{benefit.title}</h3>
+                <h3 className="text-lg font-semibold text-primary mb-2">{benefit.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {benefit.description}
                 </p>

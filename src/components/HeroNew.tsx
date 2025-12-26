@@ -13,7 +13,7 @@ const HeroNew = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <header role="banner" className="relative min-h-[90vh] flex items-center overflow-hidden" aria-label="Hero section">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -89,7 +89,7 @@ const HeroNew = () => {
           </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 
