@@ -19,8 +19,8 @@ const FooterNew = () => {
     "ISNetworld®",
     "Avetta®",
     "Veriforce®",
-    "PEC Premier",
-    "BROWZ"
+    "PEC Premier®",
+    "BROWZ®"
   ];
 
   return (

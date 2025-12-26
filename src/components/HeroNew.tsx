@@ -77,7 +77,7 @@ const HeroNew = () => {
           <div className="mt-8 pt-8 border-t border-primary-foreground/20">
             <p className="text-sm text-primary-foreground/70 mb-3">Platforms we manage:</p>
             <div className="flex flex-wrap gap-3">
-              {["ISNetworld®", "Avetta®", "Veriforce®", "PEC", "BROWZ"].map((platform) => (
+              {["ISNetworld®", "Avetta®", "Veriforce®", "PEC®", "BROWZ®"].map((platform) => (
                 <span 
                   key={platform}
                   className="px-3 py-1.5 bg-primary-foreground/10 border border-primary-foreground/20 rounded-md text-sm text-primary-foreground font-medium"
