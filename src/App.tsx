@@ -12,6 +12,7 @@ import RiskConsulting from "./pages/RiskConsulting";
 import CompliancePlatforms from "./pages/CompliancePlatforms";
 import SafetyManagementSystem from "./pages/SafetyManagementSystem";
 import MonthlyTraining from "./pages/MonthlyTraining";
+import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/services/compliance-platforms" element={<CompliancePlatforms />} />
           <Route path="/services/safety-management-system" element={<SafetyManagementSystem />} />
           <Route path="/services/monthly-training" element={<MonthlyTraining />} />
+          <Route path="/internal/trademark-compliance" element={<TrademarkComplianceReport />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

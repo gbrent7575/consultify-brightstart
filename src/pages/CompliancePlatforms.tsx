@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import TrademarkNotice from "@/components/TrademarkNotice";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, FileCheck, Upload, Award, RefreshCw } from "lucide-react";
@@ -10,12 +11,12 @@ const CompliancePlatforms = () => {
   return (
     <>
       <Helmet>
-        <title>ISNetworld® / Veriforce® / Avetta® Compliance | Cornerstone Risk Management</title>
+        <title>ISNetworld® / Veriforce® / Avetta® Compliance Support Services | Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Expert ISNetworld®, Veriforce®, and Avetta® compliance management services. Get help with account setup, documentation, scoring, and ongoing maintenance."
+          content="Expert ISNetworld®, Veriforce®, and Avetta® compliance support services. Get help with account setup, documentation, scoring, and ongoing maintenance."
         />
-        <meta name="keywords" content="ISNetworld compliance, Veriforce compliance, Avetta compliance, RAVS compliance, contractor prequalification" />
+        <meta name="keywords" content="ISNetworld compliance support, Veriforce compliance services, Avetta compliance support, RAVS compliance, contractor prequalification" />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/services/compliance-platforms" />
       </Helmet>
 
@@ -29,7 +30,7 @@ const CompliancePlatforms = () => {
             <div className="absolute inset-0 z-0">
               <img 
                 src={heroImage} 
-                alt="ISNetworld Veriforce Avetta compliance management" 
+                alt="ISNetworld® Veriforce® Avetta® compliance support services" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/70" />
@@ -39,13 +40,13 @@ const CompliancePlatforms = () => {
             <div className="container mx-auto px-4 py-20 relative z-10">
               <div className="max-w-3xl animate-fade-in">
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
-                  ISNetworld® / Veriforce® / Avetta® Compliance Management
+                  ISNetworld® / Veriforce® / Avetta® Compliance Support Services
                 </h1>
                 <p className="text-xl mb-8 text-primary-foreground/90">
                   Cornerstone Risk Management helps contractors navigate online compliance platforms so they can qualify for more clients and maintain strong standing in each system.
                 </p>
                 <Button size="lg" variant="secondary" asChild>
-                  <a href="#contact">Get Help With Your Compliance Platforms</a>
+                  <a href="#contact">Get Help With Your Compliance Platform Accounts</a>
                 </Button>
               </div>
             </div>
@@ -102,9 +103,9 @@ const CompliancePlatforms = () => {
               <h2 className="text-3xl font-bold mb-8 text-center">Platforms We Support</h2>
               <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 {[
-                  { name: "ISNetworld®", desc: "Comprehensive support for ISN accounts, including RAVS® uploads and questionnaire completion" },
-                  { name: "Veriforce®", desc: "Complete management of Veriforce profiles, training records, and compliance documentation" },
-                  { name: "Avetta®", desc: "Full service for Avetta account setup, maintenance, and ongoing compliance support" }
+                  { name: "ISNetworld®", desc: "Comprehensive support for ISNetworld® accounts, including RAVS® uploads and questionnaire completion" },
+                  { name: "Veriforce®", desc: "Complete support for Veriforce® profiles, training records, and compliance documentation" },
+                  { name: "Avetta®", desc: "Full service support for Avetta® account setup, maintenance, and ongoing compliance needs" }
                 ].map((platform, index) => (
                   <Card key={index}>
                     <CardHeader>
@@ -116,6 +117,11 @@ const CompliancePlatforms = () => {
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+              
+              {/* Trademark Notice */}
+              <div className="max-w-4xl mx-auto mt-8">
+                <TrademarkNotice />
               </div>
             </div>
           </section>

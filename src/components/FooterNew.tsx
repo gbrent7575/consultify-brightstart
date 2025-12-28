@@ -133,6 +133,19 @@ const FooterNew = () => {
         </div>
       </div>
 
+      {/* Trademarks Disclaimer */}
+      <div className="border-t border-primary-foreground/10">
+        <div className="container mx-auto px-4 py-6">
+          <h4 className="text-sm font-semibold mb-2 text-primary-foreground/70">Trademarks</h4>
+          <p className="text-xs text-primary-foreground/50 mb-2 max-w-4xl">
+            Cornerstone Risk Management is in no way endorsed, sponsored, approved by, or otherwise affiliated with ISNetworld® or ISN Software Corporation.
+          </p>
+          <p className="text-xs text-primary-foreground/50 max-w-4xl">
+            ISNetworld® is a registered trademark of ISN Software Corporation. Avetta®, Veriforce®, PEC Premier®, and BROWZ® are registered trademarks of their respective owners.
+          </p>
+        </div>
+      </div>
+
       {/* Copyright */}
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 py-6">

@@ -34,11 +34,11 @@ const HeroNew = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mb-6 leading-tight">
-            Struggling with ISNetworld or Avetta? We Handle Compliance So You Can Get Back to Work.
+            Need Help with ISNetworld® or Avetta® Compliance? We Provide Support So You Can Get Back to Work.
           </h1>
           
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Setup, maintenance, and ongoing support — with a 99% compliance success rate. Stop losing contracts over paperwork.
+            Complete setup, maintenance, and ongoing compliance support services — with a 99% success rate. Stop losing contracts over paperwork.
           </p>
 
           {/* CTA Buttons */}
