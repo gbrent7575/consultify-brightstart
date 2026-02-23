@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-option-1-oilfield.jpg";
+import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
 
 const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
 
@@ -48,7 +49,7 @@ const HeroNew = () => {
               asChild
               className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
             >
-              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Free Consultation
               </a>
@@ -67,6 +68,7 @@ const HeroNew = () => {
           {/* Click to Call on Mobile */}
           <a 
             href="tel:601-647-1201" 
+            onClick={trackPhoneClick}
             className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors md:hidden"
           >
             <Phone className="h-4 w-4" />

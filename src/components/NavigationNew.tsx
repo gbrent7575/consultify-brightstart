@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, ChevronDown, Calendar, Phone, X } from "lucide-react";
+import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -54,7 +55,7 @@ const NavigationNew = () => {
       {/* Sticky CTA Banner */}
       <div className="fixed top-0 w-full bg-accent text-accent-foreground z-50 py-2 px-4">
         <div className="container mx-auto flex items-center justify-center gap-4 text-sm">
-          <span className="hidden sm:inline">Need ISNetworld® or Avetta® Compliance Help?</span>
+          <span className="hidden sm:inline">Need ISNetworld®, Veriforce® or Avetta® Compliance Help?</span>
           <span className="sm:hidden">Need Compliance Help?</span>
           <Button 
             size="sm" 
@@ -62,13 +63,14 @@ const NavigationNew = () => {
             asChild
             className="bg-accent-foreground text-accent hover:bg-accent-foreground/90 h-7 text-xs px-3"
           >
-            <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+            <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
               <Calendar className="mr-1 h-3 w-3" />
               Book Free Consult
             </a>
           </Button>
           <a 
             href="tel:601-647-1201"
+            onClick={trackPhoneClick}
             className="hidden md:flex items-center gap-1 hover:underline"
           >
             <Phone className="h-3 w-3" />
@@ -135,20 +137,20 @@ const NavigationNew = () => {
                 Pricing
               </button>
               
-              <button 
-                onClick={() => scrollToSection('trust')}
+              <Link 
+                to="/about"
                 className={`font-medium transition-colors ${
                   scrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
                 }`}
               >
                 About
-              </button>
+              </Link>
               
               <Button 
                 asChild
                 className="bg-accent text-accent-foreground hover:bg-accent/90"
               >
-                <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+                  <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
                   <Calendar className="mr-2 h-4 w-4" />
                   Free Consultation
                 </a>
@@ -198,12 +200,13 @@ const NavigationNew = () => {
                 Pricing
               </button>
               
-              <button 
-                onClick={() => scrollToSection('trust')}
+              <Link 
+                to="/about"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors font-medium"
               >
                 About
-              </button>
+              </Link>
               
               <div className="pt-4 space-y-3 border-t border-border">
                 <Button 

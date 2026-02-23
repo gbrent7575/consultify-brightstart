@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import { trackQuoteFormSubmission, trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
 
 const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
 
@@ -51,6 +52,7 @@ const LeadForm = () => {
         title: "Request received!",
         description: "We'll contact you within 24 hours with a quote."
       });
+      trackQuoteFormSubmission();
 
       setFormData({
         name: "",
@@ -104,6 +106,7 @@ const LeadForm = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-foreground/80 hover:text-primary-foreground underline"
+                    onClick={trackBookConsultation}
                   >
                     Book a 15-minute consultation
                   </a>
@@ -118,6 +121,7 @@ const LeadForm = () => {
                   <div className="font-semibold">Call us directly</div>
                   <a 
                     href="tel:601-647-1201"
+                    onClick={trackPhoneClick}
                     className="text-primary-foreground/80 hover:text-primary-foreground"
                   >
                     601-647-1201
