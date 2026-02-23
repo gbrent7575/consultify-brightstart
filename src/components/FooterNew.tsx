@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Calendar, Phone, Mail, MapPin } from "lucide-react";
+import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
 
 const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
 
@@ -42,7 +43,7 @@ const FooterNew = () => {
               asChild
               className="bg-accent text-accent-foreground hover:bg-accent/90"
             >
-              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Free Consultation
               </a>

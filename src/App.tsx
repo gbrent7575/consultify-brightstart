@@ -13,6 +13,7 @@ import CompliancePlatforms from "./pages/CompliancePlatforms";
 import SafetyManagementSystem from "./pages/SafetyManagementSystem";
 import MonthlyTraining from "./pages/MonthlyTraining";
 import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
           <Route path="/services/safety-program-development" element={<SafetyProgramDevelopment />} />
           <Route path="/services/regulatory-compliance" element={<RegulatoryCompliance />} />
           <Route path="/services/onsite-audits-training" element={<OnsiteAuditsTraining />} />

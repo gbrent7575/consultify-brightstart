@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Calendar, ArrowRight } from "lucide-react";
+import { trackBookConsultation, trackGetStartedClick } from "@/lib/ga4";
 
 const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
 
@@ -53,7 +54,7 @@ const PricingSection = () => {
                 ))}
               </ul>
               <Button 
-                onClick={scrollToForm}
+                onClick={() => { scrollToForm(); trackGetStartedClick(); }}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 Get Started
@@ -98,7 +99,7 @@ const PricingSection = () => {
                 asChild
                 className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
               >
-                <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+                <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
                   <Calendar className="mr-2 h-4 w-4" />
                   Book Free Consultation
                 </a>

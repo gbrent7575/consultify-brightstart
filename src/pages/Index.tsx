@@ -11,16 +11,16 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>ISNetworld® & Avetta® Compliance Support Services | Cornerstone Risk Management</title>
+        <title>ISNetworld®, Veriforce® & Avetta® Compliance Support Services | Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Need help with ISNetworld® or Avetta® compliance? We provide digital compliance support services including setup ($900) and maintenance ($150/mo) with a 99% success rate. Book a free consultation today."
+          content="Cornerstone Risk Management provides ISNetworld®, Veriforce®, and Avetta® compliance management for oil and gas contractors. 99% success rate. 100+ contractors managed. Setup from $900, maintenance from $150/month. Book a free consultation today."
         />
         <meta name="keywords" content="ISNetworld compliance support, Avetta compliance services, Veriforce compliance, contractor compliance, digital safety compliance, oil and gas compliance, contractor safety management, RAVS, PQF completion" />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="ISNetworld® & Avetta® Compliance Support Services | Cornerstone Risk Management" />
+        <meta property="og:title" content="ISNetworld®, Veriforce® & Avetta® Compliance Support Services | Cornerstone Risk Management" />
         <meta property="og:description" content="We provide digital compliance support so you can get back to work. 99% success rate, flat-rate pricing." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cornerstoneriskmgt.com/" />
@@ -29,7 +29,7 @@ const Index = () => {
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ISNetworld® & Avetta® Compliance Support Services" />
+        <meta name="twitter:title" content="ISNetworld®, Veriforce® & Avetta® Compliance Support Services" />
         <meta name="twitter:description" content="We provide digital compliance support so you can get back to work. 99% success rate." />
         
         {/* Additional SEO */}
