@@ -14,6 +14,7 @@ import SafetyManagementSystem from "./pages/SafetyManagementSystem";
 import MonthlyTraining from "./pages/MonthlyTraining";
 import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
 import About from "./pages/About";
+import Pricing from "./pages/Pricing";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/services/safety-program-development" element={<SafetyProgramDevelopment />} />
           <Route path="/services/regulatory-compliance" element={<RegulatoryCompliance />} />
           <Route path="/services/onsite-audits-training" element={<OnsiteAuditsTraining />} />
