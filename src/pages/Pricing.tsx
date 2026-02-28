@@ -10,7 +10,7 @@ const Pricing = () => {
         <title>Pricing | Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Simple, flat-rate pricing for ISNetworld®, Veriforce® & Avetta® compliance management. Platform setup from $900, maintenance from $250/month."
+          content="Flat-rate ISNetworld, Avetta, and Veriforce compliance pricing. Setup from $900 per platform. Monthly maintenance from $250. No hourly billing, no surprises."
         />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/pricing" />
       </Helmet>
