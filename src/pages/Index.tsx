@@ -14,7 +14,7 @@ const Index = () => {
         <title>ISNetworld®, Veriforce® & Avetta® Compliance Support Services | Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Cornerstone Risk Management provides ISNetworld®, Veriforce®, and Avetta® compliance management for oil and gas contractors. 99% success rate. 100+ contractors managed. Setup from $900, maintenance from $150/month. Book a free consultation today."
+          content="ISNetworld, Veriforce and Avetta compliance management for oil and gas contractors. 99 percent success rate. Setup from $900, maintenance from $250 per month."
         />
         <meta name="keywords" content="ISNetworld compliance support, Avetta compliance services, Veriforce compliance, contractor compliance, digital safety compliance, oil and gas compliance, contractor safety management, RAVS, PQF completion" />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/" />

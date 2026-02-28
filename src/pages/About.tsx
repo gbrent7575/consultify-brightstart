@@ -18,7 +18,7 @@ const About = () => {
         <title>About Cornerstone Risk Management — Safety Consulting & Digital Compliance</title>
         <meta
           name="description"
-          content="About Cornerstone Risk Management — 15+ years of safety consulting and digital compliance management for oil and gas contractors across the Gulf Coast and Southeast US. 100+ contractors managed."
+          content="15 plus years managing ISNetworld, Avetta and Veriforce accounts for 100 plus oil and gas contractors. Gulf Coast based. 24 hour response time."
         />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/about" />
       </Helmet>
