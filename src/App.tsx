@@ -15,6 +15,7 @@ import MonthlyTraining from "./pages/MonthlyTraining";
 import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
 import About from "./pages/About";
 import Pricing from "./pages/Pricing";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/services/safety-program-development" element={<SafetyProgramDevelopment />} />
           <Route path="/services/regulatory-compliance" element={<RegulatoryCompliance />} />
           <Route path="/services/onsite-audits-training" element={<OnsiteAuditsTraining />} />
