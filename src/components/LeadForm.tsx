@@ -52,7 +52,9 @@ const LeadForm = () => {
         title: "Request received!",
         description: "We'll contact you within 24 hours with a quote."
       });
-      trackQuoteFormSubmission();
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'quote_form_submission');
+      }
 
       setFormData({
         name: "",
