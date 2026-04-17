@@ -9,13 +9,27 @@ const NewsletterSection = () => {
           <p className="text-primary-foreground/80 mb-8 text-lg">
             A free, print-ready toolbox talk delivered every month. Built by safety professionals for field teams.
           </p>
-          <iframe
-            src="https://landing.mailerlite.com/webforms/landing/l7HbGg"
-            title="Subscribe to the Monthly Safety Brief"
-            className="w-full bg-transparent"
-            style={{ minHeight: "260px", border: "none" }}
-            loading="lazy"
-          />
+          <form
+            action="https://assets.mailerlite.com/jsonp/946498/forms/185017198337590744/subscribe"
+            method="post"
+            target="_blank"
+            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+          >
+            <input
+              type="email"
+              name="fields[email]"
+              required
+              placeholder="Enter your email"
+              aria-label="Email address"
+              className="flex-1 px-4 py-3 rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+            />
+            <button
+              type="submit"
+              className="px-6 py-3 rounded-md bg-accent text-accent-foreground font-semibold hover:bg-accent/90 transition-colors"
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
       </div>
     </section>
