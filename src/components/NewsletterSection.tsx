@@ -8,15 +8,21 @@ declare global {
 
 const NewsletterSection = () => {
   useEffect(() => {
-    // MailerLite Universal renders embedded forms on load, but in a React SPA
-    // the component mounts after that initial pass. Re-trigger the render.
-    if (typeof window !== "undefined" && typeof window.ml === "function") {
-      try {
-        window.ml("render");
-      } catch (e) {
-        // no-op
+    const script = document.createElement("script");
+    script.src = "https://assets.mailerlite.com/js/universal.js";
+    script.async = true;
+    script.onload = () => {
+      if (typeof window.ml === "function") {
+        window.ml("account", "2159535");
       }
-    }
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
   }, []);
 
   return (
