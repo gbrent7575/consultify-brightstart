@@ -25,9 +25,9 @@ const NewsletterSection = () => {
             />
             <button
               type="submit"
-              className="px-6 py-3 rounded-md bg-accent text-accent-foreground font-semibold hover:bg-accent/90 transition-colors"
+              className="px-6 py-3 rounded-md bg-accent text-accent-foreground font-semibold whitespace-nowrap hover:bg-accent/90 transition-colors"
             >
-              Subscribe
+              Get My Free Safety Brief
             </button>
           </form>
         </div>
