@@ -1,30 +1,4 @@
-import { useEffect } from "react";
-
-declare global {
-  interface Window {
-    ml?: (...args: any[]) => void;
-  }
-}
-
 const NewsletterSection = () => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.mailerlite.com/js/universal.js";
-    script.async = true;
-    script.onload = () => {
-      if (typeof window.ml === "function") {
-        window.ml("account", "2159535");
-      }
-    };
-    document.head.appendChild(script);
-
-    return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
     <section className="bg-primary py-16">
       <div className="container mx-auto px-4">
