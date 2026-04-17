@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Calendar, Phone, Mail, MapPin } from "lucide-react";
 import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
+import NewsletterSection from "@/components/NewsletterSection";
 
 const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
 
@@ -25,7 +26,9 @@ const FooterNew = () => {
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <>
+      <NewsletterSection />
+      <footer className="bg-primary text-primary-foreground">
       {/* CTA Section */}
       <div className="border-b border-primary-foreground/10">
         <div className="container mx-auto px-4 py-12">
@@ -155,7 +158,8 @@ const FooterNew = () => {
           </p>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
