@@ -1,4 +1,24 @@
+import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    ml?: (...args: any[]) => void;
+  }
+}
+
 const NewsletterSection = () => {
+  useEffect(() => {
+    // MailerLite Universal renders embedded forms on load, but in a React SPA
+    // the component mounts after that initial pass. Re-trigger the render.
+    if (typeof window !== "undefined" && typeof window.ml === "function") {
+      try {
+        window.ml("render");
+      } catch (e) {
+        // no-op
+      }
+    }
+  }, []);
+
   return (
     <section className="bg-primary py-16">
       <div className="container mx-auto px-4">
