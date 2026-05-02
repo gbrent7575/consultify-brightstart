@@ -212,7 +212,7 @@ const SafetyProgramDevelopment = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="secondary" asChild>
-                  <a href="tel:601-627-1201">Call 601-627-1201</a>
+                  <a href="tel:601-647-1201">Call 601-647-1201</a>
                 </Button>
                 <Button size="lg" variant="secondary" asChild>
                   <a href="mailto:garland@cornerstoneriskmgt.com">Email Us</a>
