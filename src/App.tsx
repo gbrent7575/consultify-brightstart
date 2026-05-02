@@ -10,6 +10,7 @@ import RegulatoryCompliance from "./pages/RegulatoryCompliance";
 import OnsiteAuditsTraining from "./pages/OnsiteAuditsTraining";
 import RiskConsulting from "./pages/RiskConsulting";
 import CompliancePlatforms from "./pages/CompliancePlatforms";
+import Isnetworld from "./pages/Isnetworld";
 import SafetyManagementSystem from "./pages/SafetyManagementSystem";
 import MonthlyTraining from "./pages/MonthlyTraining";
 import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/services/onsite-audits-training" element={<OnsiteAuditsTraining />} />
           <Route path="/services/risk-consulting" element={<RiskConsulting />} />
           <Route path="/services/compliance-platforms" element={<CompliancePlatforms />} />
+          <Route path="/services/isnetworld" element={<Isnetworld />} />
           <Route path="/services/safety-management-system" element={<SafetyManagementSystem />} />
           <Route path="/services/monthly-training" element={<MonthlyTraining />} />
           <Route path="/internal/trademark-compliance" element={<TrademarkComplianceReport />} />
