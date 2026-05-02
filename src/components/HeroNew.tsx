@@ -44,24 +44,23 @@ const HeroNew = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Button 
-              size="lg" 
-              asChild
-              className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
-            >
-              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
-                <Calendar className="mr-2 h-5 w-5" />
-                Book Free Consultation
-              </a>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
+            <Button
+              size="lg"
               onClick={scrollToForm}
-              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary text-lg px-8 py-6 bg-transparent"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
             >
               Request a Quote
               <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              asChild
+              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
+            >
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
+                <Calendar className="mr-2 h-4 w-4" />
+                Book Free Consultation
+              </a>
             </Button>
           </div>
 
