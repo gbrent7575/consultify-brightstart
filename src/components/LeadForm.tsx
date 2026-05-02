@@ -53,7 +53,9 @@ const LeadForm = () => {
         description: "We'll contact you within 24 hours with a quote."
       });
       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'quote_form_submission');
+        window.gtag('event', 'quote_form_submission', {
+          selected_platforms: formData.platforms,
+        });
       }
 
       setFormData({
