@@ -80,7 +80,7 @@ const PricingSection = () => {
                 onClick={() => { scrollToForm(); trackGetStartedClick(); }}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                Get Started
+                Get a Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </CardContent>
@@ -107,13 +107,11 @@ const PricingSection = () => {
                 ))}
               </ul>
               <Button
-                asChild
+                onClick={scrollToForm}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Book Free Consultation
-                </a>
+                Get a Quote
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </CardContent>
           </Card>
@@ -142,13 +140,11 @@ const PricingSection = () => {
                 ))}
               </ul>
               <Button
-                asChild
+                onClick={scrollToForm}
                 className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
               >
-                <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Book Free Consultation
-                </a>
+                Get a Quote
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </CardContent>
           </Card>
@@ -174,13 +170,11 @@ const PricingSection = () => {
                 ))}
               </ul>
               <Button
-                asChild
+                onClick={scrollToForm}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Book Free Consultation
-                </a>
+                Get a Quote
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </CardContent>
           </Card>
