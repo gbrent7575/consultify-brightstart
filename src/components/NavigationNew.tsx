@@ -57,17 +57,16 @@ const NavigationNew = () => {
         <div className="container mx-auto flex items-center justify-center gap-4 text-sm">
           <span className="hidden sm:inline">Need ISNetworld®, Veriforce® or Avetta® Compliance Help?</span>
           <span className="sm:hidden">Need Compliance Help?</span>
-          <Button 
-            size="sm" 
-            variant="secondary"
-            asChild
-            className="bg-accent-foreground text-accent hover:bg-accent-foreground/90 h-7 text-xs px-3"
+          <a
+            href={CAL_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={trackBookConsultation}
+            className="inline-flex items-center gap-1 text-xs text-accent-foreground hover:underline"
           >
-            <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
-              <Calendar className="mr-1 h-3 w-3" />
-              Book Free Consult
-            </a>
-          </Button>
+            <Calendar className="h-3 w-3" />
+            Book Free Consult
+          </a>
           <a 
             href="tel:601-647-1201"
             onClick={trackPhoneClick}
