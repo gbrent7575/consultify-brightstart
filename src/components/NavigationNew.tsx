@@ -145,15 +145,18 @@ const NavigationNew = () => {
                 About
               </Link>
               
-              <Button 
-                asChild
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
+              <a
+                href={CAL_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={trackBookConsultation}
+                className={`inline-flex items-center gap-1 font-medium transition-colors ${
+                  scrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
+                }`}
               >
-                  <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Free Consultation
-                </a>
-              </Button>
+                <Calendar className="h-4 w-4" />
+                Free Consultation
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
