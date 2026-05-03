@@ -74,7 +74,7 @@ const IsnQuoteForm = ({ defaultPlatform = "" }: IsnQuoteFormProps) => {
         title: "Request sent",
         description: "We'll get back to you within 24 hours.",
       });
-      setForm({ name: "", company: "", email: "", phone: "", platform: "", message: "" });
+      setForm({ name: "", company: "", email: "", phone: "", platform: defaultPlatform, message: "" });
     } catch (err) {
       toast({
         title: "Something went wrong",
