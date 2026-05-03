@@ -111,7 +111,7 @@ const Avetta = () => {
   return (
     <>
       <Helmet>
-        <title>Avetta® Compliance Management Services | Cornerstone Risk Management</title>
+        <title>Avetta Help | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="Avetta® compliance experts. Document uploads, questionnaires, scorecard recovery, and audit fixes — handled end-to-end. 99% success rate. 100+ contractors managed."
