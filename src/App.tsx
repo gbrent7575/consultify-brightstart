@@ -12,6 +12,7 @@ import RiskConsulting from "./pages/RiskConsulting";
 import CompliancePlatforms from "./pages/CompliancePlatforms";
 import Isnetworld from "./pages/Isnetworld";
 import Avetta from "./pages/Avetta";
+import Veriforce from "./pages/Veriforce";
 import SafetyManagementSystem from "./pages/SafetyManagementSystem";
 import MonthlyTraining from "./pages/MonthlyTraining";
 import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
@@ -43,6 +44,9 @@ const App = () => (
           <Route path="/avetta-help" element={<Avetta />} />
           <Route path="/avetta" element={<Avetta />} />
           <Route path="/services/avetta" element={<Avetta />} />
+          <Route path="/veriforce-help" element={<Veriforce />} />
+          <Route path="/veriforce" element={<Veriforce />} />
+          <Route path="/services/veriforce" element={<Veriforce />} />
           <Route path="/services/safety-management-system" element={<SafetyManagementSystem />} />
           <Route path="/services/monthly-training" element={<MonthlyTraining />} />
           <Route path="/internal/trademark-compliance" element={<TrademarkComplianceReport />} />
