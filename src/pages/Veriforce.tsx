@@ -99,7 +99,7 @@ const Veriforce = () => {
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
-        <Navigation />
+        <NavigationNew />
 
         <main className="flex-grow">
           {/* Hero */}
@@ -257,7 +257,7 @@ const Veriforce = () => {
           </section>
         </main>
 
-        <Footer />
+        <FooterNew />
       </div>
     </>
   );
