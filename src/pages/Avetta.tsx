@@ -111,14 +111,14 @@ const Avetta = () => {
   return (
     <>
       <Helmet>
-        <title>Avetta Help | Cornerstone Risk Management</title>
+        <title>Avetta Audit Prep | Scoring Remediation | Custom Client Requirements</title>
         <meta
           name="description"
           content="Avetta audit coming up? We get contractors approved and keep them there. Audit prep, scoring remediation, custom client requirements. 99% success. From $900 setup, $250/mo."
         />
         <meta
           name="keywords"
-          content="Avetta compliance, Avetta scorecard, Avetta questionnaire, contractor prequalification, Avetta audit"
+          content="Avetta compliance, Avetta audit prep, Avetta scoring remediation, custom client requirements, Avetta scorecard, Avetta questionnaire, contractor prequalification"
         />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/avetta-help" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
