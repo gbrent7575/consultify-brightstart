@@ -118,7 +118,7 @@ const Avetta = () => {
         />
         <meta
           name="keywords"
-          content="Avetta compliance, Avetta scorecard, Avetta questionnaire, contractor prequalification, Avetta audit"
+          content="Avetta compliance, Avetta audit prep, Avetta scoring remediation, custom client requirements, Avetta scorecard, Avetta questionnaire, contractor prequalification"
         />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/avetta-help" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
