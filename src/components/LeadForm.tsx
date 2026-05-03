@@ -226,6 +226,7 @@ const LeadForm = () => {
                   <Select 
                     value={formData.platforms}
                     onValueChange={(value) => setFormData({ ...formData, platforms: value })}
+                    required
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select compliance platform(s)" />
