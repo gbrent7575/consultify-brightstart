@@ -108,21 +108,23 @@ const IsnQuoteForm = ({ defaultPlatform = "" }: IsnQuoteFormProps) => {
           <Label htmlFor="phone">Phone *</Label>
           <Input id="phone" type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} required />
         </div>
-        <div className="md:col-span-2">
-          <Label htmlFor="platform">Platforms Needed *</Label>
-          <Select value={form.platform} onValueChange={(v) => update("platform", v)}>
-            <SelectTrigger id="platform">
-              <SelectValue placeholder="Select a platform" />
-            </SelectTrigger>
-            <SelectContent>
-              {PLATFORMS.map((p) => (
-                <SelectItem key={p} value={p}>
-                  {p}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        {!defaultPlatform && (
+          <div className="md:col-span-2">
+            <Label htmlFor="platform">Platforms Needed *</Label>
+            <Select value={form.platform} onValueChange={(v) => update("platform", v)}>
+              <SelectTrigger id="platform">
+                <SelectValue placeholder="Select a platform" />
+              </SelectTrigger>
+              <SelectContent>
+                {PLATFORMS.map((p) => (
+                  <SelectItem key={p} value={p}>
+                    {p}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        )}
         <div className="md:col-span-2">
           <Label htmlFor="message">Tell us about your account (optional)</Label>
           <Textarea
