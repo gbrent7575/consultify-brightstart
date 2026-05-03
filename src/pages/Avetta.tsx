@@ -197,6 +197,9 @@ const Avetta = () => {
             </div>
           </section>
 
+          {/* Pricing */}
+          <PricingSection />
+
           {/* FAQs */}
           <section className="py-16 bg-muted/30">
             <div className="container mx-auto px-4">
@@ -256,7 +259,7 @@ const Avetta = () => {
           </section>
         </main>
 
-        <Footer />
+        <FooterNew />
       </div>
     </>
   );
