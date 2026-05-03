@@ -147,11 +147,8 @@ const Avetta = () => {
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
                   Avetta® Compliance Management
                 </h1>
-                <p className="text-xl mb-4 text-primary-foreground/95">
-                  Stop losing contracts because of rejected documents, scorecard drops, or questionnaire confusion.
-                </p>
-                <p className="text-lg mb-8 text-primary-foreground/85">
-                  We handle the paperwork end-to-end so your account stays in the green and your bids stay alive.
+                <p className="text-xl mb-8 text-primary-foreground/95">
+                  Audit prep, scoring remediation, and custom client requirement responses — we handle Avetta® end-to-end so you stay eligible to bid.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" variant="secondary" asChild>
