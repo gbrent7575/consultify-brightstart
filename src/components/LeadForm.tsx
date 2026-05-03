@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
-import { trackQuoteFormSubmission, trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
+import { trackQuoteFormSubmission, trackBookConsultation, trackPhoneClick, type QuoteFormPlatform } from "@/lib/ga4";
 
 const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
 
@@ -18,6 +18,16 @@ const leadSchema = z.object({
   phone: z.string().trim().min(1, { message: "Phone is required" }).max(20),
   platforms: z.string().min(1, { message: "Please select platforms needed" })
 });
+
+const PLATFORM_LABELS: Record<string, QuoteFormPlatform> = {
+  isnetworld: "ISNetworld",
+  avetta: "Avetta",
+  veriforce: "Veriforce",
+  pec: "PEC Premier",
+  browz: "BROWZ",
+  multiple: "Multiple",
+  "not-sure": "Other",
+};
 
 const LeadForm = () => {
   const { toast } = useToast();
@@ -52,11 +62,7 @@ const LeadForm = () => {
         title: "Request received!",
         description: "We'll contact you within 24 hours with a quote."
       });
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'quote_form_submission', {
-          selected_platforms: formData.platforms,
-        });
-      }
+      trackQuoteFormSubmission(PLATFORM_LABELS[formData.platforms] ?? "Other", "home");
 
       setFormData({
         name: "",
@@ -220,6 +226,7 @@ const LeadForm = () => {
                   <Select 
                     value={formData.platforms}
                     onValueChange={(value) => setFormData({ ...formData, platforms: value })}
+                    required
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select compliance platform(s)" />
@@ -229,6 +236,7 @@ const LeadForm = () => {
                       <SelectItem value="avetta">Avetta®</SelectItem>
                       <SelectItem value="veriforce">Veriforce®</SelectItem>
                       <SelectItem value="pec">PEC Premier</SelectItem>
+                      <SelectItem value="browz">BROWZ</SelectItem>
                       <SelectItem value="multiple">Multiple Platforms</SelectItem>
                       <SelectItem value="not-sure">Not Sure - Need Guidance</SelectItem>
                     </SelectContent>

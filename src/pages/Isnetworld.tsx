@@ -275,7 +275,7 @@ const Isnetworld = () => {
               <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-primary-foreground/90">
                 Tell us about your account and we'll send you a personalized quote within 24 hours. No obligation, no pressure.
               </p>
-              <IsnQuoteForm />
+              <IsnQuoteForm defaultPlatform="ISNetworld" sourcePage="isnetworld-help" />
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
                 <Button size="lg" variant="secondary" asChild>
                   <a href="tel:601-647-1201">Call 601-647-1201</a>

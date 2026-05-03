@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { trackQuoteFormSubmission, type QuoteFormSourcePage } from "@/lib/ga4";
 
 const PLATFORMS = [
   "ISNetworld",
@@ -35,11 +36,13 @@ const schema = z.object({
 interface IsnQuoteFormProps {
   defaultPlatform?: string;
   messagePlaceholder?: string;
+  sourcePage?: QuoteFormSourcePage;
 }
 
 const IsnQuoteForm = ({
   defaultPlatform = "",
   messagePlaceholder = "Current score, recent audit findings, or anything else we should know.",
+  sourcePage = "isnetworld-help",
 }: IsnQuoteFormProps) => {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
@@ -75,9 +78,10 @@ const IsnQuoteForm = ({
       if (error || !data?.success) throw new Error(error?.message || "Send failed");
 
       toast({
-        title: "Request sent",
-        description: "We'll get back to you within 24 hours.",
+        title: "Request received!",
+        description: "We'll contact you within 24 hours with a quote.",
       });
+      trackQuoteFormSubmission(parsed.data.platform as Parameters<typeof trackQuoteFormSubmission>[0], sourcePage);
       setForm({ name: "", company: "", email: "", phone: "", platform: defaultPlatform, message: "" });
     } catch (err) {
       toast({
