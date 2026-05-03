@@ -58,8 +58,9 @@ const IsnQuoteForm = ({
   const update = (k: keyof typeof form, v: string) =>
     setForm((p) => ({ ...p, [k]: v }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
+    e?.preventDefault?.();
+    if (submitting) return;
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       toast({
