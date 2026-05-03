@@ -12,6 +12,7 @@ import RiskConsulting from "./pages/RiskConsulting";
 import CompliancePlatforms from "./pages/CompliancePlatforms";
 import Isnetworld from "./pages/Isnetworld";
 import Avetta from "./pages/Avetta";
+import Veriforce from "./pages/Veriforce";
 import SafetyManagementSystem from "./pages/SafetyManagementSystem";
 import MonthlyTraining from "./pages/MonthlyTraining";
 import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
