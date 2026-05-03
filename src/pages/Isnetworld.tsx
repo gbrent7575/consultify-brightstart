@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import TrademarkNotice from "@/components/TrademarkNotice";
+import IsnQuoteForm from "@/components/IsnQuoteForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -264,17 +265,23 @@ const Isnetworld = () => {
             className="py-20 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground"
           >
             <div className="container mx-auto px-4 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Get a Free ISN Compliance Quote
               </h2>
-              <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/90">
-                Tell us where your account stands today. We'll tell you exactly what it'll take to get it green — and keep it there.
+              <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-primary-foreground/90">
+                Tell us about your account and we'll send you a personalized quote within 24 hours. No obligation, no pressure.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <IsnQuoteForm />
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
                 <Button size="lg" variant="secondary" asChild>
                   <a href="tel:601-647-1201">Call 601-647-1201</a>
                 </Button>
-                <Button size="lg" variant="secondary" asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                  asChild
+                >
                   <a href="mailto:garland@cornerstoneriskmgt.com">Email Us</a>
                 </Button>
               </div>
