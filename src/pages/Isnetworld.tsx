@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import NavigationNew from "@/components/NavigationNew";
+import FooterNew from "@/components/FooterNew";
+import PricingSection from "@/components/PricingSection";
 import TrademarkNotice from "@/components/TrademarkNotice";
 import IsnQuoteForm from "@/components/IsnQuoteForm";
 import { Button } from "@/components/ui/button";
@@ -119,7 +120,7 @@ const Isnetworld = () => {
   return (
     <>
       <Helmet>
-        <title>ISNetworld® Compliance Management Services | Cornerstone Risk Management</title>
+        <title>ISNetworld® Compliance Help | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="ISNetworld® compliance experts. RAVS® uploads, questionnaires, score recovery, and audit fixes — handled end-to-end. 99% success rate. 100+ contractors managed. 15+ years experience."
@@ -133,7 +134,7 @@ const Isnetworld = () => {
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
-        <Navigation />
+        <NavigationNew />
 
         <main className="flex-grow">
           {/* Hero */}
@@ -238,6 +239,9 @@ const Isnetworld = () => {
             </div>
           </section>
 
+          {/* Pricing */}
+          <PricingSection />
+
           {/* FAQs */}
           <section className="py-16 bg-muted/30">
             <div className="container mx-auto px-4">
@@ -289,7 +293,7 @@ const Isnetworld = () => {
           </section>
         </main>
 
-        <Footer />
+        <FooterNew />
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import NavigationNew from "@/components/NavigationNew";
+import FooterNew from "@/components/FooterNew";
+import PricingSection from "@/components/PricingSection";
 import IsnQuoteForm from "@/components/IsnQuoteForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -87,7 +88,7 @@ const Avetta = () => {
   return (
     <>
       <Helmet>
-        <title>Avetta Compliance Help | Cornerstone Risk Management</title>
+        <title>Avetta® Compliance Help | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="Avetta audit coming up? We get contractors approved and keep them there. Audit prep, scoring remediation, custom client requirements. 99% success. From $900 setup, $250/mo."
@@ -97,7 +98,7 @@ const Avetta = () => {
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
-        <Navigation />
+        <NavigationNew />
 
         <main className="flex-grow">
           {/* Hero */}
@@ -196,6 +197,9 @@ const Avetta = () => {
             </div>
           </section>
 
+          {/* Pricing */}
+          <PricingSection />
+
           {/* FAQs */}
           <section className="py-16 bg-muted/30">
             <div className="container mx-auto px-4">
@@ -255,7 +259,7 @@ const Avetta = () => {
           </section>
         </main>
 
-        <Footer />
+        <FooterNew />
       </div>
     </>
   );
