@@ -76,24 +76,20 @@ const problems = [
 
 const faqs = [
   {
-    q: "How fast can you fix a failed Avetta® audit?",
-    a: "Most failed-audit findings are fixed within a week or less once we have access to your account. Larger gaps that require new documentation from your team can take longer, but the typical turnaround is fast.",
+    q: "What's included in custom client requirements?",
+    a: "Hiring clients (especially oil majors) often layer custom requirements on top of Avetta®'s baseline. Monthly maintenance covers responses as they're issued.",
   },
   {
-    q: "Will my Avetta® status get back to green?",
-    a: "We'll tell you what's pulling it down and whether it's fixable. Most status issues are documentation gaps, not underlying safety performance gaps.",
+    q: "Is the pricing the same if I pair Avetta® with another platform?",
+    a: "Yes — pricing is the same regardless of which two platforms you pair. Most clients pair Avetta® with either ISNetworld® or Veriforce®.",
   },
   {
-    q: "What if my client adds a new questionnaire mid-cycle?",
-    a: "Covered under monthly maintenance. We complete the questionnaire with your input and submit it.",
+    q: "How fast can you get me approved on Avetta®?",
+    a: "Most setups complete in 2–4 weeks once we have your insurance certificates, safety programs, and questionnaire inputs.",
   },
   {
-    q: "Can I do this myself?",
-    a: "Yes, but most clients hand it off — we operate the account end-to-end. Most clients haven't logged in for months.",
-  },
-  {
-    q: "Is there a long-term contract?",
-    a: "No annual commitment. Cancel anytime; your account stays exactly where it is.",
+    q: "What happens if an Avetta® auditor pushes back on a response?",
+    a: "Covered under maintenance. We rewrite, resubmit, and re-engage until your account is approved.",
   },
 ];
 
