@@ -283,6 +283,9 @@ const Avetta = () => {
                   <a href="mailto:garland@cornerstoneriskmgt.com">Email Us</a>
                 </Button>
               </div>
+              <p className="text-xs text-primary-foreground/70 mt-10 max-w-3xl mx-auto">
+                Cornerstone Risk Management is in no way endorsed, sponsored, approved by, or otherwise affiliated with Avetta, LLC. Avetta is a registered trademark of Avetta, LLC.
+              </p>
             </div>
           </section>
         </main>
