@@ -16,7 +16,7 @@ interface TrademarkNoticeProps {
  */
 const TrademarkNotice = ({ variant = "default", className = "" }: TrademarkNoticeProps) => {
   const disclaimer = "Cornerstone Risk Management is in no way endorsed, sponsored, approved by, or otherwise affiliated with ISNetworld® or ISN Software Corporation.";
-  const attribution = "ISNetworld® is a registered trademark of ISN Software Corporation.";
+  const attribution = "ISNetworld® and RAVS® are registered trademarks of ISN Software Corporation.";
 
   if (variant === "footer") {
     return (
