@@ -111,7 +111,7 @@ const Avetta = () => {
   return (
     <>
       <Helmet>
-        <title>Avetta Help | Cornerstone Risk Management</title>
+        <title>Avetta Audit Prep | Scoring Remediation | Custom Client Requirements</title>
         <meta
           name="description"
           content="Avetta audit coming up? We get contractors approved and keep them there. Audit prep, scoring remediation, custom client requirements. 99% success. From $900 setup, $250/mo."
