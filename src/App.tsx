@@ -11,6 +11,7 @@ import OnsiteAuditsTraining from "./pages/OnsiteAuditsTraining";
 import RiskConsulting from "./pages/RiskConsulting";
 import CompliancePlatforms from "./pages/CompliancePlatforms";
 import Isnetworld from "./pages/Isnetworld";
+import Avetta from "./pages/Avetta";
 import SafetyManagementSystem from "./pages/SafetyManagementSystem";
 import MonthlyTraining from "./pages/MonthlyTraining";
 import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
@@ -39,6 +40,9 @@ const App = () => (
           <Route path="/services/isnetworld" element={<Isnetworld />} />
           <Route path="/isnetworld-help" element={<Isnetworld />} />
           <Route path="/isnetworld" element={<Isnetworld />} />
+          <Route path="/avetta-help" element={<Avetta />} />
+          <Route path="/avetta" element={<Avetta />} />
+          <Route path="/services/avetta" element={<Avetta />} />
           <Route path="/services/safety-management-system" element={<SafetyManagementSystem />} />
           <Route path="/services/monthly-training" element={<MonthlyTraining />} />
           <Route path="/internal/trademark-compliance" element={<TrademarkComplianceReport />} />
