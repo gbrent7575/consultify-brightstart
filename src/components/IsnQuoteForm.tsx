@@ -58,8 +58,9 @@ const IsnQuoteForm = ({
   const update = (k: keyof typeof form, v: string) =>
     setForm((p) => ({ ...p, [k]: v }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
+    e?.preventDefault?.();
+    if (submitting) return;
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       toast({
@@ -97,6 +98,7 @@ const IsnQuoteForm = ({
   return (
     <form
       onSubmit={handleSubmit}
+      noValidate
       className="bg-background text-foreground rounded-lg p-6 md:p-8 max-w-2xl mx-auto text-left shadow-lg"
     >
       <div className="grid md:grid-cols-2 gap-4">
@@ -144,7 +146,7 @@ const IsnQuoteForm = ({
           />
         </div>
       </div>
-      <Button type="submit" size="lg" className="w-full mt-6 bg-accent text-accent-foreground hover:bg-accent/90" disabled={submitting}>
+      <Button type="button" size="lg" onClick={handleSubmit} className="w-full mt-6 bg-accent text-accent-foreground hover:bg-accent/90" disabled={submitting}>
         {submitting ? "Sending..." : "Send My Quote Request"}
       </Button>
       <p className="text-xs text-muted-foreground text-center mt-3">
