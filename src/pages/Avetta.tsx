@@ -10,86 +10,66 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Info, CheckCircle2, FileCheck, ClipboardList, ShieldCheck, CalendarClock, TrendingUp } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import heroImage from "@/assets/hero-compliance-platforms.jpg";
 
 const whatWeDo = [
-  {
-    icon: FileCheck,
-    title: "Safety Program Review & Upload",
-    desc: "We review your written programs against Avetta® requirements and upload them in the format their reviewers expect.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Client-Specific Questionnaires",
-    desc: "Every hiring client adds their own questionnaire. We complete and maintain them as requirements change.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Insurance Certificate Tracking",
-    desc: "We track COI expirations and coordinate updates so your certificates stay current in Avetta®.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Form & Document Completion",
-    desc: "You provide the input — we format it the way Avetta® expects and submit it.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Score & Status Monitoring",
-    desc: "We monitor your Avetta® scorecard and address what's pulling your status down before clients notice.",
-  },
-  {
-    icon: CalendarClock,
-    title: "Ongoing Maintenance",
-    desc: "Insurance, training records, and audit responses on a tracked calendar. Nothing expires unannounced.",
-  },
+  "Avetta account setup or reset",
+  "Insurance certificate uploads and renewal tracking",
+  "Training records and OSHA log uploads (annual and on-demand)",
+  "Custom client requirement responses — when an oil major adds requirements on top of Avetta's baseline, we map them to your evidence and respond in the format auditors look for",
+  "Audit grade review and scoring remediation",
+  "Quarterly hours and incident reporting",
+  "Pre-audit review and reviewer feedback responses until approved",
 ];
 
 const problems = [
   {
-    problem: "My Avetta® documents keep getting rejected.",
+    problem: "I am scheduled for an Avetta audit and I am not sure I will pass.",
     answer:
-      "Usually wrong format, missing required clauses, or out-of-date revision language. We catch these before submission, not after.",
+      "We pre-audit your account, identify gaps, and close them before your audit window opens.",
   },
   {
-    problem: "My scorecard dropped and I don't know why.",
+    problem: "My Avetta grade dropped and I do not know why.",
     answer:
-      "Often expired training, lapsed certificates, or unfilled questionnaire updates. We diagnose the root cause and fix it.",
+      "Usually expired insurance, lapsed training, or a new client requirement that has not been responded to. We find the cause and fix it.",
   },
   {
-    problem: "A client added a new Avetta® questionnaire and I have no idea what they want.",
+    problem:
+      "A new client added 12 custom requirements and I do not have time to write the responses.",
     answer:
-      "We translate the requirement, write the response with your input, and submit it.",
+      "We do this. Your input guides the answer; we format it the way Avetta auditors expect.",
   },
   {
-    problem: "I have audit findings I don't know how to close.",
-    answer:
-      "We review each finding, build the corrective action, and resubmit until they're cleared.",
+    problem: "My account went red and a client is asking about it.",
+    answer: "We get most accounts back to green within 2 to 4 weeks.",
   },
   {
-    problem: "Things keep expiring and I find out from the client.",
-    answer:
-      "Ongoing maintenance puts insurance, training, and audit items on a tracked calendar. Nothing expires unannounced.",
+    problem: "I never know which documents are about to expire.",
+    answer: "Monthly maintenance includes a tracked renewal calendar.",
   },
 ];
 
 const faqs = [
   {
-    q: "What's included in custom client requirements?",
-    a: "Hiring clients (especially oil majors) often layer custom requirements on top of Avetta®'s baseline. Monthly maintenance covers responses as they're issued.",
+    q: "Can you handle Avetta's custom client requirements?",
+    a: "Yes. Each oil major or industrial client can layer custom requirements on top of Avetta's baseline. Monthly maintenance covers responses as they're issued.",
   },
   {
-    q: "Is the pricing the same if I pair Avetta® with another platform?",
-    a: "Yes — pricing is the same regardless of which two platforms you pair. Most clients pair Avetta® with either ISNetworld® or Veriforce®.",
+    q: "Is your $300 per month dual-platform price the same if I pair Avetta with another platform?",
+    a: "Yes. The rate is the same regardless of which two platforms you pair. Most clients pair Avetta with either ISN or Veriforce.",
   },
   {
-    q: "How fast can you get me approved on Avetta®?",
-    a: "Most setups complete in 2–4 weeks once we have your insurance certificates, safety programs, and questionnaire inputs.",
+    q: "Do you handle drug and alcohol program documentation in Avetta?",
+    a: "We work with your existing D&A program and submit the documentation in the format Avetta expects. If you do not have a written D&A program yet, that's a separate scope (custom safety program writing is not included in maintenance), but we can scope it.",
   },
   {
-    q: "What happens if an Avetta® auditor pushes back on a response?",
-    a: "Covered under maintenance. We rewrite, resubmit, and re-engage until your account is approved.",
+    q: "How long does an Avetta setup take?",
+    a: "Most setups complete in 2 to 4 weeks once we have your insurance certificates, safety programs, and questionnaire inputs.",
+  },
+  {
+    q: "What if my Avetta auditor pushes back on a response?",
+    a: "Reviewer feedback responses are part of setup and maintenance. We rewrite, resubmit, and re-engage until your account is approved.",
   },
 ];
 
@@ -107,14 +87,10 @@ const Avetta = () => {
   return (
     <>
       <Helmet>
-        <title>Avetta Audit Prep | Scoring Remediation | Custom Client Requirements</title>
+        <title>Avetta Compliance Help | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="Avetta audit coming up? We get contractors approved and keep them there. Audit prep, scoring remediation, custom client requirements. 99% success. From $900 setup, $250/mo."
-        />
-        <meta
-          name="keywords"
-          content="Avetta compliance, Avetta audit prep, Avetta scoring remediation, custom client requirements, Avetta scorecard, Avetta questionnaire, contractor prequalification"
         />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/avetta-help" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
@@ -129,7 +105,7 @@ const Avetta = () => {
             <div className="absolute inset-0 z-0">
               <img
                 src={heroImage}
-                alt="Avetta® compliance management for contractors"
+                alt="Avetta compliance management for contractors"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/70" />
@@ -138,17 +114,17 @@ const Avetta = () => {
             <div className="container mx-auto px-4 py-20 relative z-10">
               <div className="max-w-3xl animate-fade-in">
                 <p className="text-sm md:text-base font-semibold uppercase tracking-wider text-accent mb-4">
-                  Avetta® Compliance Experts · 99% Success Rate · 100+ Contractors Managed · 15+ Years Experience
+                  Audit Prep · Scoring Remediation · Custom Client Requirements
                 </p>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
-                  Avetta® Compliance Management
+                  Avetta Compliance Management
                 </h1>
                 <p className="text-xl mb-8 text-primary-foreground/95">
-                  Audit prep, scoring remediation, and custom client requirement responses — we handle Avetta® end-to-end so you stay eligible to bid.
+                  From account setup to audit prep, scoring remediation, and custom client requirement responses, we handle Avetta end-to-end so you stay eligible to bid.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" variant="secondary" asChild>
-                    <a href="#contact">Get a Free Avetta® Compliance Quote</a>
+                    <a href="#contact">Get a Free Avetta Compliance Quote</a>
                   </Button>
                   <Button
                     size="lg"
@@ -166,28 +142,28 @@ const Avetta = () => {
           {/* What We Do */}
           <section className="py-16 bg-background">
             <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold mb-4 text-center">What We Do</h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Full-service Avetta® account management — from document uploads to ongoing monitoring.
-              </p>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <h2 className="text-3xl font-bold mb-12 text-center">
+                What We Do for Your Avetta Account
+              </h2>
+              <ol className="max-w-3xl mx-auto space-y-4">
                 {whatWeDo.map((item, i) => (
-                  <Card key={i} className="h-full">
-                    <CardContent className="pt-6">
-                      <item.icon className="w-12 h-12 text-accent mb-4" />
-                      <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                      <p className="text-muted-foreground">{item.desc}</p>
-                    </CardContent>
-                  </Card>
+                  <li key={i} className="flex items-start gap-4">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-accent text-accent-foreground font-bold flex items-center justify-center">
+                      {i + 1}
+                    </span>
+                    <p className="text-lg pt-1">{item}</p>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </div>
           </section>
 
           {/* Problems We Solve */}
           <section className="py-16 bg-muted/30">
             <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold mb-12 text-center">Common Problems We Solve</h2>
+              <h2 className="text-3xl font-bold mb-12 text-center">
+                Common Avetta Problems We Solve
+              </h2>
               <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                 {problems.map((p, i) => (
                   <Card key={i} className="h-full">
@@ -209,7 +185,7 @@ const Avetta = () => {
                 {[
                   "99% success rate across submissions",
                   "100+ contractors actively managed",
-                  "15+ years inside contractor prequalification workflows",
+                  "15+ years inside Avetta workflows",
                 ].map((b, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="text-accent w-6 h-6 flex-shrink-0 mt-1" />
@@ -217,29 +193,15 @@ const Avetta = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Avetta trademark notice */}
-              <div className="max-w-4xl mx-auto mt-12">
-                <div className="bg-muted/50 border border-border rounded-lg p-4">
-                  <div className="flex items-start gap-3">
-                    <Info className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                    <div className="text-sm text-muted-foreground">
-                      <p className="mb-2">
-                        Cornerstone Risk Management is in no way endorsed, sponsored, approved by, or otherwise
-                        affiliated with Avetta® or Avetta, LLC.
-                      </p>
-                      <p className="text-xs">Avetta® is a registered trademark of Avetta, LLC.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </section>
 
           {/* FAQs */}
           <section className="py-16 bg-muted/30">
             <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+              <h2 className="text-3xl font-bold mb-12 text-center">
+                Frequently Asked Questions
+              </h2>
               <div className="max-w-3xl mx-auto">
                 <Accordion type="single" collapsible className="w-full">
                   {faqs.map((f, i) => (
@@ -264,12 +226,15 @@ const Avetta = () => {
           >
             <div className="container mx-auto px-4 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Get a Free Avetta® Compliance Quote
+                Get a Free Avetta Compliance Quote
               </h2>
               <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-primary-foreground/90">
                 Tell us about your account, audit timeline, or scoring concern. We'll send a personalized quote within 24 hours.
               </p>
-              <IsnQuoteForm defaultPlatform="Avetta" />
+              <IsnQuoteForm
+                defaultPlatform="Avetta"
+                messagePlaceholder="Current grade, recent audit findings, or anything else we should know."
+              />
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
                 <Button size="lg" variant="secondary" asChild>
                   <a href="tel:601-647-1201">Call 601-647-1201</a>

@@ -34,9 +34,13 @@ const schema = z.object({
 
 interface IsnQuoteFormProps {
   defaultPlatform?: string;
+  messagePlaceholder?: string;
 }
 
-const IsnQuoteForm = ({ defaultPlatform = "" }: IsnQuoteFormProps) => {
+const IsnQuoteForm = ({
+  defaultPlatform = "",
+  messagePlaceholder = "Current score, recent audit findings, or anything else we should know.",
+}: IsnQuoteFormProps) => {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
@@ -132,7 +136,7 @@ const IsnQuoteForm = ({ defaultPlatform = "" }: IsnQuoteFormProps) => {
             rows={4}
             value={form.message}
             onChange={(e) => update("message", e.target.value)}
-            placeholder="Current score, recent audit findings, or anything else we should know."
+            placeholder={messagePlaceholder}
           />
         </div>
       </div>
