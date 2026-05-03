@@ -7,6 +7,21 @@ declare global {
   }
 }
 
+export type QuoteFormPlatform =
+  | 'ISNetworld'
+  | 'Avetta'
+  | 'Veriforce'
+  | 'PEC Premier'
+  | 'BROWZ'
+  | 'Multiple'
+  | 'Other';
+
+export type QuoteFormSourcePage =
+  | 'home'
+  | 'isnetworld-help'
+  | 'avetta-help'
+  | 'veriforce-help';
+
 export const trackBookConsultation = () => {
   window.gtag?.('event', 'book_consultation_click', {
     event_category: 'conversion',
@@ -15,11 +30,13 @@ export const trackBookConsultation = () => {
   });
 };
 
-export const trackQuoteFormSubmission = () => {
+export const trackQuoteFormSubmission = (
+  platforms: QuoteFormPlatform,
+  source_page: QuoteFormSourcePage,
+) => {
   window.gtag?.('event', 'quote_form_submission', {
-    event_category: 'conversion',
-    event_label: 'quote_request',
-    value: 1,
+    platforms,
+    source_page,
   });
 };
 
