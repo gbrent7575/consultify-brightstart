@@ -32,7 +32,11 @@ const schema = z.object({
   message: z.string().max(2000).optional(),
 });
 
-const IsnQuoteForm = () => {
+interface IsnQuoteFormProps {
+  defaultPlatform?: string;
+}
+
+const IsnQuoteForm = ({ defaultPlatform = "" }: IsnQuoteFormProps) => {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
@@ -40,7 +44,7 @@ const IsnQuoteForm = () => {
     company: "",
     email: "",
     phone: "",
-    platform: "",
+    platform: defaultPlatform,
     message: "",
   });
 
