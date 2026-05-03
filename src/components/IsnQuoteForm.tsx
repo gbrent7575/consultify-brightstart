@@ -98,6 +98,7 @@ const IsnQuoteForm = ({
   return (
     <form
       onSubmit={handleSubmit}
+      noValidate
       className="bg-background text-foreground rounded-lg p-6 md:p-8 max-w-2xl mx-auto text-left shadow-lg"
     >
       <div className="grid md:grid-cols-2 gap-4">
