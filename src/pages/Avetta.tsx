@@ -114,7 +114,7 @@ const Avetta = () => {
         <title>Avetta Help | Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Avetta® compliance experts. Document uploads, questionnaires, scorecard recovery, and audit fixes — handled end-to-end. 99% success rate. 100+ contractors managed."
+          content="Avetta audit coming up? We get contractors approved and keep them there. Audit prep, scoring remediation, custom client requirements. 99% success. From $900 setup, $250/mo."
         />
         <meta
           name="keywords"
