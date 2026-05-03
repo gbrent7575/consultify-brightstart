@@ -136,7 +136,7 @@ const IsnQuoteForm = ({
             rows={4}
             value={form.message}
             onChange={(e) => update("message", e.target.value)}
-            placeholder="Current score, recent audit findings, or anything else we should know."
+            placeholder={messagePlaceholder}
           />
         </div>
       </div>
