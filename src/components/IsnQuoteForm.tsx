@@ -146,7 +146,7 @@ const IsnQuoteForm = ({
           />
         </div>
       </div>
-      <Button type="submit" size="lg" className="w-full mt-6 bg-accent text-accent-foreground hover:bg-accent/90" disabled={submitting}>
+      <Button type="button" size="lg" onClick={handleSubmit} className="w-full mt-6 bg-accent text-accent-foreground hover:bg-accent/90" disabled={submitting}>
         {submitting ? "Sending..." : "Send My Quote Request"}
       </Button>
       <p className="text-xs text-muted-foreground text-center mt-3">
