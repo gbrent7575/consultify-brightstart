@@ -44,6 +44,9 @@ const App = () => (
           <Route path="/avetta-help" element={<Avetta />} />
           <Route path="/avetta" element={<Avetta />} />
           <Route path="/services/avetta" element={<Avetta />} />
+          <Route path="/veriforce-help" element={<Veriforce />} />
+          <Route path="/veriforce" element={<Veriforce />} />
+          <Route path="/services/veriforce" element={<Veriforce />} />
           <Route path="/services/safety-management-system" element={<SafetyManagementSystem />} />
           <Route path="/services/monthly-training" element={<MonthlyTraining />} />
           <Route path="/internal/trademark-compliance" element={<TrademarkComplianceReport />} />
