@@ -267,7 +267,7 @@ const Avetta = () => {
                 Get a Free Avetta® Compliance Quote
               </h2>
               <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-primary-foreground/90">
-                Tell us about your account and we'll send you a personalized quote within 24 hours. No obligation, no pressure.
+                Tell us about your account, audit timeline, or scoring concern. We'll send a personalized quote within 24 hours.
               </p>
               <IsnQuoteForm defaultPlatform="Avetta" />
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
