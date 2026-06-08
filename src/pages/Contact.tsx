@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import NavigationNew from "@/components/NavigationNew";
 import FooterNew from "@/components/FooterNew";
 import { Button } from "@/components/ui/button";
