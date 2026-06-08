@@ -47,10 +47,8 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  ssr: {
-    // react-helmet-async 2.x ships CJS; force bundling so the SSR ESM build can import named exports.
-    noExternal: ["react-helmet-async"],
-  },
+  // react-helmet-async stays external during SSR so vite-react-ssg's
+  // HelmetProvider and our <Helmet> usage share one module instance/context.
   ssgOptions: {
     script: "async",
     formatting: "minify",
