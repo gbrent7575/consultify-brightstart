@@ -47,6 +47,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  ssr: {
+    // react-helmet-async 2.x ships CJS; force bundling so the SSR ESM build can import named exports.
+    noExternal: ["react-helmet-async"],
+  },
   ssgOptions: {
     script: "async",
     formatting: "minify",
