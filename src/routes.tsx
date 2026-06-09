@@ -10,6 +10,7 @@ import CompliancePlatforms from "./pages/CompliancePlatforms";
 import Isnetworld from "./pages/Isnetworld";
 import Avetta from "./pages/Avetta";
 import Veriforce from "./pages/Veriforce";
+import IsnHelp from "./pages/IsnHelp";
 import SafetyManagementSystem from "./pages/SafetyManagementSystem";
 import MonthlyTraining from "./pages/MonthlyTraining";
 import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
@@ -33,6 +34,7 @@ export const routes: RouteRecord[] = [
       { path: "services/compliance-platforms", element: <CompliancePlatforms />, entry: "src/pages/CompliancePlatforms.tsx" },
       { path: "services/isnetworld", element: <Isnetworld />, entry: "src/pages/Isnetworld.tsx" },
       { path: "isnetworld-help", element: <Isnetworld />, entry: "src/pages/Isnetworld.tsx" },
+      { path: "isn/help", element: <IsnHelp />, entry: "src/pages/IsnHelp.tsx" },
       { path: "isnetworld", element: <Isnetworld />, entry: "src/pages/Isnetworld.tsx" },
       { path: "avetta-help", element: <Avetta />, entry: "src/pages/Avetta.tsx" },
       { path: "avetta", element: <Avetta />, entry: "src/pages/Avetta.tsx" },
