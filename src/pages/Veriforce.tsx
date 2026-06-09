@@ -11,7 +11,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Phone } from "lucide-react";
+import { trackPhoneClick } from "@/lib/ga4";
 import heroImage from "@/assets/hero-compliance-platforms.jpg";
 
 const whatWeDo = [
@@ -121,9 +122,17 @@ const Veriforce = () => {
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
                   Veriforce Compliance Management
                 </h1>
-                <p className="text-xl mb-8 text-primary-foreground/95">
+                <p className="text-xl mb-6 text-primary-foreground/95">
                   Operator Qualification, training records, drug and alcohol program documentation, and audit prep — all handled end-to-end so your contractors stay eligible to work.
                 </p>
+                <a
+                  href="tel:601-647-1201"
+                  onClick={trackPhoneClick}
+                  className="inline-flex items-center justify-center gap-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors rounded-lg px-6 py-4 text-xl md:text-2xl font-bold shadow-lg mb-6"
+                >
+                  <Phone className="w-6 h-6" />
+                  Call 601-647-1201
+                </a>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" variant="secondary" asChild>
                     <a href="#contact">Get a Free Veriforce Compliance Quote</a>
@@ -134,7 +143,7 @@ const Veriforce = () => {
                     className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary"
                     asChild
                   >
-                    <a href="tel:601-647-1201">Call 601-647-1201</a>
+                    <a href="mailto:garland@cornerstoneriskmgt.com">Email Us</a>
                   </Button>
                 </div>
               </div>
