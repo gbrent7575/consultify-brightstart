@@ -15,10 +15,10 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Cornerstone Risk Management — Safety Consulting & Digital Compliance</title>
+        <title>About Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="15 plus years managing ISNetworld, Avetta and Veriforce accounts for 100 plus oil and gas contractors. Gulf Coast based. 24 hour response time."
+          content="Cornerstone Risk Management — 15+ years managing ISNetworld, Veriforce, and Avetta accounts for oil and gas contractors. Gulf Coast based, 24-hour response."
         />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/about" />
       </Helmet>

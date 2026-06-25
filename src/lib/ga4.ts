@@ -41,7 +41,7 @@ export const trackQuoteFormSubmission = (
 };
 
 export const trackPhoneClick = () => {
-  window.gtag?.('event', 'phone_click', {
+  window.gtag?.('event', 'qualified_phone_call', {
     event_category: 'conversion',
     event_label: 'phone_call',
     value: 1,
