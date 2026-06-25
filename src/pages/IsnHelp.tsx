@@ -30,9 +30,9 @@ const PLATFORMS = ["ISNetworld", "Veriforce", "Avetta", "Multiple"];
 
 const scoreDrivers = [
   { title: "MSQ", desc: "The Management System Questionnaire about your safety programs." },
-  { title: "RAVS", desc: "Your written safety programs, reviewed line-by-line." },
+  { title: "RAVS", desc: "Your written safety programs, reviewed line by line." },
   { title: "OSHA logs", desc: "Your 300/300A injury logs and TRIR." },
-  { title: "EMR", desc: "Your workers comp experience modification rate." },
+  { title: "EMR", desc: "Your workers' comp experience modification rate." },
   { title: "COIs", desc: "Certificates of insurance that meet each operator's limits." },
 ];
 
@@ -40,7 +40,7 @@ const stats = [
   { icon: Shield, value: "99%", label: "Compliance Success Rate" },
   { icon: Users, value: "100+", label: "Contractors Managed" },
   { icon: Clock, value: "15+", label: "Years Experience" },
-  { icon: Award, value: "24hr", label: "Response Time" },
+  { icon: Award, value: "24-Hour", label: "Response Time" },
 ];
 
 const testimonials = [
@@ -222,7 +222,7 @@ const IsnHelp = () => {
                     ISNetworld® Compliance Help for Oil & Gas Contractors — Get Approved Fast
                   </h1>
                   <p className="text-base md:text-lg text-primary-foreground/90 mb-6">
-                    Failed a review or watching your ISNetworld grade slip? We handle your MSQ, RAVS safety programs, OSHA logs, and document uploads and get you back to approved — so you stop losing bids over paperwork.
+                    Failed a review or watching your ISNetworld grade slip? We handle your MSQ, RAVS safety programs, OSHA logs, and document uploads — then get you back to approved so you stop losing bids over paperwork.
                   </p>
                   <a
                     href="tel:601-647-1201"
@@ -262,7 +262,7 @@ const IsnHelp = () => {
           <section className="py-16 md:py-20 bg-secondary/30">
             <div className="container mx-auto px-4 max-w-5xl">
               <h2 className="text-2xl md:text-4xl font-serif font-bold text-primary text-center mb-10">
-                The 5 things that drive your ISNetworld® score
+                The 5 things that drive your ISNetworld score
               </h2>
               <div className="grid md:grid-cols-2 gap-5">
                 {scoreDrivers.map((d, i) => (
@@ -289,7 +289,7 @@ const IsnHelp = () => {
             <div className="container mx-auto px-4 max-w-5xl">
               <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-4xl font-serif font-bold text-primary mb-3">
-                  Simple, flat-rate pricing — no quote-gating
+                  Simple, flat-rate pricing — published, not hidden
                 </h2>
                 <p className="text-muted-foreground">Same prices we publish on the homepage. No surprises.</p>
               </div>
@@ -394,7 +394,7 @@ const IsnHelp = () => {
           <section className="py-16 md:py-20 bg-primary text-primary-foreground text-center">
             <div className="container mx-auto px-4 max-w-3xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Get your ISNetworld® account back to approved
+                Get your ISNetworld account back to approved
               </h2>
               <p className="text-primary-foreground/90 mb-8 text-lg">
                 Call us now or send your details — we'll review your account and tell you exactly what it'll take.
