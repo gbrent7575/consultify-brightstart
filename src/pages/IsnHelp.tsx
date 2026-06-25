@@ -289,7 +289,7 @@ const IsnHelp = () => {
             <div className="container mx-auto px-4 max-w-5xl">
               <div className="text-center mb-10">
                 <h2 className="text-2xl md:text-4xl font-serif font-bold text-primary mb-3">
-                  Simple, flat-rate pricing — no quote-gating
+                  Simple, flat-rate pricing — published, not hidden
                 </h2>
                 <p className="text-muted-foreground">Same prices we publish on the homepage. No surprises.</p>
               </div>
