@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Users, Clock, Award } from "lucide-react";
+import { Shield, Users, Clock, Award, ShieldCheck, Zap } from "lucide-react";
+
 
 const stats = [
   {
