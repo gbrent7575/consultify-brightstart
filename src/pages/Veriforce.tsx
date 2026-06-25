@@ -185,7 +185,7 @@ const Veriforce = () => {
         <title>Veriforce Compliance Help for Oil & Gas Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Failed a Veriforce review or fallen out of compliance? We handle safety programs, OQ, OSHA logs, and document uploads so you get approved fast. Call 601-647-1201."
+          content="Veriforce compliance help for oil and gas contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201."
         />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/veriforce-help" />
       </Helmet>
