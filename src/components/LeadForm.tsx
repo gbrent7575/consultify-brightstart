@@ -10,24 +10,16 @@ import { supabase } from "@/integrations/supabase/client";
 import { trackQuoteFormSubmission, trackBookConsultation, trackPhoneClick, type QuoteFormPlatform } from "@/lib/ga4";
 
 const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
+const SOURCE_PAGE = "home";
 
 const leadSchema = z.object({
   name: z.string().trim().min(1, { message: "Name is required" }).max(100),
   company: z.string().trim().min(1, { message: "Company is required" }).max(100),
-  email: z.string().trim().email({ message: "Invalid email address" }).max(255),
   phone: z.string().trim().min(1, { message: "Phone is required" }).max(20),
-  platforms: z.string().min(1, { message: "Please select platforms needed" })
+  platform: z.string().min(1, { message: "Please select a platform" })
 });
 
-const PLATFORM_LABELS: Record<string, QuoteFormPlatform> = {
-  isnetworld: "ISNetworld",
-  avetta: "Avetta",
-  veriforce: "Veriforce",
-  pec: "PEC Premier",
-  browz: "BROWZ",
-  multiple: "Multiple",
-  "not-sure": "Other",
-};
+const PLATFORMS: QuoteFormPlatform[] = ["ISNetworld", "Veriforce", "Avetta", "Multiple"];
 
 const LeadForm = () => {
   const { toast } = useToast();
@@ -35,61 +27,56 @@ const LeadForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
-    email: "",
     phone: "",
-    platforms: ""
+    platform: ""
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
+    e?.preventDefault?.();
+    if (isSubmitting) return;
+    const parsed = leadSchema.safeParse(formData);
+    if (!parsed.success) {
+      toast({
+        title: "Please check the form",
+        description: parsed.error.issues[0]?.message ?? "Invalid input",
+        variant: "destructive"
+      });
+      return;
+    }
+    setIsSubmitting(true);
     try {
-      leadSchema.parse(formData);
-      setIsSubmitting(true);
-      
-      // Send via existing edge function
-      const { error } = await supabase.functions.invoke('send-contact-email', {
+      const { data, error } = await supabase.functions.invoke('send-isn-quote', {
         body: {
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: `Phone: ${formData.phone}\nPlatforms Needed: ${formData.platforms}`
+          name: parsed.data.name,
+          company: parsed.data.company,
+          phone: parsed.data.phone,
+          platform: parsed.data.platform,
+          email: "",
+          message: "",
+          source_page: SOURCE_PAGE,
         }
       });
-
-      if (error) throw error;
+      if (error || !data?.success) throw new Error(error?.message || "Send failed");
 
       toast({
         title: "Request received!",
         description: "We'll contact you within 24 hours with a quote."
       });
-      trackQuoteFormSubmission(PLATFORM_LABELS[formData.platforms] ?? "Other", "home");
+      trackQuoteFormSubmission(parsed.data.platform as QuoteFormPlatform, SOURCE_PAGE);
 
-      setFormData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        platforms: ""
-      });
+      setFormData({ name: "", company: "", phone: "", platform: "" });
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        toast({
-          title: "Please fill in all fields",
-          description: error.errors[0].message,
-          variant: "destructive"
-        });
-      } else {
-        console.error('Error sending lead:', error);
-        toast({
-          title: "Error submitting request",
-          description: "Please try again or call us at 601-647-1201",
-          variant: "destructive"
-        });
-      }
+      console.error('Error sending lead:', error);
+      toast({
+        title: "Error submitting request",
+        description: "Please try again or call us at 601-647-1201",
+        variant: "destructive"
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
+
 
   return (
     <section id="lead-form" className="py-20 md:py-24 bg-primary" aria-labelledby="lead-form-heading">
