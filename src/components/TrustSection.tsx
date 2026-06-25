@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Users, Clock, Award } from "lucide-react";
+import { Shield, Users, Clock, Award, ShieldCheck, Zap } from "lucide-react";
+
 
 const stats = [
   {
@@ -50,6 +51,24 @@ const TrustSection = () => {
   return (
     <section id="trust" className="py-20 md:py-24 bg-secondary/30" aria-labelledby="trust-heading">
       <div className="container mx-auto px-4">
+        {/* Guarantees */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-5xl mx-auto">
+          <div className="bg-primary text-primary-foreground rounded-lg p-6 flex items-start gap-4">
+            <ShieldCheck className="w-10 h-10 text-accent flex-shrink-0" />
+            <div>
+              <h3 className="text-xl font-bold mb-2">Approved or your setup fee back</h3>
+              <p className="text-primary-foreground/85">If we can't get your account to approved, your setup fee is refunded. Simple as that.</p>
+            </div>
+          </div>
+          <div className="bg-primary text-primary-foreground rounded-lg p-6 flex items-start gap-4">
+            <Zap className="w-10 h-10 text-accent flex-shrink-0" />
+            <div>
+              <h3 className="text-xl font-bold mb-2">Submitted in 5 business days or your first month is free</h3>
+              <p className="text-primary-foreground/85">Once we have your documents, your submission is in within 5 business days — or your first month of maintenance is on us.</p>
+            </div>
+          </div>
+        </div>
+
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
