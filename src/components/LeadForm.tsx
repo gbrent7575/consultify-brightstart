@@ -150,89 +150,70 @@ const LeadForm = () => {
               <CardDescription>We'll respond within 24 hours</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Name *
                   </label>
-                  <Input 
-                    id="name" 
+                  <Input
+                    id="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="John Doe" 
-                    required 
+                    placeholder="John Doe"
+                    required
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium mb-2">
                     Company *
                   </label>
-                  <Input 
-                    id="company" 
+                  <Input
+                    id="company"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="Your Company Name" 
-                    required 
+                    placeholder="Your Company Name"
+                    required
                   />
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email *
-                    </label>
-                    <Input 
-                      id="email" 
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="john@company.com" 
-                      required 
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                      Phone *
-                    </label>
-                    <Input 
-                      id="phone" 
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="(555) 123-4567" 
-                      required 
-                    />
-                  </div>
                 </div>
 
                 <div>
-                  <label htmlFor="platforms" className="block text-sm font-medium mb-2">
-                    Platforms Needed *
+                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                    Phone *
                   </label>
-                  <Select 
-                    value={formData.platforms}
-                    onValueChange={(value) => setFormData({ ...formData, platforms: value })}
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="(555) 123-4567"
                     required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="platform" className="block text-sm font-medium mb-2">
+                    Platform *
+                  </label>
+                  <Select
+                    value={formData.platform}
+                    onValueChange={(value) => setFormData({ ...formData, platform: value })}
                   >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select compliance platform(s)" />
+                    <SelectTrigger id="platform">
+                      <SelectValue placeholder="Select a platform" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="isnetworld">ISNetworld®</SelectItem>
-                      <SelectItem value="avetta">Avetta®</SelectItem>
-                      <SelectItem value="veriforce">Veriforce®</SelectItem>
-                      <SelectItem value="pec">PEC Premier</SelectItem>
-                      <SelectItem value="browz">BROWZ</SelectItem>
-                      <SelectItem value="multiple">Multiple Platforms</SelectItem>
-                      <SelectItem value="not-sure">Not Sure - Need Guidance</SelectItem>
+                      {PLATFORMS.map((p) => (
+                        <SelectItem key={p} value={p}>{p}</SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="button"
                   size="lg"
+                  onClick={handleSubmit}
                   disabled={isSubmitting}
                   className="w-full bg-accent text-accent-foreground hover:bg-accent/90 mt-2"
                 >
@@ -244,6 +225,7 @@ const LeadForm = () => {
                   No spam. We'll only contact you about your compliance needs.
                 </p>
               </form>
+
             </CardContent>
           </Card>
         </div>
