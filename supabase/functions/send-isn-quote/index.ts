@@ -11,6 +11,7 @@ interface QuoteRequest {
   phone: string;
   platform: string;
   message?: string;
+  source_page?: string;
 }
 
 function escapeHtml(s: string) {
@@ -24,28 +25,31 @@ function escapeHtml(s: string) {
 
 function validate(body: any): { ok: true; data: QuoteRequest } | { ok: false; error: string } {
   if (!body || typeof body !== "object") return { ok: false, error: "Invalid body" };
-  const fields = ["name", "company", "email", "phone", "platform"] as const;
-  for (const f of fields) {
+  const required = ["name", "company", "phone", "platform"] as const;
+  for (const f of required) {
     if (typeof body[f] !== "string" || body[f].trim().length === 0) {
       return { ok: false, error: `Missing field: ${f}` };
     }
     if (body[f].length > 500) return { ok: false, error: `Field too long: ${f}` };
   }
+  if (body.email && typeof body.email === "string" && body.email.trim().length > 0) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
+      return { ok: false, error: "Invalid email" };
+    }
+  }
   if (body.message && (typeof body.message !== "string" || body.message.length > 2000)) {
     return { ok: false, error: "Invalid message" };
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
-    return { ok: false, error: "Invalid email" };
   }
   return {
     ok: true,
     data: {
       name: body.name.trim(),
       company: body.company.trim(),
-      email: body.email.trim(),
+      email: (body.email || "").trim(),
       phone: body.phone.trim(),
       platform: body.platform.trim(),
       message: body.message?.trim() || "",
+      source_page: body.source_page?.trim() || "",
     },
   };
 }
