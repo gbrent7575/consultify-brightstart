@@ -1,186 +1,281 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import NavigationNew from "@/components/NavigationNew";
+import { z } from "zod";
+import { Link } from "react-router-dom";
+import { Phone, Check, Shield, Award, Users, Clock, ShieldCheck, Zap } from "lucide-react";
 import FooterNew from "@/components/FooterNew";
-import PricingSection from "@/components/PricingSection";
-import IsnQuoteForm from "@/components/IsnQuoteForm";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { CheckCircle2, Phone } from "lucide-react";
-import { trackPhoneClick } from "@/lib/ga4";
-import heroImage from "@/assets/hero-compliance-platforms.jpg";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { trackQuoteFormSubmission, trackPhoneClick } from "@/lib/ga4";
 
-const whatWeDo = [
-  "Veriforce account setup or reset",
-  "Operator Qualification (OQ) tracking and documentation",
-  "Pipeline contractor compliance — alignment with DOT 49 CFR Part 192 (gas) and Part 195 (hazardous liquid). We work from the live regulatory text, not internal shorthand.",
-  "Training records uploads and renewal tracking",
-  "Drug and alcohol program documentation (DOT-aligned)",
-  "Quarterly hours and incident reporting",
-  "Pre-audit review and reviewer feedback responses",
+const schema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  company: z.string().trim().min(1, "Company is required").max(150),
+  phone: z.string().trim().min(7, "Phone is required").max(30),
+  platform: z.string().min(1, "Please select a platform"),
+});
+
+const PLATFORMS = ["ISNetworld", "Veriforce", "Avetta", "Multiple"];
+const SOURCE_PAGE = "veriforce-help";
+const FORM_HEADING = "Get My Free Veriforce Review";
+
+const scoreDrivers = [
+  { title: "Safety programs", desc: "Your written HSE programs, reviewed and verified." },
+  { title: "Operator Qualification (OQ)", desc: "Verified task qualifications and required training where applicable." },
+  { title: "OSHA logs", desc: "Your 300/300A injury logs and TRIR." },
+  { title: "EMR", desc: "Your workers' comp experience modification rate." },
+  { title: "COIs", desc: "Certificates of insurance that meet each operator's limits." },
 ];
 
-const problems = [
-  {
-    problem: "My OQ records are out of date and a client just asked for proof.",
-    answer:
-      "We bring OQ tracking current and submit documentation in the format Veriforce expects.",
-  },
-  {
-    problem: "My drug and alcohol program changed and I haven't updated Veriforce.",
-    answer:
-      "We update the documentation and tie it to the appropriate DOT references.",
-  },
-  {
-    problem: "My account dropped because of expired training certs.",
-    answer:
-      "Monthly maintenance tracks renewals on a calendar and updates them before expiration.",
-  },
-  {
-    problem: "I am not sure which Veriforce sub-platform a client wants me on.",
-    answer:
-      "We confirm with your client, set it up correctly the first time, and document it for your records.",
-  },
-  {
-    problem: "My audit is in 30 days and I haven't started.",
-    answer:
-      "We pre-audit, identify gaps, and close them before your window opens.",
-  },
+const stats = [
+  { icon: Shield, value: "99%", label: "Compliance Success Rate" },
+  { icon: Users, value: "100+", label: "Contractors Managed" },
+  { icon: Clock, value: "15+", label: "Years Experience" },
+  { icon: Award, value: "24-Hour", label: "Response Time" },
 ];
 
-const faqs = [
+const testimonials = [
   {
-    q: "Do you handle DOT-regulated pipeline contractors specifically?",
-    a: "Yes. Veriforce's pipeline contractor compliance falls under DOT 49 CFR Part 192 (gas) and Part 195 (hazardous liquid). We reference the actual regulatory text and recommend you verify against the live reference rather than relying on summaries.",
+    quote: "Cornerstone took over our ISNetworld account and we went from red flags to fully approved in two weeks. They handle everything now — I haven't logged in once this year.",
+    author: "Operations Manager",
+    company: "Gulf Coast Welding Services",
   },
   {
-    q: "Can you keep my OQ tracking current?",
-    a: "Yes — OQ tracking is included in monthly maintenance. We track renewal cycles and prompt for re-evaluation before expiration.",
+    quote: "We were losing bids because of compliance issues. Now we're approved on three platforms and winning more work than ever. Best investment we've made.",
+    author: "Owner",
+    company: "Industrial Maintenance Contractor",
   },
   {
-    q: "Will you write a drug and alcohol program for me?",
-    a: "Custom safety program writing is not included in standard maintenance — it's a separate scope. But we'll review and upload an existing D&A program, or document the changes needed to bring it into Veriforce/DOT alignment.",
-  },
-  {
-    q: "What if my contracts pull from multiple platforms (ISN, Avetta, Veriforce, BROWZ, PEC)?",
-    a: "We coordinate across all of them. Most cross-platform issues are resolved by getting each underlying account to a clean, current state — which is exactly what monthly maintenance does.",
-  },
-  {
-    q: "Can you support a contractor that is brand-new to Veriforce?",
-    a: "Yes — that's what setup is for. $900 covers the full setup including questionnaire completion and reviewer feedback responses until approved.",
+    quote: "The monthly maintenance is worth every penny. They catch expiring documents before they become problems and keep us in the green.",
+    author: "Safety Director",
+    company: "Pipeline Services Company",
   },
 ];
 
-const Veriforce = () => {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
+const scrollToForm = () => {
+  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
+const QuoteForm = () => {
+  const { toast } = useToast();
+  const [submitting, setSubmitting] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    phone: "",
+    platform: "Veriforce",
+  });
+
+  const update = (k: keyof typeof form, v: string) =>
+    setForm((p) => ({ ...p, [k]: v }));
+
+  const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
+    e?.preventDefault?.();
+    if (submitting) return;
+    const parsed = schema.safeParse(form);
+    if (!parsed.success) {
+      toast({
+        title: "Please check the form",
+        description: parsed.error.issues[0]?.message ?? "Invalid input",
+        variant: "destructive",
+      });
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-isn-quote", {
+        body: {
+          name: parsed.data.name,
+          company: parsed.data.company,
+          phone: parsed.data.phone,
+          platform: parsed.data.platform,
+          email: "",
+          message: "",
+          source_page: SOURCE_PAGE,
+        },
+      });
+      if (error || !data?.success) throw new Error(error?.message || "Send failed");
+      toast({
+        title: "Request received!",
+        description: "We'll contact you within 24 hours.",
+      });
+      trackQuoteFormSubmission(
+        parsed.data.platform as Parameters<typeof trackQuoteFormSubmission>[0],
+        SOURCE_PAGE,
+      );
+      setForm({ name: "", company: "", phone: "", platform: "Veriforce" });
+    } catch (err) {
+      toast({
+        title: "Something went wrong",
+        description: "Please call 601-647-1201.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
+    <form
+      id="lead-form"
+      onSubmit={handleSubmit}
+      noValidate
+      className="bg-background text-foreground rounded-lg p-6 md:p-7 shadow-2xl space-y-4 border border-border"
+    >
+      <div className="text-center mb-2">
+        <h2 className="text-xl md:text-2xl font-bold text-primary">{FORM_HEADING}</h2>
+        <p className="text-sm text-muted-foreground">Takes 30 seconds. No obligation.</p>
+      </div>
+      <div>
+        <Label htmlFor="name">Name *</Label>
+        <Input id="name" value={form.name} onChange={(e) => update("name", e.target.value)} required />
+      </div>
+      <div>
+        <Label htmlFor="company">Company *</Label>
+        <Input id="company" value={form.company} onChange={(e) => update("company", e.target.value)} required />
+      </div>
+      <div>
+        <Label htmlFor="phone">Phone *</Label>
+        <Input id="phone" type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} required />
+      </div>
+      <div>
+        <Label htmlFor="platform">Platform *</Label>
+        <Select value={form.platform} onValueChange={(v) => update("platform", v)}>
+          <SelectTrigger id="platform">
+            <SelectValue placeholder="Select a platform" />
+          </SelectTrigger>
+          <SelectContent>
+            {PLATFORMS.map((p) => (
+              <SelectItem key={p} value={p}>{p}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <Button
+        type="button"
+        size="lg"
+        onClick={handleSubmit}
+        disabled={submitting}
+        className="w-full bg-accent text-accent-foreground hover:bg-accent/90 text-base font-semibold"
+      >
+        {submitting ? "Sending..." : FORM_HEADING}
+      </Button>
+      <p className="text-xs text-muted-foreground text-center">
+        No spam. We only contact you about your compliance.
+      </p>
+    </form>
+  );
+};
+
+const Veriforce = () => {
+  return (
     <>
       <Helmet>
-        <title>Veriforce® Compliance Help, Including OQ | Cornerstone Risk Management</title>
+        <title>Veriforce Compliance Help for Oil & Gas Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Need help with Veriforce? Operator Qualification, training, D&A, and audit prep, handled end-to-end. 99% success. From $900 setup, $250/mo. Call 601-647-1201."
+          content="Failed a Veriforce review or fallen out of compliance? We handle safety programs, OQ, OSHA logs, and document uploads so you get approved fast. Call 601-647-1201."
         />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/veriforce-help" />
-        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
-      <div className="min-h-screen flex flex-col">
-        <NavigationNew />
+      <div className="min-h-screen flex flex-col bg-background">
+        <div className="w-full bg-accent text-accent-foreground py-2 px-4 text-center text-sm font-medium">
+          Veriforce Compliance Help — Talk to a specialist today
+        </div>
 
-        <main className="flex-grow">
-          {/* Hero */}
-          <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-            <div className="absolute inset-0 z-0">
-              <img
-                src={heroImage}
-                alt="Veriforce compliance management for contractors"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/70" />
-            </div>
+        <header className="w-full border-b border-border bg-background sticky top-0 z-40">
+          <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+            <Link to="/" className="text-base md:text-xl font-serif font-bold text-primary hover:opacity-80">
+              Cornerstone Risk Management
+            </Link>
+            <a
+              href="tel:601-647-1201"
+              onClick={trackPhoneClick}
+              className="inline-flex items-center gap-2 text-primary font-bold text-sm md:text-lg hover:text-accent transition-colors"
+            >
+              <Phone className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="hidden sm:inline">601-647-1201</span>
+              <span className="sm:hidden">Call</span>
+            </a>
+          </div>
+        </header>
 
-            <div className="container mx-auto px-4 py-20 relative z-10">
-              <div className="max-w-3xl animate-fade-in">
-                <p className="text-sm md:text-base font-semibold uppercase tracking-wider text-accent mb-4">
-                  Operator Qualification · DOT-Aligned · Pipeline Contractors Welcome
-                </p>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
-                  Veriforce Compliance Management
-                </h1>
-                <p className="text-xl mb-6 text-primary-foreground/95">
-                  Operator Qualification, training records, drug and alcohol program documentation, and audit prep — all handled end-to-end so your contractors stay eligible to work.
-                </p>
-                <a
-                  href="tel:601-647-1201"
-                  onClick={trackPhoneClick}
-                  className="inline-flex items-center justify-center gap-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors rounded-lg px-6 py-4 text-xl md:text-2xl font-bold shadow-lg mb-6"
-                >
-                  <Phone className="w-6 h-6" />
-                  Call 601-647-1201
-                </a>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" variant="secondary" asChild>
-                    <a href="#contact">Get a Free Veriforce Compliance Quote</a>
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                    asChild
+        <main className="flex-grow pb-20 md:pb-0">
+          {/* HERO */}
+          <section className="bg-primary text-primary-foreground py-10 md:py-16">
+            <div className="container mx-auto px-4">
+              <div className="grid lg:grid-cols-2 gap-10 items-start">
+                <div>
+                  <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
+                    Veriforce® Compliance Help for Oil & Gas Contractors — Get Approved and Stay Approved
+                  </h1>
+                  <p className="text-base md:text-lg text-primary-foreground/90 mb-6">
+                    Failed a Veriforce review or your account fell out of compliance? We handle your safety programs, operator qualifications (OQ), OSHA logs, and document uploads — then get you back to approved so you stop losing bids over paperwork.
+                  </p>
+                  <a
+                    href="tel:601-647-1201"
+                    onClick={trackPhoneClick}
+                    className="inline-flex items-center gap-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors rounded-lg px-6 py-4 text-xl md:text-2xl font-bold shadow-lg mb-6"
                   >
-                    <a href="mailto:garland@cornerstoneriskmgt.com">Email Us</a>
-                  </Button>
+                    <Phone className="w-6 h-6" />
+                    Call 601-647-1201
+                  </a>
+
+                  <ul className="space-y-3 mt-4">
+                    {[
+                      "Recover a failing or rejected Veriforce status",
+                      "Done-for-you paperwork — safety programs, OQ records, OSHA logs, COIs",
+                      "Keep your operator approvals so you never lose a bid",
+                    ].map((b) => (
+                      <li key={b} className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-1" />
+                        <span className="text-primary-foreground/95">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 text-sm text-primary-foreground/70 italic">
+                    Built for contractors with 5-250 employees who need their company approved — not for individuals seeking personal certification.
+                  </p>
+                </div>
+
+                <div className="lg:sticky lg:top-24">
+                  <QuoteForm />
                 </div>
               </div>
             </div>
           </section>
 
-          {/* What We Do */}
-          <section className="py-16 bg-background">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold mb-12 text-center">
-                What We Do for Your Veriforce Account
+          {/* 5 drivers */}
+          <section className="py-16 md:py-20 bg-secondary/30">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-primary text-center mb-10">
+                The 5 things that drive your Veriforce status
               </h2>
-              <ol className="max-w-3xl mx-auto space-y-4">
-                {whatWeDo.map((item, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-9 h-9 rounded-full bg-accent text-accent-foreground font-bold flex items-center justify-center">
-                      {i + 1}
-                    </span>
-                    <p className="text-lg pt-1">{item}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </section>
-
-          {/* Problems We Solve */}
-          <section className="py-16 bg-muted/30">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold mb-12 text-center">
-                Common Veriforce Problems We Solve
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                {problems.map((p, i) => (
-                  <Card key={i} className="h-full">
+              <div className="grid md:grid-cols-2 gap-5">
+                {scoreDrivers.map((d, i) => (
+                  <Card key={d.title} className={i === 4 ? "md:col-span-2" : ""}>
                     <CardContent className="pt-6">
-                      <p className="font-bold text-lg mb-3 text-primary">"{p.problem}"</p>
-                      <p className="text-muted-foreground">{p.answer}</p>
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold flex-shrink-0">
+                          {i + 1}
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-primary text-lg mb-1">{d.title}</h3>
+                          <p className="text-muted-foreground">{d.desc}</p>
+                        </div>
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
@@ -188,89 +283,156 @@ const Veriforce = () => {
             </div>
           </section>
 
-          {/* Why Cornerstone */}
-          <section className="py-16 bg-background">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold mb-12 text-center">Why Cornerstone</h2>
-              <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                {[
-                  "99% success rate across submissions",
-                  "100+ contractors actively managed",
-                  "15+ years inside Veriforce workflows",
-                ].map((b, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-accent w-6 h-6 flex-shrink-0 mt-1" />
-                    <p className="text-lg">{b}</p>
+          {/* Pricing */}
+          <section className="py-16 md:py-20 bg-background">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl md:text-4xl font-serif font-bold text-primary mb-3">
+                  Simple, flat-rate pricing — published, not hidden
+                </h2>
+                <p className="text-muted-foreground">Same prices we publish on the homepage. No surprises.</p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card className="border-2 border-border">
+                  <CardContent className="pt-6">
+                    <p className="text-accent text-xs font-semibold uppercase tracking-wide mb-1">One-Time Setup</p>
+                    <h3 className="text-xl font-bold text-primary mb-3">Platform Setup</h3>
+                    <div className="space-y-2 text-foreground">
+                      <p><span className="text-3xl font-bold">$900</span> <span className="text-muted-foreground">/ platform</span></p>
+                      <p className="text-muted-foreground">$1,600 for two platforms together</p>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card className="border-2 border-accent bg-accent/5">
+                  <CardContent className="pt-6">
+                    <p className="text-accent text-xs font-semibold uppercase tracking-wide mb-1">Monthly Maintenance</p>
+                    <h3 className="text-xl font-bold text-primary mb-3">Keep You Approved</h3>
+                    <ul className="space-y-2 text-foreground">
+                      <li><span className="font-bold">$250/mo</span> — single platform</li>
+                      <li><span className="font-bold">$300/mo</span> — dual platform</li>
+                      <li><span className="font-bold">$350/mo</span> — multi-platform (up to 3)</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+              <div className="text-center mt-8">
+                <Button
+                  size="lg"
+                  onClick={scrollToForm}
+                  className="bg-accent text-accent-foreground hover:bg-accent/90"
+                >
+                  {FORM_HEADING}
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          {/* Guarantees */}
+          <section className="py-16 md:py-20 bg-primary text-primary-foreground">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <h2 className="text-2xl md:text-4xl font-serif font-bold text-center mb-10">
+                Our Guarantees
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-primary-foreground/5 border border-primary-foreground/20 rounded-lg p-6 flex items-start gap-4">
+                  <ShieldCheck className="w-10 h-10 text-accent flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Approved or your setup fee back</h3>
+                    <p className="text-primary-foreground/85">If we can't get your account to approved, your setup fee is refunded. Simple as that.</p>
                   </div>
+                </div>
+                <div className="bg-primary-foreground/5 border border-primary-foreground/20 rounded-lg p-6 flex items-start gap-4">
+                  <Zap className="w-10 h-10 text-accent flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Submitted in 5 business days or your first month is free</h3>
+                    <p className="text-primary-foreground/85">Once we have your documents, your submission is in within 5 business days — or your first month of maintenance is on us.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Proof */}
+          <section className="py-16 md:py-20 bg-secondary/30">
+            <div className="container mx-auto px-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-14 max-w-5xl mx-auto">
+                {stats.map((s) => (
+                  <Card key={s.label} className="text-center">
+                    <CardContent className="pt-6">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <s.icon className="h-6 w-6 text-accent" />
+                      </div>
+                      <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{s.value}</div>
+                      <div className="text-sm text-muted-foreground">{s.label}</div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-primary text-center mb-8">
+                What our clients say
+              </h2>
+              <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+                {testimonials.map((t, i) => (
+                  <Card key={i}>
+                    <CardContent className="pt-6">
+                      <div className="text-accent text-4xl font-serif leading-none mb-3">"</div>
+                      <p className="text-foreground leading-relaxed mb-5">{t.quote}</p>
+                      <div className="border-t border-border pt-4">
+                        <div className="font-semibold text-primary">{t.author}</div>
+                        <div className="text-sm text-muted-foreground">{t.company}</div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* Pricing */}
-          <PricingSection />
-
-          {/* FAQs */}
-          <section className="py-16 bg-muted/30">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold mb-12 text-center">
-                Frequently Asked Questions
+          {/* Final CTA */}
+          <section className="py-16 md:py-20 bg-primary text-primary-foreground text-center">
+            <div className="container mx-auto px-4 max-w-3xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Get your Veriforce account back to approved
               </h2>
-              <div className="max-w-3xl mx-auto">
-                <Accordion type="single" collapsible className="w-full">
-                  {faqs.map((f, i) => (
-                    <AccordionItem key={i} value={`item-${i}`}>
-                      <AccordionTrigger className="text-left text-lg font-semibold">
-                        {f.q}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-base text-muted-foreground">
-                        {f.a}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <section
-            id="contact"
-            className="py-20 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground"
-          >
-            <div className="container mx-auto px-4 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Get a Free Veriforce Compliance Quote
-              </h2>
-              <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-primary-foreground/90">
-                Whether you need OQ help, audit prep, or full account management, tell us your situation and we'll send a personalized quote within 24 hours.
+              <p className="text-primary-foreground/90 mb-8 text-lg">
+                Call us now or send your details — we'll review your account and tell you exactly what it'll take.
               </p>
-              <IsnQuoteForm
-                defaultPlatform="Veriforce"
-                sourcePage="veriforce-help"
-                messagePlaceholder="OQ status, audit timeline, or anything else we should know."
-              />
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-                <Button size="lg" variant="secondary" asChild>
-                  <a href="tel:601-647-1201">Call 601-647-1201</a>
-                </Button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href="tel:601-647-1201"
+                  onClick={trackPhoneClick}
+                  className="inline-flex items-center gap-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-colors rounded-lg px-6 py-4 text-xl font-bold shadow-lg"
+                >
+                  <Phone className="w-6 h-6" />
+                  Call 601-647-1201
+                </a>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                  asChild
+                  onClick={scrollToForm}
+                  className="bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary text-base"
                 >
-                  <a href="mailto:garland@cornerstoneriskmgt.com">Email Us</a>
+                  Use the form instead
                 </Button>
               </div>
-              <p className="text-xs text-primary-foreground/70 mt-10 max-w-3xl mx-auto">
-                Cornerstone Risk Management is in no way endorsed, sponsored, approved by, or otherwise affiliated with Veriforce, LLC. Veriforce is a registered trademark of Veriforce, LLC.
+              <p className="text-xs text-primary-foreground/70 mt-6">
+                Veriforce® is a registered trademark of Veriforce, LLC. Cornerstone Risk Management is not endorsed by or affiliated with Veriforce, LLC.
               </p>
             </div>
           </section>
         </main>
 
         <FooterNew />
+
+        <a
+          href="tel:601-647-1201"
+          onClick={trackPhoneClick}
+          className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-accent text-accent-foreground flex items-center justify-center gap-2 py-4 font-bold text-lg shadow-[0_-4px_12px_rgba(0,0,0,0.15)]"
+        >
+          <Phone className="w-5 h-5" />
+          Call 601-647-1201
+        </a>
       </div>
     </>
   );
