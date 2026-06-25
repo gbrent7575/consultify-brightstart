@@ -40,7 +40,7 @@ const stats = [
   { icon: Shield, value: "99%", label: "Compliance Success Rate" },
   { icon: Users, value: "100+", label: "Contractors Managed" },
   { icon: Clock, value: "15+", label: "Years Experience" },
-  { icon: Award, value: "24hr", label: "Response Time" },
+  { icon: Award, value: "24-Hour", label: "Response Time" },
 ];
 
 const testimonials = [
