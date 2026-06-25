@@ -11,10 +11,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>ISNetworld®, Veriforce® & Avetta® Compliance Support Services | Cornerstone Risk Management</title>
+        <title>ISNetworld, Veriforce & Avetta Compliance Help for Oil & Gas Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="ISNetworld, Veriforce and Avetta compliance management for oil and gas contractors. 99 percent success rate. Setup from $900, maintenance from $250 per month."
+          content="ISNetworld, Veriforce and Avetta compliance help for oil and gas contractors. Setup, maintenance, and grade recovery — done for you with flat-rate pricing."
         />
         <meta name="keywords" content="ISNetworld compliance support, Avetta compliance services, Veriforce compliance, contractor compliance, digital safety compliance, oil and gas compliance, contractor safety management, RAVS, PQF completion" />
         <link rel="canonical" href="https://cornerstoneriskmgt.com/" />
