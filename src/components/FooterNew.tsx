@@ -11,10 +11,9 @@ const FooterNew = () => {
 
   const services = [
     { name: "Digital Compliance Management", path: "/services/compliance-platforms" },
-    { name: "Safety Program Development", path: "/services/safety-program-development" },
-    { name: "Regulatory Compliance", path: "/services/regulatory-compliance" },
-    { name: "Onsite Audits & Training", path: "/services/onsite-audits-training" },
-    { name: "Risk Consulting", path: "/services/risk-consulting" }
+    { name: "ISNetworld® Help", path: "/isn/help" },
+    { name: "Veriforce® Help", path: "/veriforce-help" },
+    { name: "Avetta® Help", path: "/avetta-help" }
   ];
 
   const platforms = [
