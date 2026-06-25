@@ -247,7 +247,7 @@ const IsnHelp = () => {
                     ))}
                   </ul>
                   <p className="mt-5 text-sm text-primary-foreground/70 italic">
-                    Built for contractors with 5-250 employees who need their company approved — not for individuals seeking personal certification.
+                    Built for contractors with 5–250 employees who need their company approved — not for individuals seeking personal certification.
                   </p>
                 </div>
 

@@ -32,7 +32,7 @@ const FORM_HEADING = "Get My Free Veriforce Review";
 
 const scoreDrivers = [
   { title: "Safety programs", desc: "Your written HSE programs, reviewed and verified." },
-  { title: "Operator Qualification (OQ)", desc: "Verified task qualifications and required training where applicable." },
+  { title: "Operator Qualification (OQ)", desc: "Verified task qualifications and required training for covered tasks." },
   { title: "OSHA logs", desc: "Your 300/300A injury logs and TRIR." },
   { title: "EMR", desc: "Your workers' comp experience modification rate." },
   { title: "COIs", desc: "Certificates of insurance that meet each operator's limits." },
@@ -222,7 +222,7 @@ const Veriforce = () => {
                     Veriforce® Compliance Help for Oil & Gas Contractors — Get Approved and Stay Approved
                   </h1>
                   <p className="text-base md:text-lg text-primary-foreground/90 mb-6">
-                    Failed a Veriforce review or your account fell out of compliance? We handle your safety programs, operator qualifications (OQ), OSHA logs, and document uploads — then get you back to approved so you stop losing bids over paperwork.
+                    Failed a Veriforce review or your account fell out of compliance? We handle your safety programs, operator qualification (OQ), OSHA logs, and document uploads — then get you back to approved so you stop losing bids over paperwork.
                   </p>
                   <a
                     href="tel:601-647-1201"
@@ -246,7 +246,7 @@ const Veriforce = () => {
                     ))}
                   </ul>
                   <p className="mt-5 text-sm text-primary-foreground/70 italic">
-                    Built for contractors with 5-250 employees who need their company approved — not for individuals seeking personal certification.
+                    Built for contractors with 5–250 employees who need their company approved — not for individuals seeking personal certification.
                   </p>
                 </div>
 
