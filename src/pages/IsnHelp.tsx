@@ -222,7 +222,7 @@ const IsnHelp = () => {
                     ISNetworld® Compliance Help for Oil & Gas Contractors — Get Approved Fast
                   </h1>
                   <p className="text-base md:text-lg text-primary-foreground/90 mb-6">
-                    Failed a review or watching your ISNetworld grade slip? We handle your MSQ, RAVS safety programs, OSHA logs, and document uploads and get you back to approved — so you stop losing bids over paperwork.
+                    Failed a review or watching your ISNetworld grade slip? We handle your MSQ, RAVS safety programs, OSHA logs, and document uploads — then get you back to approved so you stop losing bids over paperwork.
                   </p>
                   <a
                     href="tel:601-647-1201"
