@@ -30,9 +30,9 @@ const PLATFORMS = ["ISNetworld", "Veriforce", "Avetta", "Multiple"];
 
 const scoreDrivers = [
   { title: "MSQ", desc: "The Management System Questionnaire about your safety programs." },
-  { title: "RAVS", desc: "Your written safety programs, reviewed line-by-line." },
+  { title: "RAVS", desc: "Your written safety programs, reviewed line by line." },
   { title: "OSHA logs", desc: "Your 300/300A injury logs and TRIR." },
-  { title: "EMR", desc: "Your workers comp experience modification rate." },
+  { title: "EMR", desc: "Your workers' comp experience modification rate." },
   { title: "COIs", desc: "Certificates of insurance that meet each operator's limits." },
 ];
 
