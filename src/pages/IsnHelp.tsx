@@ -262,7 +262,7 @@ const IsnHelp = () => {
           <section className="py-16 md:py-20 bg-secondary/30">
             <div className="container mx-auto px-4 max-w-5xl">
               <h2 className="text-2xl md:text-4xl font-serif font-bold text-primary text-center mb-10">
-                The 5 things that drive your ISNetworld® score
+                The 5 things that drive your ISNetworld score
               </h2>
               <div className="grid md:grid-cols-2 gap-5">
                 {scoreDrivers.map((d, i) => (
