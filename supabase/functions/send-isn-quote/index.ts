@@ -71,15 +71,16 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-    const { name, company, email, phone, platform, message } = result.data;
+    const { name, company, email, phone, platform, message, source_page } = result.data;
 
     const html = `
       <h2>New ISN Compliance Quote Request</h2>
       <p><strong>Name:</strong> ${escapeHtml(name)}</p>
       <p><strong>Company:</strong> ${escapeHtml(company)}</p>
-      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+      ${email ? `<p><strong>Email:</strong> ${escapeHtml(email)}</p>` : ""}
       <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
       <p><strong>Platforms Needed:</strong> ${escapeHtml(platform)}</p>
+      ${source_page ? `<p><strong>Source Page:</strong> ${escapeHtml(source_page)}</p>` : ""}
       ${message ? `<p><strong>Message:</strong><br/>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>` : ""}
     `;
 
@@ -92,7 +93,7 @@ Deno.serve(async (req) => {
       body: JSON.stringify({
         from: "Cornerstone Website <onboarding@resend.dev>",
         to: ["garland@cornerstoneriskmgt.com"],
-        reply_to: email,
+        ...(email ? { reply_to: email } : {}),
         subject: `${platform} Quote Request — ${company}`,
         html,
       }),
