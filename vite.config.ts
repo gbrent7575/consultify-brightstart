@@ -53,5 +53,9 @@ export default defineConfig(({ mode }) => ({
     script: "async",
     formatting: "minify",
     crittersOptions: false,
+    // Emit each route as <route>/index.html so static hosts serve the
+    // prerendered HTML for clean URLs (e.g. /pricing -> pricing/index.html)
+    // instead of falling back to the SPA index.html.
+    dirStyle: "nested",
   },
 }));
