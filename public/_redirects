@@ -1,9 +1,6 @@
-# Redirect old ASP.NET URLs to homepage
+# Legacy ASP.NET URL cleanup. Lovable hosting auto-serves prerendered
+# per-route index.html files and falls back to the SPA index.html for
+# unknown routes, so no SPA catch-all rule is needed here.
 /Default.aspx / 301
 /default.aspx / 301
-
-# Redirect any other .aspx files to homepage
 /*.aspx / 301
-
-# Ensure all URLs go to index.html for client-side routing
-/*    /index.html   200
