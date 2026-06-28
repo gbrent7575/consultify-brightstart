@@ -17,14 +17,15 @@ const Index = () => {
           content="ISNetworld, Veriforce and Avetta compliance help for oil and gas contractors. Setup, maintenance, and grade recovery — done for you with flat-rate pricing."
         />
         <meta name="keywords" content="ISNetworld compliance support, Avetta compliance services, Veriforce compliance, contractor compliance, digital safety compliance, oil and gas compliance, contractor safety management, RAVS, PQF completion" />
-        <link rel="canonical" href="https://cornerstoneriskmgt.com/" />
+        <link rel="canonical" href="https://contractorcompliancepros.com/" />
+        <meta name="twitter:url" content="https://contractorcompliancepros.com/" />
         
         {/* Open Graph */}
         <meta property="og:title" content="ISNetworld®, Veriforce® & Avetta® Compliance Support Services | Cornerstone Risk Management" />
         <meta property="og:description" content="We provide digital compliance support so you can get back to work. 99% success rate, flat-rate pricing." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://cornerstoneriskmgt.com/" />
-        <meta property="og:image" content="https://cornerstoneriskmgt.com/og-image.jpg" />
+        <meta property="og:url" content="https://contractorcompliancepros.com/" />
+        <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
         <meta property="og:site_name" content="Cornerstone Risk Management" />
         
         {/* Twitter */}

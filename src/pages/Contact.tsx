@@ -15,7 +15,9 @@ const Contact = () => {
           name="description"
           content="Contact Cornerstone Risk Management for a free 15 minute compliance consultation. Call 601-647-1201 or book online. No obligation."
         />
-        <link rel="canonical" href="https://cornerstoneriskmgt.com/contact" />
+        <link rel="canonical" href="https://contractorcompliancepros.com/contact" />
+        <meta property="og:url" content="https://contractorcompliancepros.com/contact" />
+        <meta name="twitter:url" content="https://contractorcompliancepros.com/contact" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">

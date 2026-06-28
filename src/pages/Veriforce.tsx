@@ -187,7 +187,9 @@ const Veriforce = () => {
           name="description"
           content="Veriforce compliance help for oil and gas contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201."
         />
-        <link rel="canonical" href="https://cornerstoneriskmgt.com/veriforce-help" />
+        <link rel="canonical" href="https://contractorcompliancepros.com/veriforce-help" />
+        <meta property="og:url" content="https://contractorcompliancepros.com/veriforce-help" />
+        <meta name="twitter:url" content="https://contractorcompliancepros.com/veriforce-help" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-background">
