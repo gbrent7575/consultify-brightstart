@@ -129,7 +129,7 @@ const Isnetworld = () => {
           name="keywords"
           content="ISNetworld compliance, RAVS upload, ISNetworld score, ISNetworld questionnaire, contractor prequalification, ISNetworld audit"
         />
-        <link rel="canonical" href="https://cornerstoneriskmgt.com/services/isnetworld" />
+        <link rel="canonical" href="https://contractorcompliancepros.com/services/isnetworld" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 

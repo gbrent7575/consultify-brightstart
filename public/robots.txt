@@ -14,5 +14,5 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://cornerstoneriskmgt.com/sitemap.xml
+Sitemap: https://contractorcompliancepros.com/sitemap.xml
 

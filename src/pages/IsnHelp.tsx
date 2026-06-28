@@ -185,7 +185,7 @@ const IsnHelp = () => {
           name="description"
           content="Failed an ISNetworld review or watching your grade slip? We handle MSQ, RAVS, OSHA logs, and COI uploads so you get approved fast. Call 601-647-1201."
         />
-        <link rel="canonical" href="https://cornerstoneriskmgt.com/isn/help" />
+        <link rel="canonical" href="https://contractorcompliancepros.com/isn/help" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-background">
