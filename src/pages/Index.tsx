@@ -18,6 +18,7 @@ const Index = () => {
         />
         <meta name="keywords" content="ISNetworld compliance support, Avetta compliance services, Veriforce compliance, contractor compliance, digital safety compliance, oil and gas compliance, contractor safety management, RAVS, PQF completion" />
         <link rel="canonical" href="https://contractorcompliancepros.com/" />
+        <meta name="twitter:url" content="https://contractorcompliancepros.com/" />
         
         {/* Open Graph */}
         <meta property="og:title" content="ISNetworld®, Veriforce® & Avetta® Compliance Support Services | Cornerstone Risk Management" />

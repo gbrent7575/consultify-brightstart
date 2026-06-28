@@ -21,6 +21,8 @@ const About = () => {
           content="Cornerstone Risk Management — 15+ years managing ISNetworld, Veriforce, and Avetta accounts for oil and gas contractors. Gulf Coast based, 24-hour response."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/about" />
+        <meta property="og:url" content="https://contractorcompliancepros.com/about" />
+        <meta name="twitter:url" content="https://contractorcompliancepros.com/about" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">

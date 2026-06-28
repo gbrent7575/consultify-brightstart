@@ -130,6 +130,8 @@ const Isnetworld = () => {
           content="ISNetworld compliance, RAVS upload, ISNetworld score, ISNetworld questionnaire, contractor prequalification, ISNetworld audit"
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/services/isnetworld" />
+        <meta property="og:url" content="https://contractorcompliancepros.com/services/isnetworld" />
+        <meta name="twitter:url" content="https://contractorcompliancepros.com/services/isnetworld" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 

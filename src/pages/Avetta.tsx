@@ -188,6 +188,8 @@ const Avetta = () => {
           content="Behind on Avetta or stuck on a low grade? We handle safety programs, OSHA logs, insurance, and document uploads so you get compliant fast. Call 601-647-1201."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/avetta-help" />
+        <meta property="og:url" content="https://contractorcompliancepros.com/avetta-help" />
+        <meta name="twitter:url" content="https://contractorcompliancepros.com/avetta-help" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-background">
