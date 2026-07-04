@@ -158,6 +158,19 @@ const LeadForm = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} noValidate className="space-y-4">
+                {/* Honeypot: hidden from real users */}
+                <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", top: "auto", width: 1, height: 1, overflow: "hidden" }}>
+                  <label htmlFor="website">Website</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                  />
+                </div>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Name *
