@@ -54,6 +54,8 @@ const IsnQuoteForm = ({
     platform: defaultPlatform,
     message: "",
   });
+  const [website, setWebsite] = useState(""); // honeypot
+  const [renderedAt] = useState(() => Date.now());
 
   const update = (k: keyof typeof form, v: string) =>
     setForm((p) => ({ ...p, [k]: v }));
@@ -61,6 +63,11 @@ const IsnQuoteForm = ({
   const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
     e?.preventDefault?.();
     if (submitting) return;
+    // Honeypot: silently drop bot submissions
+    if (website || Date.now() - renderedAt < 1500) {
+      setForm({ name: "", company: "", email: "", phone: "", platform: defaultPlatform, message: "" });
+      return;
+    }
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       toast({
