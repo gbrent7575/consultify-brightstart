@@ -30,9 +30,16 @@ const LeadForm = () => {
     phone: "",
     platform: ""
   });
+  const [website, setWebsite] = useState(""); // honeypot
+  const [renderedAt] = useState(() => Date.now());
 
   const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
     e?.preventDefault?.();
+    // Honeypot: silently "succeed" for bots
+    if (website || Date.now() - renderedAt < 1500) {
+      setFormData({ name: "", company: "", phone: "", platform: "" });
+      return;
+    }
     if (isSubmitting) return;
     const parsed = leadSchema.safeParse(formData);
     if (!parsed.success) {
