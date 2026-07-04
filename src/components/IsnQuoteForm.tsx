@@ -108,6 +108,19 @@ const IsnQuoteForm = ({
       noValidate
       className="bg-background text-foreground rounded-lg p-6 md:p-8 max-w-2xl mx-auto text-left shadow-lg"
     >
+      {/* Honeypot: hidden from real users */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", top: "auto", width: 1, height: 1, overflow: "hidden" }}>
+        <label htmlFor="website-hp">Website</label>
+        <input
+          id="website-hp"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="name">Name *</Label>
