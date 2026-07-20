@@ -35,7 +35,7 @@ const HeroNew = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mb-6 leading-tight">
-            ISNetworld®, Veriforce® & Avetta® Compliance Help for Oil & Gas Contractors
+            ISNetworld®, Veriforce® & Avetta® Compliance Help for Contractors
           </h1>
           
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">

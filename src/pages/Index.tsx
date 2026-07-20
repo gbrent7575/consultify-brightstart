@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>ISNetworld, Veriforce & Avetta Compliance Help for Oil & Gas Contractors | Cornerstone Risk Management</title>
+        <title>ISNetworld, Veriforce & Avetta Compliance Help for Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="ISNetworld, Veriforce and Avetta compliance help for oil and gas contractors. Setup, maintenance, and grade recovery — done for you with flat-rate pricing."

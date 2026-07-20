@@ -182,7 +182,7 @@ const Veriforce = () => {
   return (
     <>
       <Helmet>
-        <title>Veriforce Compliance Help for Oil & Gas Contractors | Cornerstone Risk Management</title>
+        <title>Veriforce Compliance Help for Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="Veriforce compliance help for oil and gas contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201."

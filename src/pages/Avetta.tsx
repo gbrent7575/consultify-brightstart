@@ -4,6 +4,7 @@ import { z } from "zod";
 import { Link } from "react-router-dom";
 import { Phone, Check, Shield, Award, Users, Clock, ShieldCheck, Zap } from "lucide-react";
 import FooterNew from "@/components/FooterNew";
+import HeroSupportNotice from "@/components/HeroSupportNotice";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -220,8 +221,11 @@ const Avetta = () => {
             <div className="container mx-auto px-4">
               <div className="grid lg:grid-cols-2 gap-10 items-start">
                 <div>
+                  <p className="text-xs md:text-sm font-semibold uppercase tracking-widest text-accent mb-3">
+                    Independent Compliance Consultants — Cornerstone Risk Management
+                  </p>
                   <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
-                    Avetta® Compliance Help for Oil & Gas Contractors — Done-for-You Setup and Maintenance
+                    Avetta® Compliance Help for Contractors — Done-for-You Setup and Maintenance
                   </h1>
                   <p className="text-base md:text-lg text-primary-foreground/90 mb-6">
                     Behind on your Avetta requirements or stuck on a low grade? We handle your safety programs, OSHA logs, insurance, and document uploads — then get you compliant so you stop losing bids over paperwork.
@@ -234,6 +238,18 @@ const Avetta = () => {
                     <Phone className="w-6 h-6" />
                     Call 601-647-1201
                   </a>
+                  <HeroSupportNotice storageKey="notice-avetta-support">
+                    Looking for Avetta's own customer support (logins, passwords, worker accounts)? Contact Avetta directly at{" "}
+                    <a
+                      href="https://help.avetta.com/s/supplier"
+                      target="_blank"
+                      rel="noopener"
+                      className="underline hover:text-primary-foreground"
+                    >
+                      their Supplier Help Center
+                    </a>
+                    . Cornerstone Risk Management is an independent consultancy — we manage Avetta compliance for contractor companies.
+                  </HeroSupportNotice>
 
                   <ul className="space-y-3 mt-4">
                     {[
