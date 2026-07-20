@@ -4,6 +4,7 @@ import { z } from "zod";
 import { Link } from "react-router-dom";
 import { Phone, Check, Shield, Award, Users, Clock, ShieldCheck, Zap } from "lucide-react";
 import FooterNew from "@/components/FooterNew";
+import HeroSupportNotice from "@/components/HeroSupportNotice";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -220,8 +221,11 @@ const IsnHelp = () => {
             <div className="container mx-auto px-4">
               <div className="grid lg:grid-cols-2 gap-10 items-start">
                 <div>
+                  <p className="text-xs md:text-sm font-semibold uppercase tracking-widest text-accent mb-3">
+                    Independent Compliance Consultants — Cornerstone Risk Management
+                  </p>
                   <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
-                    ISNetworld® Compliance Help for Oil & Gas Contractors — Get Approved Fast
+                    ISNetworld® Compliance Help for Contractors — Get Approved Fast
                   </h1>
                   <p className="text-base md:text-lg text-primary-foreground/90 mb-6">
                     Failed a review or watching your ISNetworld grade slip? We handle your MSQ, RAVS safety programs, OSHA logs, and document uploads — then get you back to approved so you stop losing bids over paperwork.
@@ -234,6 +238,18 @@ const IsnHelp = () => {
                     <Phone className="w-6 h-6" />
                     Call 601-647-1201
                   </a>
+                  <HeroSupportNotice storageKey="notice-isn-support">
+                    Looking for ISNetworld's own customer support (logins, passwords, worker accounts)? Contact ISNetworld directly at{" "}
+                    <a
+                      href="https://www.isnetworld.com/en/contact"
+                      target="_blank"
+                      rel="noopener"
+                      className="underline hover:text-primary-foreground"
+                    >
+                      their contact page
+                    </a>
+                    . Cornerstone Risk Management is an independent consultancy — we manage ISNetworld compliance for contractor companies.
+                  </HeroSupportNotice>
 
                   {/* Trust bullets */}
                   <ul className="space-y-3 mt-4">
