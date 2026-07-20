@@ -4,6 +4,7 @@ import { z } from "zod";
 import { Link } from "react-router-dom";
 import { Phone, Check, Shield, Award, Users, Clock, ShieldCheck, Zap } from "lucide-react";
 import FooterNew from "@/components/FooterNew";
+import HeroSupportNotice from "@/components/HeroSupportNotice";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -182,7 +183,7 @@ const Veriforce = () => {
   return (
     <>
       <Helmet>
-        <title>Veriforce Compliance Help for Oil & Gas Contractors | Cornerstone Risk Management</title>
+        <title>Veriforce Compliance Help for Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="Veriforce compliance help for oil and gas contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201."
@@ -220,8 +221,11 @@ const Veriforce = () => {
             <div className="container mx-auto px-4">
               <div className="grid lg:grid-cols-2 gap-10 items-start">
                 <div>
+                  <p className="text-xs md:text-sm font-semibold uppercase tracking-widest text-accent mb-3">
+                    Independent Compliance Consultants — Cornerstone Risk Management
+                  </p>
                   <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
-                    Veriforce® Compliance Help for Oil & Gas Contractors — Get Approved and Stay Approved
+                    Veriforce® Compliance Help for Contractors — Get Approved and Stay Approved
                   </h1>
                   <p className="text-base md:text-lg text-primary-foreground/90 mb-6">
                     Failed a Veriforce review or your account fell out of compliance? We handle your safety programs, operator qualification (OQ), OSHA logs, and document uploads — then get you back to approved so you stop losing bids over paperwork.
@@ -234,6 +238,18 @@ const Veriforce = () => {
                     <Phone className="w-6 h-6" />
                     Call 601-647-1201
                   </a>
+                  <HeroSupportNotice storageKey="notice-veriforce-support">
+                    Looking for Veriforce's own customer support (logins, passwords, worker accounts)? Contact Veriforce directly at{" "}
+                    <a
+                      href="https://veriforce.com/company/contact-us"
+                      target="_blank"
+                      rel="noopener"
+                      className="underline hover:text-primary-foreground"
+                    >
+                      their support page
+                    </a>
+                    . Cornerstone Risk Management is an independent consultancy — we manage Veriforce compliance for contractor companies.
+                  </HeroSupportNotice>
 
                   <ul className="space-y-3 mt-4">
                     {[
