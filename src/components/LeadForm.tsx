@@ -16,10 +16,13 @@ const leadSchema = z.object({
   name: z.string().trim().min(1, { message: "Name is required" }).max(100),
   company: z.string().trim().min(1, { message: "Company is required" }).max(100),
   phone: z.string().trim().min(1, { message: "Phone is required" }).max(20),
-  platform: z.string().min(1, { message: "Please select a platform" })
+  email: z.string().trim().email({ message: "Please enter a valid email" }).max(255),
+  platform: z.string().min(1, { message: "Please select a platform" }),
+  referral_source: z.string().min(1, { message: "Please select one" })
 });
 
 const PLATFORMS: QuoteFormPlatform[] = ["ISNetworld", "Veriforce", "Avetta", "Multiple"];
+const REFERRAL_SOURCES = ["Google search", "ChatGPT or another AI assistant", "Someone referred me", "Other"];
 
 const LeadForm = () => {
   const { toast } = useToast();
@@ -28,7 +31,9 @@ const LeadForm = () => {
     name: "",
     company: "",
     phone: "",
-    platform: ""
+    email: "",
+    platform: "",
+    referral_source: ""
   });
   const [website, setWebsite] = useState(""); // honeypot
   const [renderedAt] = useState(() => Date.now());
@@ -37,7 +42,7 @@ const LeadForm = () => {
     e?.preventDefault?.();
     // Honeypot: silently "succeed" for bots
     if (website || Date.now() - renderedAt < 1500) {
-      setFormData({ name: "", company: "", phone: "", platform: "" });
+      setFormData({ name: "", company: "", phone: "", email: "", platform: "", referral_source: "" });
       return;
     }
     if (isSubmitting) return;
@@ -57,8 +62,9 @@ const LeadForm = () => {
           name: parsed.data.name,
           company: parsed.data.company,
           phone: parsed.data.phone,
+          email: parsed.data.email,
           platform: parsed.data.platform,
-          email: "",
+          referral_source: parsed.data.referral_source,
           message: "",
           source_page: SOURCE_PAGE,
         }
@@ -71,7 +77,7 @@ const LeadForm = () => {
       });
       trackQuoteFormSubmission(parsed.data.platform as QuoteFormPlatform, SOURCE_PAGE);
 
-      setFormData({ name: "", company: "", phone: "", platform: "" });
+      setFormData({ name: "", company: "", phone: "", email: "", platform: "", referral_source: "" });
     } catch (error) {
       console.error('Error sending lead:', error);
       toast({
@@ -212,6 +218,20 @@ const LeadForm = () => {
                 </div>
 
                 <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    Email *
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="you@company.com"
+                    required
+                  />
+                </div>
+
+                <div>
                   <label htmlFor="platform" className="block text-sm font-medium mb-2">
                     Platform *
                   </label>
@@ -225,6 +245,25 @@ const LeadForm = () => {
                     <SelectContent>
                       {PLATFORMS.map((p) => (
                         <SelectItem key={p} value={p}>{p}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <label htmlFor="referral_source" className="block text-sm font-medium mb-2">
+                    How did you hear about us? *
+                  </label>
+                  <Select
+                    value={formData.referral_source}
+                    onValueChange={(value) => setFormData({ ...formData, referral_source: value })}
+                  >
+                    <SelectTrigger id="referral_source">
+                      <SelectValue placeholder="Select one" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {REFERRAL_SOURCES.map((s) => (
+                        <SelectItem key={s} value={s}>{s}</SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
