@@ -12,6 +12,7 @@ interface QuoteRequest {
   platform: string;
   message?: string;
   source_page?: string;
+  referral_source?: string;
 }
 
 function escapeHtml(s: string) {
@@ -37,6 +38,9 @@ function validate(body: any): { ok: true; data: QuoteRequest } | { ok: false; er
       return { ok: false, error: "Invalid email" };
     }
   }
+  if (body.referral_source && (typeof body.referral_source !== "string" || body.referral_source.length > 100)) {
+    return { ok: false, error: "Invalid referral_source" };
+  }
   if (body.message && (typeof body.message !== "string" || body.message.length > 2000)) {
     return { ok: false, error: "Invalid message" };
   }
@@ -50,6 +54,7 @@ function validate(body: any): { ok: true; data: QuoteRequest } | { ok: false; er
       platform: body.platform.trim(),
       message: body.message?.trim() || "",
       source_page: body.source_page?.trim() || "",
+      referral_source: body.referral_source?.trim() || "",
     },
   };
 }
@@ -71,7 +76,7 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-    const { name, company, email, phone, platform, message, source_page } = result.data;
+    const { name, company, email, phone, platform, message, source_page, referral_source } = result.data;
 
     const html = `
       <h2>New ISN Compliance Quote Request</h2>
@@ -80,6 +85,7 @@ Deno.serve(async (req) => {
       ${email ? `<p><strong>Email:</strong> ${escapeHtml(email)}</p>` : ""}
       <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
       <p><strong>Platforms Needed:</strong> ${escapeHtml(platform)}</p>
+      ${referral_source ? `<p><strong>How they heard about us:</strong> ${escapeHtml(referral_source)}</p>` : ""}
       ${source_page ? `<p><strong>Source Page:</strong> ${escapeHtml(source_page)}</p>` : ""}
       ${message ? `<p><strong>Message:</strong><br/>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>` : ""}
     `;
