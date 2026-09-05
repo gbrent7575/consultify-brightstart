@@ -24,10 +24,13 @@ const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   company: z.string().trim().min(1, "Company is required").max(150),
   phone: z.string().trim().min(7, "Phone is required").max(30),
+  email: z.string().trim().email("Please enter a valid email").max(255),
   platform: z.string().min(1, "Please select a platform"),
+  referral_source: z.string().min(1, "Please select one"),
 });
 
 const PLATFORMS = ["ISNetworld", "Veriforce", "Avetta", "Multiple"];
+const REFERRAL_SOURCES = ["Google search", "ChatGPT or another AI assistant", "Someone referred me", "Other"];
 const SOURCE_PAGE = "veriforce-help";
 const FORM_HEADING = "Get My Free Veriforce Review";
 
@@ -75,7 +78,9 @@ const QuoteForm = () => {
     name: "",
     company: "",
     phone: "",
+    email: "",
     platform: "Veriforce",
+    referral_source: "",
   });
 
   const update = (k: keyof typeof form, v: string) =>
@@ -100,8 +105,9 @@ const QuoteForm = () => {
           name: parsed.data.name,
           company: parsed.data.company,
           phone: parsed.data.phone,
+          email: parsed.data.email,
           platform: parsed.data.platform,
-          email: "",
+          referral_source: parsed.data.referral_source,
           message: "",
           source_page: SOURCE_PAGE,
         },
@@ -115,7 +121,7 @@ const QuoteForm = () => {
         parsed.data.platform as Parameters<typeof trackQuoteFormSubmission>[0],
         SOURCE_PAGE,
       );
-      setForm({ name: "", company: "", phone: "", platform: "Veriforce" });
+      setForm({ name: "", company: "", phone: "", email: "", platform: "Veriforce", referral_source: "" });
     } catch (err) {
       toast({
         title: "Something went wrong",
@@ -151,6 +157,10 @@ const QuoteForm = () => {
         <Input id="phone" type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} required />
       </div>
       <div>
+        <Label htmlFor="email">Email *</Label>
+        <Input id="email" type="email" value={form.email} onChange={(e) => update("email", e.target.value)} placeholder="you@company.com" required />
+      </div>
+      <div>
         <Label htmlFor="platform">Platform *</Label>
         <Select value={form.platform} onValueChange={(v) => update("platform", v)}>
           <SelectTrigger id="platform">
@@ -159,6 +169,19 @@ const QuoteForm = () => {
           <SelectContent>
             {PLATFORMS.map((p) => (
               <SelectItem key={p} value={p}>{p}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <div>
+        <Label htmlFor="referral_source">How did you hear about us? *</Label>
+        <Select value={form.referral_source} onValueChange={(v) => update("referral_source", v)}>
+          <SelectTrigger id="referral_source">
+            <SelectValue placeholder="Select one" />
+          </SelectTrigger>
+          <SelectContent>
+            {REFERRAL_SOURCES.map((s) => (
+              <SelectItem key={s} value={s}>{s}</SelectItem>
             ))}
           </SelectContent>
         </Select>
