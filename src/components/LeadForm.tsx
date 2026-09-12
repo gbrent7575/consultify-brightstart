@@ -2,14 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Calendar, Phone, Mail, ArrowRight } from "lucide-react";
+import { Phone, Mail, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
-import { trackQuoteFormSubmission, trackBookConsultation, trackPhoneClick, type QuoteFormPlatform } from "@/lib/ga4";
-
-const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
+import { trackQuoteFormSubmission, trackPhoneClick, type QuoteFormPlatform } from "@/lib/ga4";
 const SOURCE_PAGE = "home";
 
 const leadSchema = z.object({
@@ -105,24 +103,6 @@ const LeadForm = () => {
             </p>
             
             <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center">
-                  <Calendar className="h-5 w-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <div className="font-semibold">Prefer to talk?</div>
-                  <a 
-                    href={CAL_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-foreground/80 hover:text-primary-foreground underline"
-                    onClick={trackBookConsultation}
-                  >
-                    Book a 15-minute consultation
-                  </a>
-                </div>
-              </div>
-              
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center">
                   <Phone className="h-5 w-5 text-primary-foreground" />

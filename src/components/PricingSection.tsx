@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Calendar, ArrowRight } from "lucide-react";
-import { trackBookConsultation, trackGetStartedClick } from "@/lib/ga4";
-
-const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
+import { Check, ArrowRight } from "lucide-react";
+import { trackGetStartedClick } from "@/lib/ga4";
 
 const setupFeatures = [
   "New platform setup or remediation of an existing account",
@@ -179,18 +177,6 @@ const PricingSection = () => {
             </CardContent>
           </Card>
         </div>
-
-        <p className="text-center text-muted-foreground mt-8">
-          Not sure which plan fits?{" "}
-          <a
-            href="https://cal.com/cornerstoneriskmgt/compliance-review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-foreground transition-colors"
-          >
-            Book a 45-minute compliance review
-          </a>
-        </p>
 
         {/* Notes */}
         <div className="max-w-3xl mx-auto mt-12 text-sm text-muted-foreground space-y-2">
