@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Menu, ChevronDown, Calendar, Phone, X } from "lucide-react";
-import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
+import { Menu, ChevronDown, Phone, X } from "lucide-react";
+import { trackPhoneClick } from "@/lib/ga4";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-
-const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
 
 const NavigationNew = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,16 +52,12 @@ const NavigationNew = () => {
         <div className="container mx-auto flex items-center justify-center gap-4 text-sm">
           <span className="hidden sm:inline">Need ISNetworld®, Veriforce® or Avetta® Compliance Help?</span>
           <span className="sm:hidden">Need Compliance Help?</span>
-          <a
-            href={CAL_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={trackBookConsultation}
+          <button
+            onClick={() => scrollToSection('lead-form')}
             className="inline-flex items-center gap-1 text-xs text-accent-foreground hover:underline"
           >
-            <Calendar className="h-3 w-3" />
-            Book Free Consult
-          </a>
+            Request a Quote
+          </button>
           <a 
             href="tel:601-647-1201"
             onClick={trackPhoneClick}
@@ -142,18 +136,14 @@ const NavigationNew = () => {
                 About
               </Link>
               
-              <a
-                href={CAL_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={trackBookConsultation}
+              <button
+                onClick={() => scrollToSection('lead-form')}
                 className={`inline-flex items-center gap-1 font-medium transition-colors ${
                   scrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
                 }`}
               >
-                <Calendar className="h-4 w-4" />
-                Free Consultation
-              </a>
+                Request a Quote
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -209,13 +199,10 @@ const NavigationNew = () => {
               
               <div className="pt-4 space-y-3 border-t border-border">
                 <Button 
-                  asChild
+                  onClick={() => scrollToSection('lead-form')}
                   className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
                 >
-                  <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book Free Consultation
-                  </a>
+                  Request a Quote
                 </Button>
                 <a 
                   href="tel:601-647-1201"
