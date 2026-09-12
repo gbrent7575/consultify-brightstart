@@ -4,7 +4,7 @@ import FooterNew from "@/components/FooterNew";
 import { Button } from "@/components/ui/button";
 import { Calendar, Phone, Mail, MapPin } from "lucide-react";
 
-const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
+const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
 
 const Contact = () => {
   return (

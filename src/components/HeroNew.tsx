@@ -3,7 +3,7 @@ import { ArrowRight, Calendar, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-option-1-oilfield.jpg";
 import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
 
-const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
+const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
 
 const HeroNew = () => {
   const scrollToForm = () => {

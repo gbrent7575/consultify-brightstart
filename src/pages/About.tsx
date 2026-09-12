@@ -5,7 +5,7 @@ import TrademarkNotice from "@/components/TrademarkNotice";
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight, Phone, Mail, ShieldCheck, Users, Clock, Award } from "lucide-react";
 
-const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
+const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
 
 const About = () => {
   const scrollToHomeForm = () => {

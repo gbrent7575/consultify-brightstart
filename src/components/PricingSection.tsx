@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Check, Calendar, ArrowRight } from "lucide-react";
 import { trackBookConsultation, trackGetStartedClick } from "@/lib/ga4";
 
-const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
+const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
 
 const setupFeatures = [
   "New platform setup or remediation of an existing account",
