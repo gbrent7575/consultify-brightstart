@@ -3,9 +3,7 @@ import NavigationNew from "@/components/NavigationNew";
 import FooterNew from "@/components/FooterNew";
 import TrademarkNotice from "@/components/TrademarkNotice";
 import { Button } from "@/components/ui/button";
-import { Calendar, ArrowRight, Phone, Mail, ShieldCheck, Users, Clock, Award } from "lucide-react";
-
-const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
+import { ArrowRight, Phone, Mail, ShieldCheck, Users, Clock, Award } from "lucide-react";
 
 const About = () => {
   const scrollToHomeForm = () => {
@@ -92,18 +90,15 @@ const About = () => {
                 Ready to Get Started?
               </h2>
               <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-                Book a free 15-minute consultation or request a quote today.
+                Tell us about your situation and we'll reach out.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button
                   size="lg"
-                  asChild
+                  onClick={scrollToHomeForm}
                   className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6"
                 >
-                  <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
-                    <Calendar className="mr-2 h-5 w-5" />
-                    Book Free Consultation
-                  </a>
+                  Request a Quote
                 </Button>
                 <Button
                   size="lg"
