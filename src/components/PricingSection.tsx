@@ -180,6 +180,18 @@ const PricingSection = () => {
           </Card>
         </div>
 
+        <p className="text-center text-muted-foreground mt-8">
+          Not sure which plan fits?{" "}
+          <a
+            href="https://cal.com/cornerstoneriskmgt/compliance-review"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-foreground transition-colors"
+          >
+            Book a 45-minute compliance review
+          </a>
+        </p>
+
         {/* Notes */}
         <div className="max-w-3xl mx-auto mt-12 text-sm text-muted-foreground space-y-2">
           <p>Monthly maintenance requires the platform to be compliant at start. Platforms needing significant fixes must complete Setup first.</p>
