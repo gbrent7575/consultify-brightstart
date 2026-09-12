@@ -4,7 +4,7 @@ import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
+const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
 
 const NavigationNew = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

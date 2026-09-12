@@ -4,7 +4,7 @@ import { Calendar, Phone, Mail, MapPin } from "lucide-react";
 import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
 import NewsletterSection from "@/components/NewsletterSection";
 
-const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
+const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
 
 const FooterNew = () => {
   const currentYear = new Date().getFullYear();

@@ -9,7 +9,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { trackQuoteFormSubmission, trackBookConsultation, trackPhoneClick, type QuoteFormPlatform } from "@/lib/ga4";
 
-const CAL_LINK = "https://cal.com/garland-brent-wa1zbs/15min";
+const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
 const SOURCE_PAGE = "home";
 
 const leadSchema = z.object({
