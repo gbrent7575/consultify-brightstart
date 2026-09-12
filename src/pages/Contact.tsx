@@ -2,18 +2,16 @@ import { Helmet } from "react-helmet-async";
 import NavigationNew from "@/components/NavigationNew";
 import FooterNew from "@/components/FooterNew";
 import { Button } from "@/components/ui/button";
-import { Calendar, Phone, Mail, MapPin } from "lucide-react";
-
-const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Cornerstone Risk Management — Free Consultation</title>
+        <title>Contact Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Contact Cornerstone Risk Management for a free 15 minute compliance consultation. Call 601-647-1201 or book online. No obligation."
+          content="Contact Cornerstone Risk Management for a free compliance quote. Call 601-647-1201 or send us a message — we'll reach out."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/contact" />
         <meta property="og:url" content="https://contractorcompliancepros.com/contact" />
@@ -32,7 +30,7 @@ const Contact = () => {
                   Get in Touch
                 </h1>
                 <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed">
-                  Have questions about compliance management? We're here to help. Reach out directly or book a free consultation.
+                  Have questions about compliance management? We're here to help. Reach out directly or request a quote below.
                 </p>
               </div>
             </div>
@@ -67,22 +65,21 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Booking CTA */}
+                {/* Quote CTA */}
                 <div className="bg-muted/30 rounded-lg p-8">
                   <h2 className="text-2xl font-serif font-bold text-primary mb-4">
-                    Book a Free Consultation
+                    Request a Quote
                   </h2>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Schedule a free 15-minute call to discuss your compliance needs — no obligation.
+                    Tell us about your situation and we'll reach out.
                   </p>
                   <Button
                     size="lg"
                     asChild
                     className="w-full bg-accent text-accent-foreground hover:bg-accent/90 text-lg py-6"
                   >
-                    <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
-                      <Calendar className="mr-2 h-5 w-5" />
-                      Schedule a Call
+                    <a href="/#lead-form">
+                      Request a Quote
                     </a>
                   </Button>
                 </div>
