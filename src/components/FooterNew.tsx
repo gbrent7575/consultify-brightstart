@@ -1,10 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Calendar, Phone, Mail, MapPin } from "lucide-react";
-import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
+import { Phone, Mail, MapPin } from "lucide-react";
 import NewsletterSection from "@/components/NewsletterSection";
-
-const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
 
 const FooterNew = () => {
   const currentYear = new Date().getFullYear();
@@ -37,7 +34,7 @@ const FooterNew = () => {
                 Ready to Get Compliant?
               </h3>
               <p className="text-primary-foreground/70">
-                Book a free 15-minute consultation — no obligation
+                Tell us about your situation and we'll reach out
               </p>
             </div>
             <Button 
@@ -45,9 +42,8 @@ const FooterNew = () => {
               asChild
               className="bg-accent text-accent-foreground hover:bg-accent/90"
             >
-              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
-                <Calendar className="mr-2 h-5 w-5" />
-                Book Free Consultation
+              <a href="/#lead-form">
+                Request a Quote
               </a>
             </Button>
           </div>
@@ -120,16 +116,15 @@ const FooterNew = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Get Started</h4>
             <p className="text-sm text-primary-foreground/70 mb-4">
-              Free 15-minute consultation to discuss your compliance needs
+              Tell us about your situation and we'll reach out
             </p>
             <Button 
               asChild
               variant="outline"
               className="w-full border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
             >
-              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
-                <Calendar className="mr-2 h-4 w-4" />
-                Book Consultation
+              <a href="/#lead-form">
+                Request a Quote
               </a>
             </Button>
           </div>

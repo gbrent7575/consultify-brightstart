@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-option-1-oilfield.jpg";
-import { trackBookConsultation, trackPhoneClick } from "@/lib/ga4";
-
-const CAL_LINK = "https://cal.com/cornerstoneriskmgt/15min";
+import { trackPhoneClick } from "@/lib/ga4";
 
 const HeroNew = () => {
   const scrollToForm = () => {
@@ -54,13 +52,10 @@ const HeroNew = () => {
             </Button>
             <Button
               variant="outline"
-              asChild
+              onClick={scrollToForm}
               className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
             >
-              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" onClick={trackBookConsultation}>
-                <Calendar className="mr-2 h-4 w-4" />
-                Book Free Consultation
-              </a>
+              Get in Touch
             </Button>
           </div>
 
