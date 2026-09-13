@@ -139,7 +139,7 @@ const QuoteForm = () => {
       className="bg-background text-foreground rounded-lg p-6 md:p-7 shadow-2xl space-y-4 border border-border"
     >
       <div className="text-center mb-2">
-        <h2 className="text-xl md:text-2xl font-bold text-primary">Get My Free ISN Review</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-primary">Get My Free Compliance Review</h2>
         <p className="text-sm text-muted-foreground">Takes 30 seconds. No obligation.</p>
       </div>
       <div>
@@ -191,7 +191,7 @@ const QuoteForm = () => {
         disabled={submitting}
         className="w-full bg-accent text-accent-foreground hover:bg-accent/90 text-base font-semibold"
       >
-        {submitting ? "Sending..." : "Get My Free ISN Review"}
+        {submitting ? "Sending..." : "Get My Free Compliance Review"}
       </Button>
       <p className="text-xs text-muted-foreground text-center">
         No spam. We only contact you about your compliance.
@@ -204,7 +204,7 @@ const IsnHelp = () => {
   return (
     <>
       <Helmet>
-        <title>ISNetworld Compliance Help for Contractors | Cornerstone Risk Management</title>
+        <title>ISNetworld® Compliance Help for Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="Failed an ISNetworld review or watching your grade slip? We handle MSQ, RAVS, OSHA logs, and COI uploads so you get approved fast. Call 601-647-1201."
@@ -363,7 +363,7 @@ const IsnHelp = () => {
                   onClick={scrollToForm}
                   className="bg-accent text-accent-foreground hover:bg-accent/90"
                 >
-                  Get My Free ISN Review
+                  Get My Free Compliance Review
                 </Button>
               </div>
             </div>

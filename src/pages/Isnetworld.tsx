@@ -125,10 +125,6 @@ const Isnetworld = () => {
           name="description"
           content="ISNetworld® compliance experts. RAVS® uploads, questionnaires, score recovery, and audit fixes — handled end-to-end. 99% success rate. 100+ contractors managed. 15+ years experience."
         />
-        <meta
-          name="keywords"
-          content="ISNetworld compliance, RAVS upload, ISNetworld score, ISNetworld questionnaire, contractor prequalification, ISNetworld audit"
-        />
         <link rel="canonical" href="https://contractorcompliancepros.com/services/isnetworld" />
         <meta property="og:url" content="https://contractorcompliancepros.com/services/isnetworld" />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/services/isnetworld" />

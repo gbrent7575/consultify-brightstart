@@ -11,12 +11,11 @@ const CompliancePlatforms = () => {
   return (
     <>
       <Helmet>
-        <title>Digital Compliance Management for ISNetworld, Veriforce & Avetta | Cornerstone Risk Management</title>
+        <title>Digital Compliance Management for ISNetworld®, Veriforce® & Avetta® | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="Digital compliance management for ISNetworld, Veriforce, and Avetta — setup, document uploads, questionnaires, and ongoing maintenance. 99% success rate."
         />
-        <meta name="keywords" content="ISNetworld compliance support, Veriforce compliance services, Avetta compliance support, RAVS compliance, contractor prequalification" />
         <link rel="canonical" href="https://contractorcompliancepros.com/services/compliance-platforms" />
         <meta property="og:url" content="https://contractorcompliancepros.com/services/compliance-platforms" />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/services/compliance-platforms" />
