@@ -47,7 +47,7 @@ const About = () => {
               <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl font-serif font-bold text-primary mb-6">What We Do</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  We manage ISNetworld®, Veriforce®, Avetta®, and PEC® accounts for 100+ contractors — handling account setup, document uploads, questionnaire responses, and ongoing maintenance so our clients can focus on operations instead of paperwork.
+                  We manage ISNetworld®, Veriforce®, Avetta®, and PEC Premier® accounts for 100+ contractors — handling account setup, document uploads, questionnaire responses, and ongoing maintenance so our clients can focus on operations instead of paperwork.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Cornerstone Risk Management maintains a 99% compliance success rate and responds to urgent issues within 24 hours.
@@ -92,24 +92,14 @@ const About = () => {
               <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
                 Tell us about your situation and we'll reach out.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <div className="flex justify-center mb-8">
                 <Button
                   size="lg"
                   onClick={scrollToHomeForm}
                   className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6"
                 >
                   Request a Quote
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  asChild
-                  className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary text-lg px-8 py-6 bg-transparent"
-                >
-                  <a href="/#lead-form">
-                    Request a Quote
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </a>
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-primary-foreground/80">
