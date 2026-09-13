@@ -4,7 +4,7 @@ import App from "./App";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CompliancePlatforms from "./pages/CompliancePlatforms";
-import Isnetworld from "./pages/Isnetworld";
+
 import Avetta from "./pages/Avetta";
 import Veriforce from "./pages/Veriforce";
 import IsnHelp from "./pages/IsnHelp";
