@@ -11,12 +11,11 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>ISNetworld, Veriforce & Avetta Compliance Help for Contractors | Cornerstone Risk Management</title>
+        <title>ISNetworld®, Veriforce® & Avetta® Compliance Help for Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="ISNetworld, Veriforce and Avetta compliance help for oil and gas contractors. Setup, maintenance, and grade recovery — done for you with flat-rate pricing."
         />
-        <meta name="keywords" content="ISNetworld compliance support, Avetta compliance services, Veriforce compliance, contractor compliance, digital safety compliance, oil and gas compliance, contractor safety management, RAVS, PQF completion" />
         <link rel="canonical" href="https://contractorcompliancepros.com/" />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/" />
         

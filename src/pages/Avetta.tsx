@@ -206,7 +206,7 @@ const Avetta = () => {
   return (
     <>
       <Helmet>
-        <title>Avetta Compliance Help for Contractors | Cornerstone Risk Management</title>
+        <title>Avetta® Compliance Help for Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
           content="Behind on Avetta or stuck on a low grade? We handle safety programs, OSHA logs, insurance, and document uploads so you get compliant fast. Call 601-647-1201."
