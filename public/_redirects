@@ -4,3 +4,6 @@
 /Default.aspx / 301
 /default.aspx / 301
 /*.aspx / 301
+
+# Consolidated duplicate ISNetworld page into /isn/help
+/services/isnetworld /isn/help 301

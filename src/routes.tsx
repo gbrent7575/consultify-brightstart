@@ -4,7 +4,7 @@ import App from "./App";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CompliancePlatforms from "./pages/CompliancePlatforms";
-import Isnetworld from "./pages/Isnetworld";
+
 import Avetta from "./pages/Avetta";
 import Veriforce from "./pages/Veriforce";
 import IsnHelp from "./pages/IsnHelp";
@@ -25,7 +25,7 @@ export const routes: RouteRecord[] = [
       { path: "pricing", element: <Pricing />, entry: "src/pages/Pricing.tsx" },
       { path: "contact", element: <Contact />, entry: "src/pages/Contact.tsx" },
       { path: "services/compliance-platforms", element: <CompliancePlatforms />, entry: "src/pages/CompliancePlatforms.tsx" },
-      { path: "services/isnetworld", element: <Isnetworld />, entry: "src/pages/Isnetworld.tsx" },
+      
       { path: "isn/help", element: <IsnHelp />, entry: "src/pages/IsnHelp.tsx" },
       { path: "isnetworld-help", element: <IsnHelp />, entry: "src/pages/IsnHelp.tsx" },
       { path: "isnetworld", element: <IsnHelp />, entry: "src/pages/IsnHelp.tsx" },
