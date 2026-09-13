@@ -17,8 +17,7 @@ const FooterNew = () => {
     "ISNetworld®",
     "Avetta®",
     "Veriforce®",
-    "PEC Premier®",
-    "BROWZ®"
+    "PEC Premier®"
   ];
 
   return (
@@ -139,7 +138,7 @@ const FooterNew = () => {
             Cornerstone Risk Management is in no way endorsed, sponsored, approved by, or otherwise affiliated with ISNetworld® or ISN Software Corporation.
           </p>
           <p className="text-xs text-primary-foreground/50 max-w-4xl">
-            ISNetworld® is a registered trademark of ISN Software Corporation. Avetta®, Veriforce®, PEC Premier®, and BROWZ® are registered trademarks of their respective owners.
+            ISNetworld® is a registered trademark of ISN Software Corporation. Avetta®, Veriforce®, and PEC Premier® are registered trademarks of their respective owners.
           </p>
         </div>
       </div>
