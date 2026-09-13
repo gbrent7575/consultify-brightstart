@@ -12,7 +12,6 @@ export type QuoteFormPlatform =
   | 'Avetta'
   | 'Veriforce'
   | 'PEC Premier'
-  | 'BROWZ'
   | 'Multiple'
   | 'Other';
 

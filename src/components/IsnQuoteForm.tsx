@@ -20,7 +20,6 @@ const PLATFORMS = [
   "Veriforce",
   "Avetta",
   "PEC Premier",
-  "BROWZ",
   "Other",
 ];
 

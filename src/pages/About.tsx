@@ -47,7 +47,7 @@ const About = () => {
               <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl font-serif font-bold text-primary mb-6">What We Do</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  We manage ISNetworld®, Veriforce®, Avetta®, PEC®, and BROWZ® accounts for 100+ contractors — handling account setup, document uploads, questionnaire responses, and ongoing maintenance so our clients can focus on operations instead of paperwork.
+                  We manage ISNetworld®, Veriforce®, Avetta®, and PEC® accounts for 100+ contractors — handling account setup, document uploads, questionnaire responses, and ongoing maintenance so our clients can focus on operations instead of paperwork.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Cornerstone Risk Management maintains a 99% compliance success rate and responds to urgent issues within 24 hours.
