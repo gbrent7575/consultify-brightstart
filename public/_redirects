@@ -1,9 +1,9 @@
-# Legacy ASP.NET URL cleanup. Lovable hosting auto-serves prerendered
-# per-route index.html files and falls back to the SPA index.html for
-# unknown routes, so no SPA catch-all rule is needed here.
+# NOTE (2026-09-13): Lovable hosting does NOT appear to process this file.
+# Verified live: /Default.aspx and /*.aspx return 404, not 301, and a
+# /services/isnetworld rule here had no effect. Redirects that need to
+# actually fire are implemented as <Navigate> routes in src/routes.tsx.
+# These rules are kept in case host behavior changes, but do not rely on them.
 /Default.aspx / 301
 /default.aspx / 301
 /*.aspx / 301
-
-# Consolidated duplicate ISNetworld page into /isn/help
 /services/isnetworld /isn/help 301

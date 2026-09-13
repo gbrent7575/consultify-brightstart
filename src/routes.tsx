@@ -14,6 +14,7 @@ import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 
 const redirectHome = <Navigate to="/" replace />;
+const redirectIsnHelp = <Navigate to="/isn/help" replace />;
 
 export const routes: RouteRecord[] = [
   {
@@ -38,6 +39,7 @@ export const routes: RouteRecord[] = [
       { path: "veriforce", element: <Veriforce />, entry: "src/pages/Veriforce.tsx" },
       { path: "veriforce/help", element: <Veriforce />, entry: "src/pages/Veriforce.tsx" },
       { path: "services/veriforce", element: <Veriforce />, entry: "src/pages/Veriforce.tsx" },
+      { path: "services/isnetworld", element: redirectIsnHelp },
       // Retired service pages — redirect to home
       { path: "services/safety-program-development", element: redirectHome },
       { path: "services/regulatory-compliance", element: redirectHome },
