@@ -56,7 +56,7 @@ const CompliancePlatforms = () => {
                 <p className="text-xl mb-8 text-primary-foreground/90">
                   Cornerstone Risk Management helps contractors navigate online compliance platforms so they can qualify for more clients and maintain strong standing in each system.
                 </p>
-                <Button size="lg" variant="secondary" asChild>
+                <Button size="lg" variant="secondary" className="w-full sm:w-auto h-auto whitespace-normal" asChild>
                   <a href="#contact">Get Help With Your Compliance Platform Accounts</a>
                 </Button>
               </div>
