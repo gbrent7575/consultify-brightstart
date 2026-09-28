@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
-import heroImage from "@/assets/hero-option-1-oilfield.jpg";
+import heroImage from "@/assets/hero-contractors-nationwide.jpg";
 import { trackPhoneClick } from "@/lib/ga4";
 
 const HeroNew = () => {
@@ -17,7 +17,9 @@ const HeroNew = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="Oil and gas contractor compliance support" 
+          alt="Contractor crew in safety gear on an industrial job site"
+          width={1920}
+          height={1200}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />

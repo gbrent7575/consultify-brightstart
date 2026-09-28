@@ -86,7 +86,7 @@ const IsnQuoteForm = ({
 
       toast({
         title: "Request received!",
-        description: "We'll contact you within 24 hours with a quote.",
+        description: "Thanks — we'll be in touch with your quote.",
       });
       trackQuoteFormSubmission(parsed.data.platform as Parameters<typeof trackQuoteFormSubmission>[0], sourcePage);
       setForm({ name: "", company: "", email: "", phone: "", platform: defaultPlatform, message: "" });
@@ -169,7 +169,7 @@ const IsnQuoteForm = ({
         {submitting ? "Sending..." : "Send My Quote Request"}
       </Button>
       <p className="text-xs text-muted-foreground text-center mt-3">
-        No obligation, no pressure. We'll respond within 24 hours.
+        No obligation, no pressure. We'll be in touch soon.
       </p>
     </form>
   );

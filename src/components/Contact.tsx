@@ -46,7 +46,7 @@ const Contact = () => {
       }
       toast({
         title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours."
+        description: "Thanks — we'll be in touch soon."
       });
       setFormData({
         name: "",
@@ -89,7 +89,7 @@ const Contact = () => {
             <Card className="border-border animate-slide-up">
               <CardHeader>
                 <CardTitle className="text-2xl font-serif">Send us a message</CardTitle>
-                <CardDescription>Fill out the form and we'll respond within 24 hours</CardDescription>
+                <CardDescription>Fill out the form and we'll be in touch soon</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
