@@ -12,6 +12,9 @@ import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
 import About from "./pages/About";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
+import OwnerPage from "./pages/OwnerPage";
+import OwnersIndex from "./pages/OwnersIndex";
+import { fetchOwnerPage, fetchOwnerPages } from "./lib/owners";
 
 const redirectHome = <Navigate to="/" replace />;
 const redirectIsnHelp = <Navigate to="/isn/help" replace />;
@@ -48,6 +51,30 @@ export const routes: RouteRecord[] = [
       { path: "services/safety-management-system", element: redirectHome },
       { path: "services/monthly-training", element: redirectHome },
       { path: "internal/trademark-compliance", element: <TrademarkComplianceReport />, entry: "src/pages/TrademarkComplianceReport.tsx" },
+      {
+        path: "owners",
+        element: <OwnersIndex />,
+        entry: "src/pages/OwnersIndex.tsx",
+        loader: async () => {
+          try { return await fetchOwnerPages(); } catch { return null; }
+        },
+      },
+      {
+        path: "owners/:slug",
+        element: <OwnerPage />,
+        entry: "src/pages/OwnerPage.tsx",
+        getStaticPaths: async () => {
+          try {
+            const pages = await fetchOwnerPages();
+            return pages.map((p) => `owners/${p.slug}`);
+          } catch {
+            return [];
+          }
+        },
+        loader: async ({ params }) => {
+          try { return await fetchOwnerPage(params.slug ?? ""); } catch { return null; }
+        },
+      },
       { path: "*", element: <NotFound />, entry: "src/pages/NotFound.tsx" },
     ],
   },

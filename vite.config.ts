@@ -57,5 +57,31 @@ export default defineConfig(({ mode }) => ({
     // prerendered HTML for clean URLs (e.g. /pricing -> pricing/index.html)
     // instead of falling back to the SPA index.html.
     dirStyle: "nested",
+    // Append /owners pages to the built sitemap. Never fails the build.
+    async onFinished(dir: string) {
+      try {
+        const res = await fetch(
+          "https://mtsfjulztuhezppqfydr.supabase.co/functions/v1/owner-engine?action=pages",
+        );
+        const json = (await res.json()) as { ok?: boolean; pages?: { slug: string; live_since?: string }[] };
+        const pages: { slug: string; live_since?: string }[] =
+          json?.ok && Array.isArray(json.pages) ? json.pages : [];
+        if (pages.length === 0) return;
+        const base = "https://contractorcompliancepros.com";
+        const entry = (loc: string, lastmod: string) =>
+          `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+        const dates = pages.map((p) => (p.live_since || "").slice(0, 10)).filter(Boolean).sort();
+        let xml = entry(`${base}/owners`, dates[dates.length - 1] || new Date().toISOString().slice(0, 10));
+        for (const p of pages) {
+          xml += entry(`${base}/owners/${p.slug}`, (p.live_since || new Date().toISOString()).slice(0, 10));
+        }
+        const fs = await import("node:fs/promises");
+        const file = path.join(dir, "sitemap.xml");
+        const current = await fs.readFile(file, "utf8");
+        await fs.writeFile(file, current.replace("</urlset>", `${xml}</urlset>`));
+      } catch (e) {
+        console.warn("[sitemap] owner pages skipped:", e);
+      }
+    },
   },
 }));
