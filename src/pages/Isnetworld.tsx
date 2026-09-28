@@ -126,8 +126,16 @@ const Isnetworld = () => {
           content="ISNetworld® compliance experts. RAVS® uploads, questionnaires, score recovery, and audit fixes — handled end-to-end. 99% success rate. 100+ contractors managed. 15+ years experience."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/services/isnetworld" />
+        <meta property="og:title" content="ISNetworld® Compliance Help | Cornerstone Risk Management" />
+        <meta property="og:description" content="ISNetworld® compliance experts. RAVS® uploads, questionnaires, score recovery, and audit fixes — handled end-to-end. 99% success rate. 100+ contractors managed. 15+ years experience." />
         <meta property="og:url" content="https://contractorcompliancepros.com/services/isnetworld" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="ISNetworld® Compliance Help | Cornerstone Risk Management" />
+        <meta name="twitter:description" content="ISNetworld® compliance experts. RAVS® uploads, questionnaires, score recovery, and audit fixes — handled end-to-end. 99% success rate. 100+ contractors managed. 15+ years experience." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/services/isnetworld" />
+        <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
@@ -271,7 +279,7 @@ const Isnetworld = () => {
                 Get a Free ISN Compliance Quote
               </h2>
               <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-primary-foreground/90">
-                Tell us about your account and we'll send you a personalized quote within 24 hours. No obligation, no pressure.
+                Tell us about your account and we'll follow up with a personalized quote. No obligation, no pressure.
               </p>
               <IsnQuoteForm defaultPlatform="ISNetworld" sourcePage="isnetworld-help" />
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">

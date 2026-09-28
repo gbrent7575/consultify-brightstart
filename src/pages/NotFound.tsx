@@ -26,6 +26,15 @@ const NotFound = () => {
     <>
       <Helmet>
         <title>Page Not Found | Cornerstone Risk Management</title>
+        <meta name="description" content="The requested Cornerstone Risk Management page could not be found." />
+        <meta property="og:title" content="Page Not Found | Cornerstone Risk Management" />
+        <meta property="og:description" content="The requested Cornerstone Risk Management page could not be found." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Page Not Found | Cornerstone Risk Management" />
+        <meta name="twitter:description" content="The requested Cornerstone Risk Management page could not be found." />
+        <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
