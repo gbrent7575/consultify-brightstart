@@ -34,12 +34,12 @@ const CompliancePlatforms = () => {
         
         <main className="flex-grow">
           {/* Hero Section */}
-          <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+          <section className="relative min-h-[60vh] flex items-center overflow-hidden pt-28 md:pt-24">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
               <img 
                 src={heroImage} 
-                  alt="Contractor crew in safety gear on an industrial job site"
+                  alt="Construction workers assembling steel on a commercial job site"
                   width={1920}
                   height={1200}
                 className="w-full h-full object-cover"
@@ -48,7 +48,7 @@ const CompliancePlatforms = () => {
             </div>
 
             {/* Content */}
-            <div className="container mx-auto px-4 py-20 relative z-10">
+            <div className="container mx-auto px-4 py-16 md:py-20 relative z-10">
               <div className="max-w-3xl animate-fade-in">
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">
                   ISNetworld® / Veriforce® / Avetta® Compliance Support Services

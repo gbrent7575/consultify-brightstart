@@ -21,7 +21,7 @@ const singleFeatures = [
 ];
 
 const dualFeatures = [
-  "Maintenance of two platforms (any two platforms)",
+  "Maintenance of any two platforms",
   "All monthly, quarterly, and annual reporting cycles",
   "Client-specific requirement changes",
   "Routine issue resolution",
