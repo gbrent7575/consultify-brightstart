@@ -71,7 +71,7 @@ const LeadForm = () => {
 
       toast({
         title: "Request received!",
-        description: "We'll contact you within 24 hours with a quote."
+        description: "Thanks — we'll be in touch with your quote."
       });
       trackQuoteFormSubmission(parsed.data.platform as QuoteFormPlatform, SOURCE_PAGE);
 
@@ -99,7 +99,7 @@ const LeadForm = () => {
               Get a Free Compliance Quote
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">
-              Tell us about your compliance needs and we'll send you a personalized quote within 24 hours. No obligation, no pressure.
+              Tell us about your compliance needs and we'll follow up with a personalized quote. No obligation, no pressure.
             </p>
             
             <div className="space-y-4 mb-8">
@@ -140,7 +140,7 @@ const LeadForm = () => {
           <Card className="border-0 shadow-2xl animate-slide-up">
             <CardHeader>
               <CardTitle className="text-2xl font-serif">Request a Quote</CardTitle>
-              <CardDescription>We'll respond within 24 hours</CardDescription>
+              <CardDescription>We'll be in touch soon</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} noValidate className="space-y-4">

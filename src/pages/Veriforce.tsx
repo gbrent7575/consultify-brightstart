@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { z } from "zod";
 import { Link } from "react-router-dom";
-import { Phone, Check, Shield, Award, Users, Clock, ShieldCheck, Zap } from "lucide-react";
+import { Phone, Check, Shield, Users, Clock, ShieldCheck, Zap } from "lucide-react";
 import FooterNew from "@/components/FooterNew";
 import HeroSupportNotice from "@/components/HeroSupportNotice";
 import { Button } from "@/components/ui/button";
@@ -39,32 +39,13 @@ const scoreDrivers = [
   { title: "Operator Qualification (OQ)", desc: "Verified task qualifications and required training for covered tasks." },
   { title: "OSHA logs", desc: "Your 300/300A injury logs and TRIR." },
   { title: "EMR", desc: "Your workers' comp experience modification rate." },
-  { title: "COIs", desc: "Certificates of insurance that meet each operator's limits." },
+  { title: "COIs", desc: "Certificates of insurance that meet each client's limits." },
 ];
 
 const stats = [
   { icon: Shield, value: "99%", label: "Compliance Success Rate" },
   { icon: Users, value: "100+", label: "Contractors Managed" },
   { icon: Clock, value: "15+", label: "Years Experience" },
-  { icon: Award, value: "24-Hour", label: "Response Time" },
-];
-
-const testimonials = [
-  {
-    quote: "Cornerstone took over our ISNetworld account and we went from red flags to fully approved in two weeks. They handle everything now — I haven't logged in once this year.",
-    author: "Operations Manager",
-    company: "Gulf Coast Welding Services",
-  },
-  {
-    quote: "We were losing bids because of compliance issues. Now we're approved on three platforms and winning more work than ever. Best investment we've made.",
-    author: "Owner",
-    company: "Industrial Maintenance Contractor",
-  },
-  {
-    quote: "The monthly maintenance is worth every penny. They catch expiring documents before they become problems and keep us in the green.",
-    author: "Safety Director",
-    company: "Pipeline Services Company",
-  },
 ];
 
 const scrollToForm = () => {
@@ -115,7 +96,7 @@ const QuoteForm = () => {
       if (error || !data?.success) throw new Error(error?.message || "Send failed");
       toast({
         title: "Request received!",
-        description: "We'll contact you within 24 hours.",
+        description: "Thanks — we'll be in touch soon.",
       });
       trackQuoteFormSubmission(
         parsed.data.platform as Parameters<typeof trackQuoteFormSubmission>[0],
@@ -209,11 +190,19 @@ const Veriforce = () => {
         <title>Veriforce® Compliance Help for Contractors | Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Veriforce compliance help for oil and gas contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201."
+          content="Veriforce® compliance help for contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/veriforce-help" />
+        <meta property="og:title" content="Veriforce® Compliance Help for Contractors | Cornerstone Risk Management" />
+        <meta property="og:description" content="Veriforce® compliance help for contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201." />
         <meta property="og:url" content="https://contractorcompliancepros.com/veriforce-help" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Veriforce® Compliance Help for Contractors | Cornerstone Risk Management" />
+        <meta name="twitter:description" content="Veriforce® compliance help for contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/veriforce-help" />
+        <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-background">
@@ -278,7 +267,7 @@ const Veriforce = () => {
                     {[
                       "Recover a failing or rejected Veriforce status",
                       "Done-for-you paperwork — safety programs, OQ records, OSHA logs, COIs",
-                      "Keep your operator approvals so you never lose a bid",
+                      "Keep your client approvals so you never lose a bid",
                     ].map((b) => (
                       <li key={b} className="flex items-start gap-3">
                         <Check className="h-5 w-5 text-accent flex-shrink-0 mt-1" />
@@ -396,7 +385,7 @@ const Veriforce = () => {
           {/* Proof */}
           <section className="py-16 md:py-20 bg-secondary/30">
             <div className="container mx-auto px-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-14 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-5xl mx-auto">
                 {stats.map((s) => (
                   <Card key={s.label} className="text-center">
                     <CardContent className="pt-6">
@@ -405,24 +394,6 @@ const Veriforce = () => {
                       </div>
                       <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{s.value}</div>
                       <div className="text-sm text-muted-foreground">{s.label}</div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-
-              <h2 className="text-2xl md:text-3xl font-serif font-bold text-primary text-center mb-8">
-                What our clients say
-              </h2>
-              <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto">
-                {testimonials.map((t, i) => (
-                  <Card key={i}>
-                    <CardContent className="pt-6">
-                      <div className="text-accent text-4xl font-serif leading-none mb-3">"</div>
-                      <p className="text-foreground leading-relaxed mb-5">{t.quote}</p>
-                      <div className="border-t border-border pt-4">
-                        <div className="font-semibold text-primary">{t.author}</div>
-                        <div className="text-sm text-muted-foreground">{t.company}</div>
-                      </div>
                     </CardContent>
                   </Card>
                 ))}

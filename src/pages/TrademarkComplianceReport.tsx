@@ -147,6 +147,15 @@ const TrademarkComplianceReport = () => {
     <>
       <Helmet>
         <title>ISNetworld® Trademark Compliance Report | Internal</title>
+        <meta name="description" content="Internal trademark compliance report for Cornerstone Risk Management." />
+        <meta property="og:title" content="ISNetworld® Trademark Compliance Report | Internal" />
+        <meta property="og:description" content="Internal trademark compliance report for Cornerstone Risk Management." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="ISNetworld® Trademark Compliance Report | Internal" />
+        <meta name="twitter:description" content="Internal trademark compliance report for Cornerstone Risk Management." />
+        <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 

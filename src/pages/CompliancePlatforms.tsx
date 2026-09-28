@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import NavigationNew from "@/components/NavigationNew";
+import FooterNew from "@/components/FooterNew";
 import TrademarkNotice from "@/components/TrademarkNotice";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, FileCheck, Upload, Award, RefreshCw } from "lucide-react";
-import heroImage from "@/assets/hero-compliance-platforms.jpg";
+import heroImage from "@/assets/hero-compliance-nationwide.jpg";
 
 const CompliancePlatforms = () => {
   return (
@@ -17,12 +17,20 @@ const CompliancePlatforms = () => {
           content="Digital compliance management for ISNetworld, Veriforce, and Avetta — setup, document uploads, questionnaires, and ongoing maintenance. 99% success rate."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/services/compliance-platforms" />
+        <meta property="og:title" content="Digital Compliance Management for ISNetworld®, Veriforce® & Avetta® | Cornerstone Risk Management" />
+        <meta property="og:description" content="Digital compliance management for ISNetworld, Veriforce, and Avetta — setup, document uploads, questionnaires, and ongoing maintenance. 99% success rate." />
         <meta property="og:url" content="https://contractorcompliancepros.com/services/compliance-platforms" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Digital Compliance Management for ISNetworld®, Veriforce® & Avetta® | Cornerstone Risk Management" />
+        <meta name="twitter:description" content="Digital compliance management for ISNetworld, Veriforce, and Avetta — setup, document uploads, questionnaires, and ongoing maintenance. 99% success rate." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/services/compliance-platforms" />
+        <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
-        <Navigation />
+        <NavigationNew />
         
         <main className="flex-grow">
           {/* Hero Section */}
@@ -31,7 +39,9 @@ const CompliancePlatforms = () => {
             <div className="absolute inset-0 z-0">
               <img 
                 src={heroImage} 
-                alt="ISNetworld® Veriforce® Avetta® compliance support services" 
+                  alt="Contractor crew in safety gear on an industrial job site"
+                  width={1920}
+                  height={1200}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/70" />
@@ -46,7 +56,7 @@ const CompliancePlatforms = () => {
                 <p className="text-xl mb-8 text-primary-foreground/90">
                   Cornerstone Risk Management helps contractors navigate online compliance platforms so they can qualify for more clients and maintain strong standing in each system.
                 </p>
-                <Button size="lg" variant="secondary" asChild>
+                <Button size="lg" variant="secondary" className="w-full sm:w-auto h-auto whitespace-normal" asChild>
                   <a href="#contact">Get Help With Your Compliance Platform Accounts</a>
                 </Button>
               </div>
@@ -187,7 +197,7 @@ const CompliancePlatforms = () => {
           </section>
         </main>
 
-        <Footer />
+        <FooterNew />
       </div>
     </>
   );

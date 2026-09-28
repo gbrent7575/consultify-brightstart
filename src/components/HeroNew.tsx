@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
-import heroImage from "@/assets/hero-option-1-oilfield.jpg";
+import heroImage from "@/assets/hero-contractors-nationwide.jpg";
 import { trackPhoneClick } from "@/lib/ga4";
 
 const HeroNew = () => {
@@ -17,7 +17,9 @@ const HeroNew = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="Oil and gas contractor compliance support" 
+          alt="Contractor crew in safety gear on an industrial job site"
+          width={1920}
+          height={1200}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
@@ -33,11 +35,11 @@ const HeroNew = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-foreground mb-6 leading-tight">
-            ISNetworld®, Veriforce® & Avetta® Compliance Help for Contractors
+            Done-for-You ISNetworld®, Avetta®, Veriforce® & PEC Premier® Compliance Management
           </h1>
           
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-            Setup, maintenance, and grade recovery — done for you, with transparent flat-rate pricing. Stop losing bids over paperwork.
+            Setup, maintenance, and grade recovery for contractors nationwide, with transparent flat-rate pricing. Stop losing bids over paperwork.
           </p>
 
           {/* CTA Buttons */}

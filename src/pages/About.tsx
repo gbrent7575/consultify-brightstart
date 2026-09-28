@@ -3,7 +3,7 @@ import NavigationNew from "@/components/NavigationNew";
 import FooterNew from "@/components/FooterNew";
 import TrademarkNotice from "@/components/TrademarkNotice";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Mail, ShieldCheck, Users, Clock, Award } from "lucide-react";
+import { ArrowRight, Phone, Mail, ShieldCheck, Users, Clock } from "lucide-react";
 
 const About = () => {
   const scrollToHomeForm = () => {
@@ -16,11 +16,19 @@ const About = () => {
         <title>About Cornerstone Risk Management</title>
         <meta
           name="description"
-          content="Cornerstone Risk Management — 15+ years managing ISNetworld, Veriforce, and Avetta accounts for oil and gas contractors. Gulf Coast based, 24-hour response."
+          content="Cornerstone Risk Management — 15+ years managing ISNetworld®, Avetta®, Veriforce® and PEC Premier® accounts for contractors nationwide."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/about" />
+        <meta property="og:title" content="About Cornerstone Risk Management" />
+        <meta property="og:description" content="Cornerstone Risk Management — 15+ years managing ISNetworld®, Avetta®, Veriforce® and PEC Premier® accounts for contractors nationwide." />
         <meta property="og:url" content="https://contractorcompliancepros.com/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Cornerstone Risk Management" />
+        <meta name="twitter:description" content="Cornerstone Risk Management — 15+ years managing ISNetworld®, Avetta®, Veriforce® and PEC Premier® accounts for contractors nationwide." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/about" />
+        <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
@@ -35,7 +43,7 @@ const About = () => {
                   About Cornerstone Risk Management
                 </h1>
                 <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed">
-                  With over 15 years of experience, Cornerstone Risk Management provides safety consulting and digital compliance management services for oil and gas contractors across the Gulf Coast and Southeast United States.
+                  With over 15 years of experience, Cornerstone Risk Management provides safety consulting and digital compliance management for contractors nationwide — in construction, industrial services and maintenance, oil, gas and energy, and manufacturing and food production.
                 </p>
               </div>
             </div>
@@ -50,7 +58,7 @@ const About = () => {
                   We manage ISNetworld®, Veriforce®, Avetta®, and PEC Premier® accounts for 100+ contractors — handling account setup, document uploads, questionnaire responses, and ongoing maintenance so our clients can focus on operations instead of paperwork.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Cornerstone Risk Management maintains a 99% compliance success rate and responds to urgent issues within 24 hours.
+                  Cornerstone Risk Management maintains a 99% compliance success rate.
                 </p>
               </div>
             </div>
@@ -59,12 +67,11 @@ const About = () => {
           {/* Stats */}
           <section className="py-16 bg-muted/30">
             <div className="container mx-auto px-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
                 {[
                   { icon: Clock, stat: "15+", label: "Years Experience" },
                   { icon: Users, stat: "100+", label: "Contractors Managed" },
                   { icon: ShieldCheck, stat: "99%", label: "Success Rate" },
-                  { icon: Award, stat: "24hr", label: "Response Time" },
                 ].map((item) => (
                   <div key={item.label} className="animate-fade-in">
                     <item.icon className="h-8 w-8 text-accent mx-auto mb-3" />

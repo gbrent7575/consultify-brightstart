@@ -14,8 +14,16 @@ const Contact = () => {
           content="Contact Cornerstone Risk Management for a free compliance quote. Call 601-647-1201 or send us a message — we'll reach out."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/contact" />
+        <meta property="og:title" content="Contact Cornerstone Risk Management" />
+        <meta property="og:description" content="Contact Cornerstone Risk Management for a free compliance quote. Call 601-647-1201 or send us a message — we'll reach out." />
         <meta property="og:url" content="https://contractorcompliancepros.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Cornerstone Risk Management" />
+        <meta name="twitter:description" content="Contact Cornerstone Risk Management for a free compliance quote. Call 601-647-1201 or send us a message — we'll reach out." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/contact" />
+        <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
