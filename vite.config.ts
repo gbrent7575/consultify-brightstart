@@ -63,7 +63,7 @@ export default defineConfig(({ mode }) => ({
         const res = await fetch(
           "https://mtsfjulztuhezppqfydr.supabase.co/functions/v1/owner-engine?action=pages",
         );
-        const json = await res.json();
+        const json = (await res.json()) as { ok?: boolean; pages?: { slug: string; live_since?: string }[] };
         const pages: { slug: string; live_since?: string }[] =
           json?.ok && Array.isArray(json.pages) ? json.pages : [];
         if (pages.length === 0) return;
