@@ -20,7 +20,7 @@ const leadSchema = z.object({
 });
 
 const PLATFORMS: QuoteFormPlatform[] = ["ISNetworld", "Veriforce", "Avetta", "Multiple"];
-const REFERRAL_SOURCES = ["Google search", "ChatGPT or another AI assistant", "Someone referred me", "Other"];
+const REFERRAL_SOURCES = ["Google search", "ChatGPT or another AI assistant", "LinkedIn", "Someone referred me", "Other"];
 
 const LeadForm = () => {
   const { toast } = useToast();
