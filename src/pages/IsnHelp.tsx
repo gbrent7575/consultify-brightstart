@@ -30,7 +30,7 @@ const schema = z.object({
 });
 
 const PLATFORMS = ["ISNetworld", "Veriforce", "Avetta", "Multiple"];
-const REFERRAL_SOURCES = ["Google search", "ChatGPT or another AI assistant", "Someone referred me", "Other"];
+const REFERRAL_SOURCES = ["Google search", "ChatGPT or another AI assistant", "LinkedIn", "Someone referred me", "Other"];
 
 const scoreDrivers = [
   { title: "MSQ", desc: "The Management System Questionnaire about your safety programs." },
