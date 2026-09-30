@@ -48,7 +48,7 @@ const PricingSection = ({ asH1 = false }: { asH1?: boolean }) => {
         <div className="text-center mb-12 animate-fade-in">
           <Heading id="pricing-heading" className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
             Simple, Flat-Rate Pricing
-          </h2>
+          </Heading>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             No surprises. No hourly billing. Just predictable costs for complete compliance management.
           </p>
