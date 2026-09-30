@@ -3,7 +3,7 @@ import NavigationNew from "@/components/NavigationNew";
 import FooterNew from "@/components/FooterNew";
 import TrademarkNotice from "@/components/TrademarkNotice";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Mail, ShieldCheck, Users, Clock } from "lucide-react";
+import { ArrowRight, Phone, ShieldCheck, Users, Clock } from "lucide-react";
 
 const About = () => {
   const scrollToHomeForm = () => {
@@ -113,10 +113,6 @@ const About = () => {
                 <a href="tel:601-647-1201" className="flex items-center gap-2 hover:text-primary-foreground transition-colors">
                   <Phone className="h-4 w-4" />
                   601-647-1201
-                </a>
-                <a href="mailto:garland@cornerstoneriskmgt.com" className="flex items-center gap-2 hover:text-primary-foreground transition-colors">
-                  <Mail className="h-4 w-4" />
-                  garland@cornerstoneriskmgt.com
                 </a>
               </div>
             </div>

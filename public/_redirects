@@ -1,9 +1,0 @@
-# NOTE (2026-09-13): Lovable hosting does NOT appear to process this file.
-# Verified live: /Default.aspx and /*.aspx return 404, not 301, and a
-# /services/isnetworld rule here had no effect. Redirects that need to
-# actually fire are implemented as <Navigate> routes in src/routes.tsx.
-# These rules are kept in case host behavior changes, but do not rely on them.
-/Default.aspx / 301
-/default.aspx / 301
-/*.aspx / 301
-/services/isnetworld /isn/help 301
