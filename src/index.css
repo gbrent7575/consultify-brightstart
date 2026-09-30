@@ -26,12 +26,12 @@ All colors MUST be HSL.
     --secondary-foreground: 215 30% 15%;
 
     --muted: 210 15% 94%;
-    --muted-foreground: 214 10% 40%;
+    --muted-foreground: 214.286 10.345% 39.804%;
 
     /* Vibrant Orange as accent */
     --accent: 24 85% 52%;
     --accent-foreground: 215 29% 17.65%;
-    --accent-text: 24 87% 35%;
+    --accent-text: 23.846 86.667% 35.294%;
 
     /* Navy variants */
     --navy: 213 55% 25%;
