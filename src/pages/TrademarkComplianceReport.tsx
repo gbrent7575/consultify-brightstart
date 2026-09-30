@@ -174,7 +174,7 @@ const TrademarkComplianceReport = () => {
               </div>
               <p className="text-muted-foreground max-w-3xl">
                 Internal checklist for tracking trademark compliance across the Cornerstone Risk Management website. 
-                Reference: <a href="https://www.isnetworld.com/en/trademark-logo-policy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">ISNetworld Trademark & Logo Policy</a>
+                Reference: <a href="https://www.isnetworld.com/en/trademark-logo-policy" target="_blank" rel="noopener noreferrer" className="text-accent-text hover:underline">ISNetworld Trademark & Logo Policy</a>
               </p>
             </div>
 

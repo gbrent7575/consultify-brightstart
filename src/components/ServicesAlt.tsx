@@ -37,7 +37,7 @@ const ServicesAlt = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
           <div className="inline-block px-4 py-2 bg-accent/10 border border-accent/20 rounded-full mb-4">
-            <span className="text-accent font-medium text-sm">What We Do</span>
+            <span className="text-accent-text font-medium text-sm">What We Do</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
             Comprehensive Compliance Services
@@ -61,7 +61,7 @@ const ServicesAlt = () => {
                   </div>
                   <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all" />
                 </div>
-                <CardTitle className="text-xl font-serif text-primary group-hover:text-accent transition-colors">
+                <CardTitle className="text-xl font-serif text-primary group-hover:text-accent-text transition-colors">
                   {service.title}
                 </CardTitle>
               </CardHeader>

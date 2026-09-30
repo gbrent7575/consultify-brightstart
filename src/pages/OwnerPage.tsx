@@ -180,7 +180,7 @@ const OwnerPage = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <Card className="border-2 border-border">
                   <CardContent className="pt-6">
-                    <p className="text-accent text-xs font-semibold uppercase tracking-wide mb-1">One-Time Setup</p>
+                    <p className="text-accent-text text-xs font-semibold uppercase tracking-wide mb-1">One-Time Setup</p>
                     <h3 className="text-xl font-bold text-primary mb-3">Platform Setup</h3>
                     <div className="space-y-2 text-foreground">
                       <p><span className="text-3xl font-bold">$900</span> <span className="text-muted-foreground">/ platform</span></p>
@@ -190,7 +190,7 @@ const OwnerPage = () => {
                 </Card>
                 <Card className="border-2 border-accent bg-accent/5">
                   <CardContent className="pt-6">
-                    <p className="text-accent text-xs font-semibold uppercase tracking-wide mb-1">Monthly Maintenance</p>
+                    <p className="text-accent-text text-xs font-semibold uppercase tracking-wide mb-1">Monthly Maintenance</p>
                     <h3 className="text-xl font-bold text-primary mb-3">Keep You Approved</h3>
                     <ul className="space-y-2 text-foreground">
                       <li><span className="font-bold">$250/mo</span> — single platform</li>

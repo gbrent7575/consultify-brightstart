@@ -58,7 +58,7 @@ const OwnersIndex = () => {
                       <Card className="h-full hover:border-accent transition-colors">
                         <CardContent className="pt-6 space-y-2">
                           <h2 className="font-bold text-primary text-lg">{o.company}</h2>
-                          <span className="inline-block text-xs font-semibold rounded-full bg-accent/10 text-accent px-3 py-1">
+                          <span className="inline-block text-xs font-semibold rounded-full bg-accent/10 text-accent-text px-3 py-1">
                             {o.platform}®
                           </span>
                           {o.industry && <p className="text-sm text-muted-foreground">{o.industry}</p>}
