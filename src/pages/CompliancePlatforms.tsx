@@ -37,14 +37,14 @@ const CompliancePlatforms = () => {
           <section className="relative min-h-[60vh] flex items-center overflow-hidden pt-28 md:pt-24">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
-              <img 
-                src={heroImage} 
-                  alt="Construction workers assembling steel on a commercial job site"
-                  width={1800}
-                  height={1125}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
+              <img
+                src={heroImage}
+                alt="Construction workers assembling steel on a commercial job site"
+                width={1800}
+                height={1125}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/70" />
