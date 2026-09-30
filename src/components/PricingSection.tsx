@@ -20,13 +20,6 @@ const singleFeatures = [
   "Routine corrections and client requirement updates",
 ];
 
-const dualFeatures = [
-  "Maintenance of any two platforms",
-  "All monthly, quarterly, and annual reporting cycles",
-  "Client-specific requirement changes",
-  "Routine issue resolution",
-];
-
 const multiFeatures = [
   "Maintenance of up to three platforms",
   "All recurring reporting and updates",
@@ -108,39 +101,6 @@ const PricingSection = ({ asH1 = false }: { asH1?: boolean }) => {
               <Button
                 onClick={scrollToForm}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                Get a Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Dual Platform — MOST POPULAR */}
-          <Card className="border-2 border-accent bg-accent/5 animate-slide-up relative overflow-hidden" style={{ animationDelay: '0.1s' }}>
-            <div className="absolute top-0 right-0 bg-accent text-accent-foreground px-3 py-1 text-xs font-semibold rounded-bl-lg">
-              MOST POPULAR
-            </div>
-            <CardHeader className="pb-4">
-              <CardDescription className="text-accent-text font-semibold uppercase tracking-wide text-sm">Monthly — Most Common</CardDescription>
-              <CardTitle className="text-2xl font-serif">Dual-Platform Maintenance</CardTitle>
-              <div className="pt-2">
-                <span className="text-4xl font-bold">$300</span>
-                <span className="text-muted-foreground text-base font-normal"> /month</span>
-                <p className="text-sm text-muted-foreground mt-1">$3,600/year</p>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 mb-8">
-                {dualFeatures.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                onClick={scrollToForm}
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
               >
                 Get a Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
