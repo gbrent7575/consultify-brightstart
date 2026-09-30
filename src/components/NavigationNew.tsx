@@ -4,13 +4,18 @@ import { trackPhoneClick } from "@/lib/ga4";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const NavigationNew = () => {
+interface NavigationNewProps {
+  solidFromStart?: boolean;
+}
+
+const NavigationNew = ({ solidFromStart = false }: NavigationNewProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const useSolidStyle = solidFromStart || scrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,7 +76,7 @@ const NavigationNew = () => {
 
       {/* Main Navigation */}
       <nav className={`fixed top-10 w-full z-40 transition-all duration-300 ${
-        scrolled 
+        useSolidStyle
           ? 'bg-background/95 backdrop-blur-sm border-b border-border shadow-sm' 
           : 'bg-transparent'
       }`}>
@@ -80,7 +85,7 @@ const NavigationNew = () => {
             <Link 
               to="/"
               className={`text-xl md:text-2xl font-serif font-bold transition-colors ${
-                scrolled ? 'text-primary' : 'text-primary-foreground md:text-primary'
+                useSolidStyle ? 'text-primary' : 'text-primary-foreground'
               } hover:opacity-80`}
             >
               Cornerstone Risk Management
@@ -95,7 +100,7 @@ const NavigationNew = () => {
               >
                 <button 
                   className={`flex items-center gap-1 font-medium transition-colors ${
-                    scrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
+                    useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground'
                   }`}
                 >
                   Services
@@ -121,7 +126,7 @@ const NavigationNew = () => {
               <button 
                 onClick={() => scrollToSection('pricing')}
                 className={`font-medium transition-colors ${
-                  scrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
+                  useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground'
                 }`}
               >
                 Pricing
@@ -130,7 +135,7 @@ const NavigationNew = () => {
               <Link 
                 to="/about"
                 className={`font-medium transition-colors ${
-                  scrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
+                  useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground'
                 }`}
               >
                 About
@@ -139,7 +144,7 @@ const NavigationNew = () => {
               <button
                 onClick={() => scrollToSection('lead-form')}
                 className={`inline-flex items-center gap-1 font-medium transition-colors ${
-                  scrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
+                  useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground'
                 }`}
               >
                 Request a Quote
@@ -148,7 +153,7 @@ const NavigationNew = () => {
 
             {/* Mobile Menu Button */}
             <button 
-              className={`lg:hidden ${scrolled ? 'text-foreground' : 'text-primary-foreground md:text-foreground'}`}
+              className={`lg:hidden ${useSolidStyle ? 'text-foreground' : 'text-primary-foreground'}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}

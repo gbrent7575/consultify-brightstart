@@ -27,7 +27,7 @@ const Contact = () => {
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
-        <NavigationNew />
+        <NavigationNew solidFromStart />
 
         <main className="flex-grow pt-24">
           {/* Hero */}

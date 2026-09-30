@@ -26,7 +26,7 @@ const Pricing = () => {
       </Helmet>
 
       <div className="min-h-screen">
-        <NavigationNew />
+        <NavigationNew solidFromStart />
         <main className="pt-28">
           <PricingSection asH1 />
         </main>
