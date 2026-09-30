@@ -28,7 +28,7 @@ const Pricing = () => {
       <div className="min-h-screen">
         <NavigationNew />
         <main className="pt-28">
-          <PricingSection />
+          <PricingSection asH1 />
         </main>
         <FooterNew />
       </div>

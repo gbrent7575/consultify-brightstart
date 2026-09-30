@@ -2,8 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, ArrowRight } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { useFormGuard, HoneypotField, BriefOptIn, hasTenDigits, PHONE_ERROR } from "@/components/FormGuard";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
@@ -13,7 +14,7 @@ const SOURCE_PAGE = "home";
 const leadSchema = z.object({
   name: z.string().trim().min(1, { message: "Name is required" }).max(100),
   company: z.string().trim().min(1, { message: "Company is required" }).max(100),
-  phone: z.string().trim().min(1, { message: "Phone is required" }).max(20),
+  phone: z.string().trim().min(1, { message: "Phone is required" }).max(20).refine(hasTenDigits, PHONE_ERROR),
   email: z.string().trim().email({ message: "Please enter a valid email" }).max(255),
   platform: z.string().min(1, { message: "Please select a platform" }),
   referral_source: z.string().min(1, { message: "Please select one" })
@@ -33,14 +34,14 @@ const LeadForm = () => {
     platform: "",
     referral_source: ""
   });
-  const [website, setWebsite] = useState(""); // honeypot
-  const [renderedAt] = useState(() => Date.now());
+  const guard = useFormGuard();
 
   const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
     e?.preventDefault?.();
     // Honeypot: silently "succeed" for bots
-    if (website || Date.now() - renderedAt < 1500) {
+    if (guard.isBot()) {
       setFormData({ name: "", company: "", phone: "", email: "", platform: "", referral_source: "" });
+      guard.resetGuard();
       return;
     }
     if (isSubmitting) return;
@@ -65,6 +66,7 @@ const LeadForm = () => {
           referral_source: parsed.data.referral_source,
           message: "",
           source_page: SOURCE_PAGE,
+          ...guard.extras(),
         }
       });
       if (error || !data?.success) throw new Error(error?.message || "Send failed");
@@ -76,6 +78,7 @@ const LeadForm = () => {
       trackQuoteFormSubmission(parsed.data.platform as QuoteFormPlatform, SOURCE_PAGE);
 
       setFormData({ name: "", company: "", phone: "", email: "", platform: "", referral_source: "" });
+      guard.resetGuard();
     } catch (error) {
       console.error('Error sending lead:', error);
       toast({
@@ -119,20 +122,6 @@ const LeadForm = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center">
-                  <Mail className="h-5 w-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <div className="font-semibold">Email us</div>
-                  <a 
-                    href="mailto:garland@cornerstoneriskmgt.com"
-                    className="text-primary-foreground/80 hover:text-primary-foreground"
-                  >
-                    garland@cornerstoneriskmgt.com
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -145,18 +134,7 @@ const LeadForm = () => {
             <CardContent>
               <form onSubmit={handleSubmit} noValidate className="space-y-4">
                 {/* Honeypot: hidden from real users */}
-                <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", top: "auto", width: 1, height: 1, overflow: "hidden" }}>
-                  <label htmlFor="website">Website</label>
-                  <input
-                    id="website"
-                    name="website"
-                    type="text"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={website}
-                    onChange={(e) => setWebsite(e.target.value)}
-                  />
-                </div>
+                <HoneypotField value={guard.website} onChange={guard.setWebsite} />
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Name *
@@ -248,6 +226,8 @@ const LeadForm = () => {
                     </SelectContent>
                   </Select>
                 </div>
+
+                <BriefOptIn checked={guard.briefOptIn} onChange={guard.setBriefOptIn} />
 
                 <Button
                   type="button"

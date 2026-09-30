@@ -286,14 +286,6 @@ const Isnetworld = () => {
                 <Button size="lg" variant="secondary" asChild>
                   <a href="tel:601-647-1201">Call 601-647-1201</a>
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                  asChild
-                >
-                  <a href="mailto:garland@cornerstoneriskmgt.com">Email Us</a>
-                </Button>
               </div>
             </div>
           </section>

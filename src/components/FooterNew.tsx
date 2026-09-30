@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
-import NewsletterSection from "@/components/NewsletterSection";
+import { Phone, MapPin } from "lucide-react";
 
 const FooterNew = () => {
   const currentYear = new Date().getFullYear();
@@ -22,7 +21,6 @@ const FooterNew = () => {
 
   return (
     <>
-      <NewsletterSection />
       <footer className="bg-primary text-primary-foreground">
       {/* CTA Section */}
       <div className="border-b border-primary-foreground/10">
@@ -67,13 +65,6 @@ const FooterNew = () => {
               >
                 <Phone className="h-4 w-4" />
                 601-647-1201
-              </a>
-              <a 
-                href="mailto:garland@cornerstoneriskmgt.com" 
-                className="flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-              >
-                <Mail className="h-4 w-4" />
-                garland@cornerstoneriskmgt.com
               </a>
               <div className="flex items-start gap-2 text-sm text-primary-foreground/70">
                 <MapPin className="h-4 w-4 mt-0.5" />

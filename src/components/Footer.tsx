@@ -41,7 +41,6 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               <li itemProp="telephone">601-647-1201</li>
-              <li itemProp="email">garland@cornerstoneriskmgt.com</li>
               <li itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                 <span itemProp="streetAddress">PO Box 271</span>, <span itemProp="addressLocality">Crystal Springs</span>, <span itemProp="addressRegion">MS</span> <span itemProp="postalCode">39059</span>
               </li>

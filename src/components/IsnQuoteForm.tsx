@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useFormGuard, HoneypotField, BriefOptIn, hasTenDigits, PHONE_ERROR } from "@/components/FormGuard";
 import { useToast } from "@/hooks/use-toast";
 import { trackQuoteFormSubmission, type QuoteFormSourcePage } from "@/lib/ga4";
 
@@ -27,7 +28,7 @@ const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   company: z.string().trim().min(1, "Company is required").max(150),
   email: z.string().trim().email("Invalid email").max(255),
-  phone: z.string().trim().min(7, "Phone is required").max(30),
+  phone: z.string().trim().min(1, "Phone is required").max(30).refine(hasTenDigits, PHONE_ERROR),
   platform: z.string().min(1, "Please select a platform"),
   message: z.string().max(2000).optional(),
 });
@@ -53,8 +54,7 @@ const IsnQuoteForm = ({
     platform: defaultPlatform,
     message: "",
   });
-  const [website, setWebsite] = useState(""); // honeypot
-  const [renderedAt] = useState(() => Date.now());
+  const guard = useFormGuard();
 
   const update = (k: keyof typeof form, v: string) =>
     setForm((p) => ({ ...p, [k]: v }));
@@ -63,8 +63,9 @@ const IsnQuoteForm = ({
     e?.preventDefault?.();
     if (submitting) return;
     // Honeypot: silently drop bot submissions
-    if (website || Date.now() - renderedAt < 1500) {
+    if (guard.isBot()) {
       setForm({ name: "", company: "", email: "", phone: "", platform: defaultPlatform, message: "" });
+      guard.resetGuard();
       return;
     }
     const parsed = schema.safeParse(form);
@@ -80,7 +81,7 @@ const IsnQuoteForm = ({
     setSubmitting(true);
     try {
       const { data, error } = await supabase.functions.invoke("send-isn-quote", {
-        body: parsed.data,
+        body: { ...parsed.data, ...guard.extras() },
       });
       if (error || !data?.success) throw new Error(error?.message || "Send failed");
 
@@ -90,10 +91,11 @@ const IsnQuoteForm = ({
       });
       trackQuoteFormSubmission(parsed.data.platform as Parameters<typeof trackQuoteFormSubmission>[0], sourcePage);
       setForm({ name: "", company: "", email: "", phone: "", platform: defaultPlatform, message: "" });
+      guard.resetGuard();
     } catch (err) {
       toast({
         title: "Something went wrong",
-        description: "Please call 601-647-1201 or email garland@cornerstoneriskmgt.com.",
+        description: "Please call 601-647-1201.",
         variant: "destructive",
       });
     } finally {
@@ -108,18 +110,7 @@ const IsnQuoteForm = ({
       className="bg-background text-foreground rounded-lg p-6 md:p-8 max-w-2xl mx-auto text-left shadow-lg"
     >
       {/* Honeypot: hidden from real users */}
-      <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", top: "auto", width: 1, height: 1, overflow: "hidden" }}>
-        <label htmlFor="website-hp">Website</label>
-        <input
-          id="website-hp"
-          name="website"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-          value={website}
-          onChange={(e) => setWebsite(e.target.value)}
-        />
-      </div>
+      <HoneypotField id="website-hp" value={guard.website} onChange={guard.setWebsite} />
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="name">Name *</Label>
@@ -164,6 +155,9 @@ const IsnQuoteForm = ({
             placeholder={messagePlaceholder}
           />
         </div>
+      </div>
+      <div className="mt-6">
+        <BriefOptIn checked={guard.briefOptIn} onChange={guard.setBriefOptIn} />
       </div>
       <Button type="button" size="lg" onClick={handleSubmit} className="w-full mt-6 bg-accent text-accent-foreground hover:bg-accent/90" disabled={submitting}>
         {submitting ? "Sending..." : "Send My Quote Request"}

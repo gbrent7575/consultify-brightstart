@@ -13,6 +13,7 @@ interface QuoteRequest {
   message?: string;
   source_page?: string;
   referral_source?: string;
+  brief_opt_in?: boolean;
 }
 
 function escapeHtml(s: string) {
@@ -33,10 +34,11 @@ function validate(body: any): { ok: true; data: QuoteRequest } | { ok: false; er
     }
     if (body[f].length > 500) return { ok: false, error: `Field too long: ${f}` };
   }
-  if (body.email && typeof body.email === "string" && body.email.trim().length > 0) {
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
-      return { ok: false, error: "Invalid email" };
-    }
+  if (typeof body.email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email.trim()) || body.email.length > 255) {
+    return { ok: false, error: "Invalid email" };
+  }
+  if (body.phone.replace(/\D/g, "").length < 10) {
+    return { ok: false, error: "Invalid phone" };
   }
   if (body.referral_source && (typeof body.referral_source !== "string" || body.referral_source.length > 100)) {
     return { ok: false, error: "Invalid referral_source" };
@@ -49,12 +51,13 @@ function validate(body: any): { ok: true; data: QuoteRequest } | { ok: false; er
     data: {
       name: body.name.trim(),
       company: body.company.trim(),
-      email: (body.email || "").trim(),
+      email: body.email.trim(),
       phone: body.phone.trim(),
       platform: body.platform.trim(),
       message: body.message?.trim() || "",
       source_page: body.source_page?.trim() || "",
       referral_source: body.referral_source?.trim() || "",
+      brief_opt_in: body.brief_opt_in === true,
     },
   };
 }
@@ -69,6 +72,19 @@ Deno.serve(async (req) => {
     if (!RESEND_API_KEY) throw new Error("RESEND_API_KEY is not configured");
 
     const body = await req.json();
+
+    // Bot drop: honeypot filled or submitted too fast. elapsed_ms is optional
+    // so older published forms that don't send it still work.
+    if (
+      (body && typeof body.website === "string" && body.website.length > 0) ||
+      (body && typeof body.elapsed_ms === "number" && body.elapsed_ms < 3000)
+    ) {
+      console.log("dropped: bot");
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
     const result = validate(body);
     if (!result.ok) {
       return new Response(JSON.stringify({ error: result.error }), {
@@ -76,7 +92,42 @@ Deno.serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-    const { name, company, email, phone, platform, message, source_page, referral_source } = result.data;
+    const { name, company, email, phone, platform, message, source_page, referral_source, brief_opt_in } = result.data;
+
+    let briefAdded = false;
+    let briefError = "";
+    if (brief_opt_in) {
+      try {
+        const parts = name.split(/\s+/);
+        const first_name = parts[0];
+        const last_name = parts.slice(1).join(" ");
+        const cRes = await fetch("https://api.resend.com/contacts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
+          body: JSON.stringify({
+            email,
+            first_name,
+            ...(last_name ? { last_name } : {}),
+            unsubscribed: false,
+            segments: ["75965ea4-3421-477d-bcbd-b8d2f43634d4"],
+            topics: [{ id: "f63fbb35-f1bd-449d-80b4-829902ded29a", subscription: "opt_in" }],
+          }),
+        });
+        if (cRes.ok) {
+          briefAdded = true;
+        } else {
+          const t = await cRes.text().catch(() => "");
+          briefError = `${cRes.status} ${t}`.slice(0, 200);
+          console.error("Resend contact error", briefError);
+        }
+      } catch (err) {
+        briefError = (err instanceof Error ? err.message : String(err)).slice(0, 200);
+        console.error("Resend contact exception", briefError);
+      }
+    }
+    const briefLine = brief_opt_in
+      ? `Yes${briefAdded ? "" : ` (not added automatically — add by hand; Resend said: ${escapeHtml(briefError || "unknown error")})`}`
+      : "No";
 
     const html = `
       <h2>New ISN Compliance Quote Request</h2>
@@ -86,6 +137,7 @@ Deno.serve(async (req) => {
       <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
       <p><strong>Platforms Needed:</strong> ${escapeHtml(platform)}</p>
       ${referral_source ? `<p><strong>How they heard about us:</strong> ${escapeHtml(referral_source)}</p>` : ""}
+      <p><strong>Wants the Monthly Safety Brief:</strong> ${briefLine}</p>
       ${source_page ? `<p><strong>Source Page:</strong> ${escapeHtml(source_page)}</p>` : ""}
       ${message ? `<p><strong>Message:</strong><br/>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>` : ""}
     `;

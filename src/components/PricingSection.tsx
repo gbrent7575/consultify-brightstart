@@ -33,7 +33,8 @@ const multiFeatures = [
   "Priority response for issue resolution",
 ];
 
-const PricingSection = () => {
+const PricingSection = ({ asH1 = false }: { asH1?: boolean }) => {
+  const Heading = asH1 ? "h1" : "h2";
   const scrollToForm = () => {
     const element = document.getElementById('lead-form');
     if (element) {
@@ -45,9 +46,9 @@ const PricingSection = () => {
     <section id="pricing" className="py-20 md:py-24 bg-background" aria-labelledby="pricing-heading">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 id="pricing-heading" className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+          <Heading id="pricing-heading" className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
             Simple, Flat-Rate Pricing
-          </h2>
+          </Heading>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             No surprises. No hourly billing. Just predictable costs for complete compliance management.
           </p>

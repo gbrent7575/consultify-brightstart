@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useFormGuard, HoneypotField, BriefOptIn, hasTenDigits, PHONE_ERROR } from "@/components/FormGuard";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { trackQuoteFormSubmission, trackPhoneClick } from "@/lib/ga4";
@@ -23,7 +24,7 @@ import { trackQuoteFormSubmission, trackPhoneClick } from "@/lib/ga4";
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   company: z.string().trim().min(1, "Company is required").max(150),
-  phone: z.string().trim().min(7, "Phone is required").max(30),
+  phone: z.string().trim().min(1, "Phone is required").max(30).refine(hasTenDigits, PHONE_ERROR),
   email: z.string().trim().email("Please enter a valid email").max(255),
   platform: z.string().min(1, "Please select a platform"),
   referral_source: z.string().min(1, "Please select one"),
@@ -55,6 +56,7 @@ const scrollToForm = () => {
 const QuoteForm = () => {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
+  const guard = useFormGuard();
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -70,6 +72,12 @@ const QuoteForm = () => {
   const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
     e?.preventDefault?.();
     if (submitting) return;
+    if (guard.isBot()) {
+      setForm({ name: "", company: "", phone: "", email: "", platform: "Veriforce", referral_source: "" });
+      guard.resetGuard();
+      guard.resetGuard();
+      return;
+    }
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       toast({
@@ -91,6 +99,7 @@ const QuoteForm = () => {
           referral_source: parsed.data.referral_source,
           message: "",
           source_page: SOURCE_PAGE,
+          ...guard.extras(),
         },
       });
       if (error || !data?.success) throw new Error(error?.message || "Send failed");
@@ -121,6 +130,7 @@ const QuoteForm = () => {
       noValidate
       className="bg-background text-foreground rounded-lg p-6 md:p-7 shadow-2xl space-y-4 border border-border"
     >
+      <HoneypotField value={guard.website} onChange={guard.setWebsite} />
       <div className="text-center mb-2">
         <h2 className="text-xl md:text-2xl font-bold text-primary">{FORM_HEADING}</h2>
         <p className="text-sm text-muted-foreground">Takes 30 seconds. No obligation.</p>
@@ -167,6 +177,7 @@ const QuoteForm = () => {
           </SelectContent>
         </Select>
       </div>
+      <BriefOptIn checked={guard.briefOptIn} onChange={guard.setBriefOptIn} />
       <Button
         type="button"
         size="lg"

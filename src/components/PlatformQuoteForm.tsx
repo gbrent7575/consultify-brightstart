@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useFormGuard, HoneypotField, BriefOptIn, hasTenDigits, PHONE_ERROR } from "@/components/FormGuard";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { trackQuoteFormSubmission } from "@/lib/ga4";
@@ -17,7 +18,7 @@ import { trackQuoteFormSubmission } from "@/lib/ga4";
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   company: z.string().trim().min(1, "Company is required").max(150),
-  phone: z.string().trim().min(7, "Phone is required").max(30),
+  phone: z.string().trim().min(1, "Phone is required").max(30).refine(hasTenDigits, PHONE_ERROR),
   email: z.string().trim().email("Please enter a valid email").max(255),
   platform: z.string().min(1, "Please select a platform"),
   referral_source: z.string().min(1, "Please select one"),
@@ -35,6 +36,7 @@ interface Props {
 const PlatformQuoteForm = ({ defaultPlatform, sourcePage, message = "" }: Props) => {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
+  const guard = useFormGuard();
   const empty = { name: "", company: "", phone: "", email: "", platform: defaultPlatform, referral_source: "" };
   const [form, setForm] = useState(empty);
 
@@ -43,6 +45,11 @@ const PlatformQuoteForm = ({ defaultPlatform, sourcePage, message = "" }: Props)
   const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
     e?.preventDefault?.();
     if (submitting) return;
+    if (guard.isBot()) {
+      setForm(empty);
+      guard.resetGuard();
+      return;
+    }
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
       toast({
@@ -55,7 +62,7 @@ const PlatformQuoteForm = ({ defaultPlatform, sourcePage, message = "" }: Props)
     setSubmitting(true);
     try {
       const { data, error } = await supabase.functions.invoke("send-isn-quote", {
-        body: { ...parsed.data, message, source_page: sourcePage },
+        body: { ...parsed.data, message, source_page: sourcePage, ...guard.extras() },
       });
       if (error || !data?.success) throw new Error(error?.message || "Send failed");
       toast({ title: "Request received!", description: "Thanks — we'll be in touch soon." });
@@ -64,6 +71,7 @@ const PlatformQuoteForm = ({ defaultPlatform, sourcePage, message = "" }: Props)
         sourcePage as Parameters<typeof trackQuoteFormSubmission>[1],
       );
       setForm(empty);
+      guard.resetGuard();
     } catch {
       toast({ title: "Something went wrong", description: "Please call 601-647-1201.", variant: "destructive" });
     } finally {
@@ -78,6 +86,7 @@ const PlatformQuoteForm = ({ defaultPlatform, sourcePage, message = "" }: Props)
       noValidate
       className="bg-background text-foreground rounded-lg p-6 md:p-7 shadow-2xl space-y-4 border border-border"
     >
+      <HoneypotField value={guard.website} onChange={guard.setWebsite} />
       <div className="text-center mb-2">
         <h2 className="text-xl md:text-2xl font-bold text-primary">Get My Free Compliance Review</h2>
         <p className="text-sm text-muted-foreground">Takes 30 seconds. No obligation.</p>
@@ -116,6 +125,7 @@ const PlatformQuoteForm = ({ defaultPlatform, sourcePage, message = "" }: Props)
           </SelectContent>
         </Select>
       </div>
+      <BriefOptIn checked={guard.briefOptIn} onChange={guard.setBriefOptIn} />
       <Button
         type="button"
         size="lg"

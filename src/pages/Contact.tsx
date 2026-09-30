@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import NavigationNew from "@/components/NavigationNew";
 import FooterNew from "@/components/FooterNew";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -58,13 +58,6 @@ const Contact = () => {
                     >
                       <Phone className="h-5 w-5 text-accent" />
                       <span className="text-lg">601-647-1201</span>
-                    </a>
-                    <a
-                      href="mailto:garland@cornerstoneriskmgt.com"
-                      className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
-                    >
-                      <Mail className="h-5 w-5 text-accent" />
-                      <span className="text-lg">garland@cornerstoneriskmgt.com</span>
                     </a>
                     <div className="flex items-start gap-3 text-muted-foreground">
                       <MapPin className="h-5 w-5 text-accent mt-0.5" />
