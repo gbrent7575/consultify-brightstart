@@ -198,19 +198,19 @@ const Veriforce = () => {
   return (
     <>
       <Helmet>
-        <title>Veriforce® Compliance Help for Contractors | Cornerstone Risk Management</title>
+        <title>Veriforce® Compliance Help for Contractors</title>
         <meta
           name="description"
           content="Veriforce® compliance help for contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/veriforce-help" />
-        <meta property="og:title" content="Veriforce® Compliance Help for Contractors | Cornerstone Risk Management" />
+        <meta property="og:title" content="Veriforce® Compliance Help for Contractors" />
         <meta property="og:description" content="Veriforce® compliance help for contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201." />
         <meta property="og:url" content="https://contractorcompliancepros.com/veriforce-help" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Veriforce® Compliance Help for Contractors | Cornerstone Risk Management" />
+        <meta name="twitter:title" content="Veriforce® Compliance Help for Contractors" />
         <meta name="twitter:description" content="Veriforce® compliance help for contractors. Safety programs, Operator Qualification (OQ), OSHA logs, COIs — flat-rate pricing. Call 601-647-1201." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/veriforce-help" />
         <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />

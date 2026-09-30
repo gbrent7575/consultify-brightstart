@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contractor Compliance Help: ISNetworld®, Avetta®, Veriforce®</title>
+    <meta name="description" content="ISNetworld®, Avetta®, Veriforce® and PEC Premier® compliance management for contractors nationwide. Setup, upkeep and grade recovery at flat-rate prices." />
     <!-- Per-page <title>, description, canonical, OG, Twitter, robots, keywords
          are injected by react-helmet-async at SSG / hydration time. -->
     <meta name="author" content="Cornerstone Risk Management" />
@@ -129,6 +131,11 @@
     }
     </script>
 
+    <!-- Structured Data - Website -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"Cornerstone Risk Management","alternateName":"CSRM","url":"https://contractorcompliancepros.com/"}
+    </script>
+
     <!-- Structured Data - FAQ -->
 
     <!-- Structured Data - Service -->
@@ -162,18 +169,27 @@
     <!-- Structured Data - Breadcrumb -->
 
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SN12NQ0ZF"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1SN12NQ0ZF');
+      window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-1SN12NQ0ZF');
+      window.addEventListener('load', function () {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-1SN12NQ0ZF';
+        document.head.appendChild(script);
+      }, { once: true });
     </script>
 
     <!-- Per-page og/twitter/description tags are injected by react-helmet-async
          during SSG; only sitewide fallbacks live here. -->
     <meta property="og:type" content="website">
+    <meta property="og:title" content="Contractor Compliance Help: ISNetworld®, Avetta®, Veriforce®">
+    <meta property="og:description" content="ISNetworld®, Avetta®, Veriforce® and PEC Premier® compliance management for contractors nationwide. Setup, upkeep and grade recovery at flat-rate prices.">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contractor Compliance Help: ISNetworld®, Avetta®, Veriforce®">
+    <meta name="twitter:description" content="ISNetworld®, Avetta®, Veriforce® and PEC Premier® compliance management for contractors nationwide. Setup, upkeep and grade recovery at flat-rate prices.">
   </head>
 
 

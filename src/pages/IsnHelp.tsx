@@ -196,19 +196,19 @@ const IsnHelp = () => {
   return (
     <>
       <Helmet>
-        <title>ISNetworld® Compliance Help for Contractors | Cornerstone Risk Management</title>
+        <title>ISNetworld® Compliance Help for Contractors</title>
         <meta
           name="description"
           content="Failed an ISNetworld review or watching your grade slip? We handle MSQ, RAVS, OSHA logs, and COI uploads so you get approved fast. Call 601-647-1201."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/isn/help" />
-        <meta property="og:title" content="ISNetworld® Compliance Help for Contractors | Cornerstone Risk Management" />
+        <meta property="og:title" content="ISNetworld® Compliance Help for Contractors" />
         <meta property="og:description" content="Failed an ISNetworld review or watching your grade slip? We handle MSQ, RAVS, OSHA logs, and COI uploads so you get approved fast. Call 601-647-1201." />
         <meta property="og:url" content="https://contractorcompliancepros.com/isn/help" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ISNetworld® Compliance Help for Contractors | Cornerstone Risk Management" />
+        <meta name="twitter:title" content="ISNetworld® Compliance Help for Contractors" />
         <meta name="twitter:description" content="Failed an ISNetworld review or watching your grade slip? We handle MSQ, RAVS, OSHA logs, and COI uploads so you get approved fast. Call 601-647-1201." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/isn/help" />
         <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />

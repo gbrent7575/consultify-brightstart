@@ -5,25 +5,25 @@ import TrademarkNotice from "@/components/TrademarkNotice";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, FileCheck, Upload, Award, RefreshCw } from "lucide-react";
-import heroImage from "@/assets/hero-compliance-nationwide.jpg";
+import heroImage from "@/assets/hero-compliance-nationwide.webp";
 
 const CompliancePlatforms = () => {
   return (
     <>
       <Helmet>
-        <title>Digital Compliance Management for ISNetworld®, Veriforce® & Avetta® | Cornerstone Risk Management</title>
+        <title>ISNetworld®, Avetta® & Veriforce® Account Management</title>
         <meta
           name="description"
           content="Digital compliance management for ISNetworld, Veriforce, and Avetta — setup, document uploads, questionnaires, and ongoing maintenance. 99% success rate."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/services/compliance-platforms" />
-        <meta property="og:title" content="Digital Compliance Management for ISNetworld®, Veriforce® & Avetta® | Cornerstone Risk Management" />
+        <meta property="og:title" content="ISNetworld®, Avetta® & Veriforce® Account Management" />
         <meta property="og:description" content="Digital compliance management for ISNetworld, Veriforce, and Avetta — setup, document uploads, questionnaires, and ongoing maintenance. 99% success rate." />
         <meta property="og:url" content="https://contractorcompliancepros.com/services/compliance-platforms" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Digital Compliance Management for ISNetworld®, Veriforce® & Avetta® | Cornerstone Risk Management" />
+        <meta name="twitter:title" content="ISNetworld®, Avetta® & Veriforce® Account Management" />
         <meta name="twitter:description" content="Digital compliance management for ISNetworld, Veriforce, and Avetta — setup, document uploads, questionnaires, and ongoing maintenance. 99% success rate." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/services/compliance-platforms" />
         <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
@@ -40,8 +40,11 @@ const CompliancePlatforms = () => {
               <img 
                 src={heroImage} 
                   alt="Construction workers assembling steel on a commercial job site"
-                  width={1920}
-                  height={1200}
+                  width={1800}
+                  height={1125}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/70" />

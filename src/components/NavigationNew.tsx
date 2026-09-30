@@ -150,6 +150,9 @@ const NavigationNew = () => {
             <button 
               className={`lg:hidden ${scrolled ? 'text-foreground' : 'text-primary-foreground md:text-foreground'}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation-menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -157,7 +160,7 @@ const NavigationNew = () => {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="lg:hidden mt-4 pb-4 space-y-3 animate-slide-up bg-background rounded-lg p-4 shadow-lg">
+            <div id="mobile-navigation-menu" className="lg:hidden mt-4 pb-4 space-y-3 animate-slide-up bg-background rounded-lg p-4 shadow-lg">
               <div>
                 <button 
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}

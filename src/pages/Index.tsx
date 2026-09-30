@@ -11,17 +11,17 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>ISNetworld®, Veriforce® & Avetta® Compliance Help for Contractors | Cornerstone Risk Management</title>
+        <title>Contractor Compliance Help: ISNetworld®, Avetta®, Veriforce®</title>
         <meta
           name="description"
-          content="ISNetworld®, Avetta®, Veriforce® and PEC Premier® compliance management for contractors nationwide. Setup, maintenance and grade recovery — done for you, with flat-rate pricing."
+          content="ISNetworld®, Avetta®, Veriforce® and PEC Premier® compliance management for contractors nationwide. Setup, upkeep and grade recovery at flat-rate prices."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/" />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="ISNetworld®, Veriforce® & Avetta® Compliance Help for Contractors | Cornerstone Risk Management" />
-        <meta property="og:description" content="ISNetworld®, Avetta®, Veriforce® and PEC Premier® compliance management for contractors nationwide. Setup, maintenance and grade recovery — done for you, with flat-rate pricing." />
+        <meta property="og:title" content="Contractor Compliance Help: ISNetworld®, Avetta®, Veriforce®" />
+        <meta property="og:description" content="ISNetworld®, Avetta®, Veriforce® and PEC Premier® compliance management for contractors nationwide. Setup, upkeep and grade recovery at flat-rate prices." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://contractorcompliancepros.com/" />
         <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
@@ -29,8 +29,8 @@ const Index = () => {
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ISNetworld®, Veriforce® & Avetta® Compliance Help for Contractors | Cornerstone Risk Management" />
-        <meta name="twitter:description" content="ISNetworld®, Avetta®, Veriforce® and PEC Premier® compliance management for contractors nationwide. Setup, maintenance and grade recovery — done for you, with flat-rate pricing." />
+        <meta name="twitter:title" content="Contractor Compliance Help: ISNetworld®, Avetta®, Veriforce®" />
+        <meta name="twitter:description" content="ISNetworld®, Avetta®, Veriforce® and PEC Premier® compliance management for contractors nationwide. Setup, upkeep and grade recovery at flat-rate prices." />
         <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
         
         {/* Additional SEO */}
