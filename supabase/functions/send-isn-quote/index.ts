@@ -109,7 +109,7 @@ Deno.serve(async (req) => {
             first_name,
             ...(last_name ? { last_name } : {}),
             unsubscribed: false,
-            segments: ["75965ea4-3421-477d-bcbd-b8d2f43634d4"],
+            segments: [{ id: "75965ea4-3421-477d-bcbd-b8d2f43634d4" }],
             topics: [{ id: "f63fbb35-f1bd-449d-80b4-829902ded29a", subscription: "opt_in" }],
           }),
         });
