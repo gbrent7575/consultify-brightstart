@@ -4,4 +4,4 @@
 - [x] Optimize live routed hero images and eliminate cross-route image downloads.
 - [x] Defer GA script loading while preserving immediate event queueing.
 - [x] Fix the requested mobile navigation accessibility and orange contrast issues.
-- [ ] Verify prerendered metadata, JSON-LD, image requests, GA queue/fire behavior, responsive UI, and build; do not publish.
+- [x] Verify prerendered metadata, JSON-LD, image requests, GA queue/fire behavior, responsive UI, and build; do not publish.

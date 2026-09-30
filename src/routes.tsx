@@ -3,7 +3,6 @@ import type { RouteRecord } from "vite-react-ssg";
 import App from "./App";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import CompliancePlatforms from "./pages/CompliancePlatforms";
 
 import Avetta from "./pages/Avetta";
 import Veriforce from "./pages/Veriforce";
@@ -28,7 +27,7 @@ export const routes: RouteRecord[] = [
       { path: "about", element: <About />, entry: "src/pages/About.tsx" },
       { path: "pricing", element: <Pricing />, entry: "src/pages/Pricing.tsx" },
       { path: "contact", element: <Contact />, entry: "src/pages/Contact.tsx" },
-      { path: "services/compliance-platforms", element: <CompliancePlatforms />, entry: "src/pages/CompliancePlatforms.tsx" },
+      { path: "services/compliance-platforms", lazy: () => import("./pages/CompliancePlatforms"), entry: "src/pages/CompliancePlatforms.tsx" },
       
       { path: "isn/help", element: <IsnHelp />, entry: "src/pages/IsnHelp.tsx" },
       { path: "isnetworld-help", element: <IsnHelp />, entry: "src/pages/IsnHelp.tsx" },

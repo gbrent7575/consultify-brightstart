@@ -204,3 +204,4 @@ const CompliancePlatforms = () => {
 };
 
 export default CompliancePlatforms;
+export { CompliancePlatforms as Component };
