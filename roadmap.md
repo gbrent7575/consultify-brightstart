@@ -8,4 +8,3 @@
 - [x] Add the approved About team section and Person/organization structured data.
 - [x] Apply the four approved contrast corrections without layout changes.
 - [x] Run the production build, validate JSON-LD, and verify prerendered About content; do not publish.
-- [ ] Remove the obsolete dual-platform pricing card and verify the pricing page; do not publish.
