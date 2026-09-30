@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
-import heroImage from "@/assets/hero-contractors-nationwide.webp";
+import heroImage from "@/assets/hero-contractors-nationwide.webp.asset.json";
 import { trackPhoneClick } from "@/lib/ga4";
 
 const HeroNew = () => {
@@ -16,7 +16,7 @@ const HeroNew = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroImage} 
+          src={heroImage.url}
           alt="Contractor crew in safety gear on an industrial job site"
           width={1550}
           height={969}

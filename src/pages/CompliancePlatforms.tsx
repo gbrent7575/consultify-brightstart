@@ -5,7 +5,7 @@ import TrademarkNotice from "@/components/TrademarkNotice";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, FileCheck, Upload, Award, RefreshCw } from "lucide-react";
-import heroImage from "@/assets/hero-compliance-nationwide.webp";
+import heroImage from "@/assets/hero-compliance-nationwide.webp.asset.json";
 
 const CompliancePlatforms = () => {
   return (
@@ -38,7 +38,7 @@ const CompliancePlatforms = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
               <img
-                src={heroImage}
+                src={heroImage.url}
                 alt="Construction workers assembling steel on a commercial job site"
                 width={1800}
                 height={1125}
