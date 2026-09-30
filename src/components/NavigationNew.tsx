@@ -85,7 +85,7 @@ const NavigationNew = ({ solidFromStart = false }: NavigationNewProps) => {
             <Link 
               to="/"
               className={`text-xl md:text-2xl font-serif font-bold transition-colors ${
-                useSolidStyle ? 'text-primary' : 'text-primary-foreground md:text-primary'
+                useSolidStyle ? 'text-primary' : 'text-primary-foreground'
               } hover:opacity-80`}
             >
               Cornerstone Risk Management
@@ -100,7 +100,7 @@ const NavigationNew = ({ solidFromStart = false }: NavigationNewProps) => {
               >
                 <button 
                   className={`flex items-center gap-1 font-medium transition-colors ${
-                    useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
+                    useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground'
                   }`}
                 >
                   Services
@@ -126,7 +126,7 @@ const NavigationNew = ({ solidFromStart = false }: NavigationNewProps) => {
               <button 
                 onClick={() => scrollToSection('pricing')}
                 className={`font-medium transition-colors ${
-                  useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
+                  useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground'
                 }`}
               >
                 Pricing
@@ -135,7 +135,7 @@ const NavigationNew = ({ solidFromStart = false }: NavigationNewProps) => {
               <Link 
                 to="/about"
                 className={`font-medium transition-colors ${
-                  useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
+                  useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground'
                 }`}
               >
                 About
@@ -144,7 +144,7 @@ const NavigationNew = ({ solidFromStart = false }: NavigationNewProps) => {
               <button
                 onClick={() => scrollToSection('lead-form')}
                 className={`inline-flex items-center gap-1 font-medium transition-colors ${
-                  useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground md:text-foreground md:hover:text-primary'
+                  useSolidStyle ? 'text-foreground hover:text-primary' : 'text-primary-foreground/90 hover:text-primary-foreground'
                 }`}
               >
                 Request a Quote
@@ -153,7 +153,7 @@ const NavigationNew = ({ solidFromStart = false }: NavigationNewProps) => {
 
             {/* Mobile Menu Button */}
             <button 
-              className={`lg:hidden ${useSolidStyle ? 'text-foreground' : 'text-primary-foreground md:text-foreground'}`}
+              className={`lg:hidden ${useSolidStyle ? 'text-foreground' : 'text-primary-foreground'}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
