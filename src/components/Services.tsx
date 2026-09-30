@@ -101,7 +101,7 @@ const Services = () => {
                   <ul className="space-y-2">
                     {service.details.map((detail, idx) => (
                       <li key={idx} className="text-sm text-foreground group-hover:text-primary-foreground flex items-start transition-colors duration-300">
-                        <span className="text-accent group-hover:text-accent-foreground mr-2">•</span>
+                        <span className="text-accent group-hover:text-primary-foreground mr-2">•</span>
                         {detail}
                       </li>
                     ))}
