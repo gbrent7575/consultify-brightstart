@@ -198,20 +198,20 @@ const Avetta = () => {
   return (
     <>
       <Helmet>
-        <title>Avetta® Compliance Help for Contractors | Cornerstone Risk Management</title>
+        <title>Avetta® Compliance Help for Contractors</title>
         <meta
           name="description"
-          content="Behind on Avetta or stuck on a low grade? We handle safety programs, OSHA logs, insurance, and document uploads so you get compliant fast. Call 601-647-1201."
+          content="Behind on Avetta or stuck on a low grade? We handle safety programs, OSHA logs, insurance and uploads so you get compliant fast. Call 601-647-1201."
         />
         <link rel="canonical" href="https://contractorcompliancepros.com/avetta-help" />
-        <meta property="og:title" content="Avetta® Compliance Help for Contractors | Cornerstone Risk Management" />
-        <meta property="og:description" content="Behind on Avetta or stuck on a low grade? We handle safety programs, OSHA logs, insurance, and document uploads so you get compliant fast. Call 601-647-1201." />
+        <meta property="og:title" content="Avetta® Compliance Help for Contractors" />
+        <meta property="og:description" content="Behind on Avetta or stuck on a low grade? We handle safety programs, OSHA logs, insurance and uploads so you get compliant fast. Call 601-647-1201." />
         <meta property="og:url" content="https://contractorcompliancepros.com/avetta-help" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://contractorcompliancepros.com/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Avetta® Compliance Help for Contractors | Cornerstone Risk Management" />
-        <meta name="twitter:description" content="Behind on Avetta or stuck on a low grade? We handle safety programs, OSHA logs, insurance, and document uploads so you get compliant fast. Call 601-647-1201." />
+        <meta name="twitter:title" content="Avetta® Compliance Help for Contractors" />
+        <meta name="twitter:description" content="Behind on Avetta or stuck on a low grade? We handle safety programs, OSHA logs, insurance and uploads so you get compliant fast. Call 601-647-1201." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/avetta-help" />
         <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
       </Helmet>

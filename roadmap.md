@@ -1,5 +1,7 @@
 # Roadmap
 
-- [x] Implement the approved nationwide compliance repositioning across copy, images, and social metadata.
-- [x] Verify protected form behavior, analytics, backend functions, routing, and SSG remain unchanged.
-- [x] Validate images, JSON-LD, responsive layouts, and build; do not publish.
+- [x] Implement the approved Batch C metadata and WebSite schema changes.
+- [x] Optimize live routed hero images and eliminate cross-route image downloads.
+- [x] Defer GA script loading while preserving immediate event queueing.
+- [x] Fix the requested mobile navigation accessibility and orange contrast issues.
+- [x] Verify prerendered metadata, JSON-LD, image requests, GA queue/fire behavior, responsive UI, and build; do not publish.

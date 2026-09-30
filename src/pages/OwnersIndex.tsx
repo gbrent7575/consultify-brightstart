@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Owner } from "@/lib/owners";
 
-const TITLE = "Hiring Clients That Require ISNetworld®, Veriforce®, or Avetta® | Cornerstone Risk Management";
+const TITLE = "Companies That Require ISNetworld®, Avetta® or Veriforce®";
 const DESC = "Hiring clients that require contractors to use ISNetworld®, Veriforce®, or Avetta®, and how Cornerstone Risk Management gets you approved.";
 const URL = "https://contractorcompliancepros.com/owners";
 const OG = "https://contractorcompliancepros.com/og-image.jpg";
