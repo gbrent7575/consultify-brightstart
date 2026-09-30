@@ -58,7 +58,7 @@ const PricingSection = ({ asH1 = false }: { asH1?: boolean }) => {
           {/* Setup Card */}
           <Card className="border-2 border-border hover:border-accent/50 transition-colors animate-slide-up">
             <CardHeader className="pb-4">
-              <CardDescription className="text-accent font-semibold uppercase tracking-wide text-sm">One-Time</CardDescription>
+              <CardDescription className="text-accent-text font-semibold uppercase tracking-wide text-sm">One-Time</CardDescription>
               <CardTitle className="text-2xl font-serif">Platform Setup or Reset</CardTitle>
               <div className="pt-2">
                 <span className="text-4xl font-bold">$900</span>
@@ -88,7 +88,7 @@ const PricingSection = ({ asH1 = false }: { asH1?: boolean }) => {
           {/* Single Platform */}
           <Card className="border-2 border-border hover:border-accent/50 transition-colors animate-slide-up" style={{ animationDelay: '0.05s' }}>
             <CardHeader className="pb-4">
-              <CardDescription className="text-accent font-semibold uppercase tracking-wide text-sm">Monthly</CardDescription>
+              <CardDescription className="text-accent-text font-semibold uppercase tracking-wide text-sm">Monthly</CardDescription>
               <CardTitle className="text-2xl font-serif">Single-Platform Maintenance</CardTitle>
               <div className="pt-2">
                 <span className="text-4xl font-bold">$250</span>
@@ -121,7 +121,7 @@ const PricingSection = ({ asH1 = false }: { asH1?: boolean }) => {
               MOST POPULAR
             </div>
             <CardHeader className="pb-4">
-              <CardDescription className="text-accent font-semibold uppercase tracking-wide text-sm">Monthly — Most Common</CardDescription>
+              <CardDescription className="text-accent-text font-semibold uppercase tracking-wide text-sm">Monthly — Most Common</CardDescription>
               <CardTitle className="text-2xl font-serif">Dual-Platform Maintenance</CardTitle>
               <div className="pt-2">
                 <span className="text-4xl font-bold">$300</span>
@@ -151,7 +151,7 @@ const PricingSection = ({ asH1 = false }: { asH1?: boolean }) => {
           {/* Multi-Platform */}
           <Card className="border-2 border-border hover:border-accent/50 transition-colors animate-slide-up" style={{ animationDelay: '0.15s' }}>
             <CardHeader className="pb-4">
-              <CardDescription className="text-accent font-semibold uppercase tracking-wide text-sm">Monthly</CardDescription>
+              <CardDescription className="text-accent-text font-semibold uppercase tracking-wide text-sm">Monthly</CardDescription>
               <CardTitle className="text-2xl font-serif">Multi-Platform Maintenance</CardTitle>
               <div className="pt-2">
                 <span className="text-4xl font-bold">$350</span>

@@ -15,7 +15,7 @@ const LandingHeader = ({ announcement }: { announcement: string }) => (
         <a
           href="tel:601-647-1201"
           onClick={trackPhoneClick}
-          className="inline-flex items-center gap-2 text-primary font-bold text-sm md:text-lg hover:text-accent transition-colors"
+          className="inline-flex items-center gap-2 text-primary font-bold text-sm md:text-lg hover:text-accent-text transition-colors"
         >
           <Phone className="w-4 h-4 md:w-5 md:h-5" />
           <span className="hidden sm:inline">601-647-1201</span>

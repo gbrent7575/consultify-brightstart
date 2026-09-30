@@ -3,7 +3,27 @@ import NavigationNew from "@/components/NavigationNew";
 import FooterNew from "@/components/FooterNew";
 import TrademarkNotice from "@/components/TrademarkNotice";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Phone, ShieldCheck, Users, Clock } from "lucide-react";
+
+const team = [
+  {
+    name: "Garland Brent",
+    title: "Owner",
+    description: "Garland spent 18 years in commercial insurance serving upstream and midstream oil and gas companies before founding Cornerstone Risk Management in April 2011. He also works as a fractional safety manager for industrial companies.",
+    linkedIn: "https://www.linkedin.com/in/garland-brent-26b49611/",
+  },
+  {
+    name: "Ginny U.",
+    title: "Account Manager",
+    description: "With Cornerstone for 14 years. Ginny runs ISNetworld®, Avetta® and Veriforce® accounts day to day and is the first call for most of our clients.",
+  },
+  {
+    name: "Caryn R.",
+    title: "Account Manager",
+    description: "With Cornerstone for 7 years. Caryn manages ISNetworld®, Avetta® and Veriforce® accounts and runs our billing.",
+  },
+];
 
 const About = () => {
   const scrollToHomeForm = () => {
@@ -29,6 +49,16 @@ const About = () => {
         <meta name="twitter:description" content="Cornerstone Risk Management — 15+ years managing ISNetworld®, Avetta®, Veriforce® and PEC Premier® accounts for contractors nationwide." />
         <meta name="twitter:url" content="https://contractorcompliancepros.com/about" />
         <meta name="twitter:image" content="https://contractorcompliancepros.com/og-image.jpg" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Garland Brent",
+            jobTitle: "Owner",
+            worksFor: { "@id": "https://contractorcompliancepros.com/#organization" },
+            sameAs: ["https://www.linkedin.com/in/garland-brent-26b49611/"],
+          })}
+        </script>
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
@@ -60,6 +90,35 @@ const About = () => {
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Cornerstone Risk Management maintains a 99% compliance success rate.
                 </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Team */}
+          <section className="pb-16 md:pb-20 bg-background">
+            <div className="container mx-auto px-4">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-3xl font-serif font-bold text-primary mb-6">Who You'll Work With</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {team.map((person) => (
+                    <Card key={person.name} className="border-border">
+                      <CardContent className="pt-6">
+                        <h3 className="text-xl font-serif font-bold text-primary mb-1">{person.name} — {person.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{person.description}</p>
+                        {person.linkedIn && (
+                          <a
+                            href={person.linkedIn}
+                            target="_blank"
+                            rel="noopener"
+                            className="inline-block mt-4 font-semibold text-primary hover:underline"
+                          >
+                            Garland on LinkedIn
+                          </a>
+                        )}
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </div>
             </div>
           </section>

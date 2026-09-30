@@ -111,7 +111,7 @@ const FooterNew = () => {
             <Button 
               asChild
               variant="outline"
-              className="w-full border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              className="w-full border-primary-foreground/30 text-primary hover:bg-primary-foreground hover:text-primary"
             >
               <a href="/#lead-form">
                 Request a Quote
@@ -128,7 +128,7 @@ const FooterNew = () => {
           <p className="text-base font-bold text-primary-foreground mb-2 max-w-4xl">
             Cornerstone Risk Management is in no way endorsed, sponsored, approved by, or otherwise affiliated with ISNetworld® or ISN Software Corporation.
           </p>
-          <p className="text-xs text-primary-foreground/50 max-w-4xl">
+          <p className="text-xs text-primary-foreground/70 max-w-4xl">
             ISNetworld® is a registered trademark of ISN Software Corporation. Avetta®, Veriforce®, and PEC Premier® are registered trademarks of their respective owners.
           </p>
         </div>
@@ -137,7 +137,7 @@ const FooterNew = () => {
       {/* Copyright */}
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 py-6">
-          <p className="text-center text-sm text-primary-foreground/50">
+          <p className="text-center text-sm text-primary-foreground/70">
             © {currentYear} Cornerstone Risk Management. All rights reserved.
           </p>
         </div>

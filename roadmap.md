@@ -5,3 +5,6 @@
 - [x] Defer GA script loading while preserving immediate event queueing.
 - [x] Fix the requested mobile navigation accessibility and orange contrast issues.
 - [x] Verify prerendered metadata, JSON-LD, image requests, GA queue/fire behavior, responsive UI, and build; do not publish.
+- [x] Add the approved About team section and Person/organization structured data.
+- [x] Apply the four approved contrast corrections without layout changes.
+- [x] Run the production build, validate JSON-LD, and verify prerendered About content; do not publish.

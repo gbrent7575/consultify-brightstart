@@ -25,7 +25,7 @@ const HeroAlt = () => {
           {/* Left Column - Text Content */}
           <div className="animate-fade-in">
             <div className="inline-block px-4 py-2 bg-accent/10 border border-accent/20 rounded-full mb-6">
-              <span className="text-accent font-medium text-sm">Digital Safety Compliance Experts</span>
+              <span className="text-accent-text font-medium text-sm">Digital Safety Compliance Experts</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6 leading-tight">
@@ -86,7 +86,7 @@ const HeroAlt = () => {
             
             {/* Floating Stats Card */}
             <div className="absolute -bottom-6 -left-6 bg-card border border-border rounded-xl p-6 shadow-xl animate-slide-up">
-              <div className="text-3xl font-bold text-accent mb-1">500+</div>
+              <div className="text-3xl font-bold text-accent-text mb-1">500+</div>
               <div className="text-sm text-muted-foreground">Active Accounts</div>
             </div>
           </div>
