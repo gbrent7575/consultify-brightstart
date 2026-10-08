@@ -12,6 +12,11 @@ export interface Owner {
   page_h1: string;
   page_intro: string;
   live_since: string;
+  requirements_md: string | null;
+  requirements_sources: { n: number; label: string; url: string }[] | null;
+  requirements_scope: string | null;
+  requirements_reviewed_on: string | null;
+  noindex: boolean;
 }
 
 export const OWNER_ENGINE_URL =
