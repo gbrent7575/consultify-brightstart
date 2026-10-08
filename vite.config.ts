@@ -80,7 +80,7 @@ export default defineConfig(async ({ mode }) => ({
         const json = (await res.json()) as { ok?: boolean; pages?: { slug: string; live_since?: string; noindex?: boolean }[] };
         const pages: { slug: string; live_since?: string; noindex?: boolean }[] =
           json?.ok && Array.isArray(json.pages) ? json.pages : [];
-        if (pages.length === 0) return;
+        if (pages.length > 0) {
         const base = "https://contractorcompliancepros.com";
         const entry = (loc: string, lastmod?: string) =>
           `  <url>\n    <loc>${loc}</loc>\n${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ""}    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
@@ -92,6 +92,7 @@ export default defineConfig(async ({ mode }) => ({
         const file = path.join(dir, "sitemap.xml");
         const current = await fs.readFile(file, "utf8");
         await fs.writeFile(file, current.replace("</urlset>", `${xml}</urlset>`));
+        }
       } catch (e) {
         console.warn("[sitemap] owner pages skipped:", e);
       }
