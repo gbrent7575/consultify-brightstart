@@ -1,6 +1,7 @@
 # Roadmap
 
 - [x] Update owner requirements, citations, metadata, directory intro, and sitemap exclusions; verify without publishing.
+- [x] 2026-10-07: 8 owner requirement sections approved, rebuild to prerender them.
 
 - [x] Implement the approved Batch C metadata and WebSite schema changes.
 - [x] Optimize live routed hero images and eliminate cross-route image downloads.
