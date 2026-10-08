@@ -50,7 +50,7 @@ export default defineConfig(({ mode }) => ({
   // react-helmet-async stays external during SSR so vite-react-ssg's
   // HelmetProvider and our <Helmet> usage share one module instance/context.
   ssgOptions: {
-    script: "async",
+    script: "defer",
     formatting: "minify",
     crittersOptions: false,
     // Emit each route as <route>/index.html so static hosts serve the
