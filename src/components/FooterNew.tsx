@@ -9,7 +9,9 @@ const FooterNew = () => {
     { name: "Digital Compliance Management", path: "/services/compliance-platforms" },
     { name: "ISNetworld® Help", path: "/isn/help" },
     { name: "Veriforce® Help", path: "/veriforce-help" },
-    { name: "Avetta® Help", path: "/avetta-help" }
+    { name: "Avetta® Help", path: "/avetta-help" },
+    // Set at build time from the guides feed (vite.config.ts).
+    ...(__HAS_GUIDES__ ? [{ name: "Guides", path: "/guides" }] : []),
   ];
 
   const platforms = [

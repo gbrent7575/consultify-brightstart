@@ -15,6 +15,9 @@ import Contact from "./pages/Contact";
 import OwnerPage from "./pages/OwnerPage";
 import OwnersIndex from "./pages/OwnersIndex";
 import { fetchOwnerPage, fetchOwnerPages } from "./lib/owners";
+import GuidesIndex from "./pages/GuidesIndex";
+import GuidePage from "./pages/GuidePage";
+import { fetchGuide, fetchGuides } from "./lib/guides";
 
 const redirectHome = <Navigate to="/" replace />;
 const redirectIsnHelp = <Navigate to="/isn/help" replace />;
@@ -73,6 +76,30 @@ export const routes: RouteRecord[] = [
         },
         loader: async ({ params }) => {
           try { return await fetchOwnerPage(params.slug ?? ""); } catch { return null; }
+        },
+      },
+      {
+        path: "guides",
+        element: <GuidesIndex />,
+        entry: "src/pages/GuidesIndex.tsx",
+        loader: async () => {
+          try { return await fetchGuides(); } catch { return null; }
+        },
+      },
+      {
+        path: "guides/:slug",
+        element: <GuidePage />,
+        entry: "src/pages/GuidePage.tsx",
+        getStaticPaths: async () => {
+          try {
+            const guides = await fetchGuides();
+            return guides.map((g) => `guides/${g.slug}`);
+          } catch {
+            return [];
+          }
+        },
+        loader: async ({ params }) => {
+          try { return await fetchGuide(params.slug ?? ""); } catch { return null; }
         },
       },
       { path: "*", element: <NotFound />, entry: "src/pages/NotFound.tsx" },

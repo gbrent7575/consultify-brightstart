@@ -11,3 +11,4 @@
 - [x] Add the approved About team section and Person/organization structured data.
 - [x] Apply the four approved contrast corrections without layout changes.
 - [x] Run the production build, validate JSON-LD, and verify prerendered About content; do not publish.
+- [x] 2026-10-07: /guides section added (step 65), data from owner-engine action=guides.
