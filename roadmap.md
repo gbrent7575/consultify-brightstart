@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Update owner requirements, citations, metadata, directory intro, and sitemap exclusions; verify without publishing.
+
 - [x] Implement the approved Batch C metadata and WebSite schema changes.
 - [x] Optimize live routed hero images and eliminate cross-route image downloads.
 - [x] Defer GA script loading while preserving immediate event queueing.

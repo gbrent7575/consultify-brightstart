@@ -40,6 +40,9 @@ const OwnersIndex = () => {
               <h1 className="text-3xl md:text-5xl font-bold leading-tight">
                 Hiring Clients That Require ISNetworld®, Veriforce®, or Avetta®
               </h1>
+              <p className="text-base md:text-lg text-primary-foreground/90 max-w-3xl mt-4">
+                Each company on this list has publicly said it uses ISNetworld®, Avetta® or Veriforce® to qualify its contractors. What they require is not the same. Some only require the platform for higher-risk work. Some set minimum safety numbers such as EMR or TRIR. Some also run insurance verification through the platform for every supplier. Where an owner publishes its own contractor documents, its page summarizes them with links to the source and the date we last reviewed it.
+              </p>
             </div>
           </section>
           <section className="py-12 md:py-16">

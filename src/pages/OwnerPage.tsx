@@ -5,6 +5,7 @@ import { Phone, Check } from "lucide-react";
 import FooterNew from "@/components/FooterNew";
 import LandingHeader, { MobileCallBar } from "@/components/LandingHeader";
 import PlatformQuoteForm from "@/components/PlatformQuoteForm";
+import OwnerRequirements from "@/components/OwnerRequirements";
 import NotFound from "@/pages/NotFound";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -68,6 +69,7 @@ const OwnerPage = () => {
       <Helmet>
         <title>{owner.page_title}</title>
         <meta name="description" content={owner.page_meta} />
+        {owner.noindex && <meta name="robots" content="noindex, follow" />}
         <link rel="canonical" href={url} />
         <meta property="og:title" content={owner.page_title} />
         <meta property="og:description" content={owner.page_meta} />
@@ -82,7 +84,7 @@ const OwnerPage = () => {
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-background">
-        <LandingHeader announcement={`Working for ${company}? Talk to a ${platform}® specialist`} />
+        <LandingHeader announcement={`Working for ${company}? Talk to ${platform === "Veriforce" ? "a" : "an"} ${platform}® specialist`} />
 
         <main className="flex-grow pb-20 md:pb-0">
           <section className="bg-primary text-primary-foreground py-10 md:py-16">
@@ -126,10 +128,14 @@ const OwnerPage = () => {
             </div>
           </section>
 
+          <OwnerRequirements owner={owner} />
+
           <section className="py-16 md:py-20 bg-secondary/30">
             <div className="container mx-auto px-4 max-w-5xl">
               <h2 className="text-2xl md:text-4xl font-serif font-bold text-primary text-center mb-4">
-                What {company} contractors are usually asked for
+                {owner.requirements_md
+                  ? `What ${platform}® accounts usually need`
+                  : `What ${company} contractors are usually asked for`}
               </h2>
               <p className="text-center text-muted-foreground mb-10">
                 Every hiring client sets its own requirements inside {platform}®. The usual list:
