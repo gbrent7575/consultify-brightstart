@@ -32,7 +32,21 @@ const ssrSupabaseStub = (): PluginOption => ({
 });
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+const ENGINE = "https://mtsfjulztuhezppqfydr.supabase.co/functions/v1/owner-engine";
+
+async function hasGuides(): Promise<boolean> {
+  try {
+    const json = (await (await fetch(`${ENGINE}?action=guides`)).json()) as { ok?: boolean; guides?: unknown[] };
+    return !!json?.ok && Array.isArray(json.guides) && json.guides.length > 0;
+  } catch {
+    return false;
+  }
+}
+
+export default defineConfig(async ({ mode }) => ({
+  define: {
+    __HAS_GUIDES__: JSON.stringify(await hasGuides()),
+  },
   server: {
     host: "::",
     port: 8080,
@@ -80,6 +94,24 @@ export default defineConfig(({ mode }) => ({
         await fs.writeFile(file, current.replace("</urlset>", `${xml}</urlset>`));
       } catch (e) {
         console.warn("[sitemap] owner pages skipped:", e);
+      }
+      // Append /guides pages. Separate try/catch; never fails the build.
+      try {
+        const res = await fetch(`${ENGINE}?action=guides`);
+        const json = (await res.json()) as { ok?: boolean; guides?: { slug: string; approved_at?: string }[] };
+        const guides = json?.ok && Array.isArray(json.guides) ? json.guides : [];
+        if (guides.length === 0) return;
+        const base = "https://contractorcompliancepros.com";
+        const entry = (loc: string, lastmod?: string) =>
+          `  <url>\n    <loc>${loc}</loc>\n${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ""}    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+        let xml = entry(`${base}/guides`);
+        for (const g of guides) xml += entry(`${base}/guides/${g.slug}`, g.approved_at?.slice(0, 10));
+        const fs = await import("node:fs/promises");
+        const file = path.join(dir, "sitemap.xml");
+        const current = await fs.readFile(file, "utf8");
+        await fs.writeFile(file, current.replace("</urlset>", `${xml}</urlset>`));
+      } catch (e) {
+        console.warn("[sitemap] guide pages skipped:", e);
       }
     },
   },
