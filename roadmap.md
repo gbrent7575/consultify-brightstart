@@ -15,3 +15,4 @@
 - [x] 2026-10-07: guides publish rebuild.
 - [x] 2026-10-07: guides publish rebuild 2.
 - [x] Add exact-copy case studies, homepage results, footer link, and sitemap entry; verify without publishing.
+- [x] 2026-10-09: guides publish rebuild 3 (guides 3-6 approved).
