@@ -10,6 +10,7 @@ const FooterNew = () => {
     { name: "ISNetworld® Help", path: "/isn/help" },
     { name: "Veriforce® Help", path: "/veriforce-help" },
     { name: "Avetta® Help", path: "/avetta-help" },
+    { name: "Case Studies", path: "/case-studies" },
     // Set at build time from the guides feed (vite.config.ts).
     ...(__HAS_GUIDES__ ? [{ name: "Guides", path: "/guides" }] : []),
   ];
