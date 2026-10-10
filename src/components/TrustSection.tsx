@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Users, Clock, ShieldCheck, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 
 const stats = [
@@ -63,6 +64,24 @@ const TrustSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl font-serif font-bold text-primary mb-6">Results</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { title: "Zero to compliant in 9 days", subtitle: "Mississippi welding and fabrication shop · 2024", anchor: "fab-shop" },
+              { title: "Straight F's overnight, fixed in 24 hours", subtitle: "Central Louisiana roustabout contractor · 2024", anchor: "roustabout" },
+            ].map((result) => (
+              <Card key={result.anchor} className="border-border">
+                <CardContent className="pt-6">
+                  <h3 className="text-xl font-serif font-bold text-primary mb-2">{result.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{result.subtitle}</p>
+                  <Link to={`/case-studies#${result.anchor}`} className="text-primary font-semibold hover:underline">Read the case study →</Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Client Types */}

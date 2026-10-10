@@ -11,6 +11,7 @@ import IsnHelp from "./pages/IsnHelp";
 import TrademarkComplianceReport from "./pages/TrademarkComplianceReport";
 import About from "./pages/About";
 import Pricing from "./pages/Pricing";
+import CaseStudies from "./pages/CaseStudies";
 import Contact from "./pages/Contact";
 import OwnerPage from "./pages/OwnerPage";
 import OwnersIndex from "./pages/OwnersIndex";
@@ -30,6 +31,7 @@ export const routes: RouteRecord[] = [
       { index: true, element: <Index />, entry: "src/pages/Index.tsx" },
       { path: "about", element: <About />, entry: "src/pages/About.tsx" },
       { path: "pricing", element: <Pricing />, entry: "src/pages/Pricing.tsx" },
+      { path: "case-studies", element: <CaseStudies />, entry: "src/pages/CaseStudies.tsx" },
       { path: "contact", element: <Contact />, entry: "src/pages/Contact.tsx" },
       { path: "services/compliance-platforms", element: <CompliancePlatforms />, entry: "src/pages/CompliancePlatforms.tsx" },
       
