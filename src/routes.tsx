@@ -1,6 +1,8 @@
 import { Navigate } from "react-router-dom";
 import type { RouteRecord } from "vite-react-ssg";
 import App from "./App";
+import CrewBriefs from "./pages/CrewBriefs";
+import { fetchCrewBriefs } from "./lib/crewBriefs";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CompliancePlatforms from "./pages/CompliancePlatforms";
@@ -102,6 +104,14 @@ export const routes: RouteRecord[] = [
         },
         loader: async ({ params }) => {
           try { return await fetchGuide(params.slug ?? ""); } catch { return null; }
+        },
+      },
+      {
+        path: "crew-briefs",
+        element: <CrewBriefs />,
+        entry: "src/pages/CrewBriefs.tsx",
+        loader: async () => {
+          try { return await fetchCrewBriefs(); } catch { return null; }
         },
       },
       { path: "*", element: <NotFound />, entry: "src/pages/NotFound.tsx" },
