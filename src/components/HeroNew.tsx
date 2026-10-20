@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
-import heroImage from "@/assets/hero-contractors-nationwide.webp.asset.json";
+import heroImage from "@/assets/hero-jobsite-dusk.webp.asset.json";
 import { trackPhoneClick } from "@/lib/ga4";
 
 const HeroNew = () => {
@@ -17,15 +17,15 @@ const HeroNew = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage.url}
-          alt="Contractor crew in safety gear on an industrial job site"
-          width={1550}
-          height={969}
+          alt="Two field workers in hard hats beside a vacuum truck at a refinery job site at sunset"
+          width={1672}
+          height={941}
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[60%_60%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/0" />
       </div>
 
       {/* Content */}
