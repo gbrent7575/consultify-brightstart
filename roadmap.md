@@ -19,3 +19,4 @@
 - [x] 2026-10-12: weekly republish rebuild.
 - [x] 2026-10-19: weekly republish rebuild.
 - [x] 2026-11-02: weekly republish rebuild.
+- [x] 2026-11-09: weekly republish rebuild.
